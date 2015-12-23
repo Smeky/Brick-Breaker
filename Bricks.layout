@@ -62,7 +62,7 @@
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\core\Transformable.cpp" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\core\Transformable.cpp" open="1" top="1" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
@@ -77,10 +77,10 @@
 			<Cursor1 position="118" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\Game.cpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Game.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1188" topLine="21" />
 		</Cursor>
 	</File>
-	<EditorTabsLayout layout="096601d8567a95a800057b8400000002=0;Bricks:main.cpp,1;Bricks:src\Game.hpp,*2;Bricks:src\Game.cpp,3;Bricks:src\Macros.hpp,4;Bricks:src\graphics\Shader.hpp,5;Bricks:src\graphics\Shader.cpp,6;Bricks:src\math\Vector2.hpp,7;Bricks:src\graphics\Color.hpp,8;Bricks:src\graphics\Color.cpp,9;Bricks:src\graphics\IDrawable.hpp,10;Bricks:src\graphics\RectShape.hpp,11;Bricks:src\graphics\RectShape.cpp,12;Bricks:src\graphics\Shape.hpp,13;Bricks:src\graphics\Shape.cpp,14;Bricks:src\core\Transformable.hpp,15;Bricks:src\core\Transformable.cpp@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=837;besth=364;minw=837;minh=364;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=096601d8567a95a800057b8400000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
+	<EditorTabsLayout layout="096601d8567a95a800057b8400000002=0;Bricks:main.cpp,1;Bricks:src\Game.hpp,2;Bricks:src\Game.cpp,3;Bricks:src\Macros.hpp,4;Bricks:src\graphics\Shader.hpp,5;Bricks:src\graphics\Shader.cpp,6;Bricks:src\math\Vector2.hpp,7;Bricks:src\graphics\Color.hpp,8;Bricks:src\graphics\Color.cpp,9;Bricks:src\graphics\IDrawable.hpp,10;Bricks:src\graphics\RectShape.hpp,11;Bricks:src\graphics\RectShape.cpp,12;Bricks:src\graphics\Shape.hpp,13;Bricks:src\graphics\Shape.cpp,14;Bricks:src\core\Transformable.hpp,*15;Bricks:src\core\Transformable.cpp@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=837;besth=364;minw=837;minh=364;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=096601d8567a95a800057b8400000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
 </CodeBlocks_layout_file>
