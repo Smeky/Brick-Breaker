@@ -6,7 +6,7 @@
 
 #include <Macros.hpp>
 #include <Shader.hpp>
-#include <Vector2.hpp>
+#include <Transformable.hpp>
 
 namespace bb {
 
@@ -76,6 +76,10 @@ bool Game::init() {
         -0.4, -0.5,
         +0.4, -0.5,
     };
+
+    Transformable t( 10, 20 );
+    t.move( 30, 30 );
+    std::cout << t.getPos() << std::endl;
 
     GLuint vbo;
     glGenBuffers( 1, &vbo );

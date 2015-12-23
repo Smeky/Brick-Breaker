@@ -17,6 +17,7 @@
 					<Add directory="src" />
 					<Add directory="src/graphics" />
 					<Add directory="src/math" />
+					<Add directory="src/core" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -29,6 +30,7 @@
 					<Add directory="src" />
 					<Add directory="src/graphics" />
 					<Add directory="src/math" />
+					<Add directory="src/core" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -63,11 +65,17 @@
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Game.hpp" />
 		<Unit filename="src/Macros.hpp" />
+		<Unit filename="src/core/Transformable.cpp" />
+		<Unit filename="src/core/Transformable.hpp" />
 		<Unit filename="src/graphics/Color.cpp" />
 		<Unit filename="src/graphics/Color.hpp" />
 		<Unit filename="src/graphics/IDrawable.hpp" />
+		<Unit filename="src/graphics/RectShape.cpp" />
+		<Unit filename="src/graphics/RectShape.hpp" />
 		<Unit filename="src/graphics/Shader.cpp" />
 		<Unit filename="src/graphics/Shader.hpp" />
+		<Unit filename="src/graphics/Shape.cpp" />
+		<Unit filename="src/graphics/Shape.hpp" />
 		<Unit filename="src/math/Vector2.hpp" />
 		<Extensions>
 			<code_completion />
