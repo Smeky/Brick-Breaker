@@ -1,5 +1,7 @@
 #include "Color.hpp"
 
+#include <algorithm>
+
 namespace bb {
 
 const Color Color::Transparent = Color( 255, 0 );
@@ -33,5 +35,56 @@ Color::Color( uint8_t color, uint8_t alpha /* = 255 */ )
 , b( color )
 , a( alpha )
 {}
+
+bool operator==( const Color& left, const Color& right ) {
+    return ( left.r == right.r ) &&
+           ( left.g == right.b ) &&
+           ( left.b == right.b ) &&
+           ( left.a == right.a );
+}
+
+bool operator!=( const Color& left, const Color& right ) {
+    return !( left == right );
+}
+
+Color operator+( const Color& left, const Color& right ) {
+    return Color( std::min( left.r + right.r, 255 ),
+                  std::min( left.g + right.g, 255 ),
+                  std::min( left.b + right.b, 255 ),
+                  std::min( left.a + right.a, 255 ) );
+}
+
+Color operator-( const Color& left, const Color& right ) {
+    return Color( std::max( (int8_t)left.r - right.r, 0 ),
+                  std::max( (int8_t)left.g - right.g, 0 ),
+                  std::max( (int8_t)left.b - right.b, 0 ),
+                  std::max( (int8_t)left.a - right.a, 0 ) );
+}
+
+Color operator*( const Color& left, const Color& right ) {
+    return Color( (int)left.r * right.r / 255,
+                  (int)left.g * right.g / 255,
+                  (int)left.b * right.b / 255,
+                  (int)left.a * right.a / 255 );
+}
+
+Color operator+=( Color& left, const Color& right ) {
+    return left = left + right;
+}
+
+Color operator-=( Color& left, const Color& right ) {
+    return left = left - right;
+}
+
+Color operator*=( Color& left, const Color& right ) {
+    return left = left * right;
+}
+
+std::ostream& operator<<( std::ostream& os, const Color& color ) {
+    return os << "Color: r=" << (int)color.r
+              << " g=" << (int)color.g
+              << " b=" << (int)color.b
+              << " a=" << (int)color.a;
+}
 
 } // namespace bb

@@ -2,9 +2,10 @@
 1450815386 source:c:\programming\bricks\bricks\main.cpp
 	<iostream>
 
-1450876610 source:c:\programming\bricks\main.cpp
+1450898112 source:c:\programming\bricks\main.cpp
 	<Game.hpp>
 	<Macros.hpp>
+	<Color.hpp>
 
 1450893880 source:c:\programming\bricks\src\game.cpp
 	"Game.hpp"
@@ -375,9 +376,11 @@
 	<math.h>
 	<iostream>
 
-1450895226 source:c:\programming\bricks\src\graphics\color.cpp
+1450898378 source:c:\programming\bricks\src\graphics\color.cpp
 	"Color.hpp"
+	<algorithm>
 
-1450895522 c:\programming\bricks\src\graphics\color.hpp
+1450898358 c:\programming\bricks\src\graphics\color.hpp
 	<stdint.h>
+	<iostream>
 
