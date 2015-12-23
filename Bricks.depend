@@ -389,8 +389,9 @@
 1450904949 c:\programming\bricks\src\graphics\rectshape.hpp
 	<Shape.hpp>
 
-1450904931 c:\programming\bricks\src\graphics\shape.hpp
+1450906369 c:\programming\bricks\src\graphics\shape.hpp
 	<IDrawable.hpp>
+	<Transformable.hpp>
 
 1450904759 c:\programming\bricks\src\graphics\idrawable.hpp
 
@@ -402,4 +403,40 @@
 
 1450905997 c:\programming\bricks\src\core\transformable.hpp
 	<Vector2.hpp>
+
+1450819651 c:\programming\bricks\src\core\macros.hpp
+	<iostream>
+
+1450906273 source:c:\programming\bricks\src\game\game.cpp
+	"Game.hpp"
+	<GL/glew.h>
+	<SDL2/SDL_opengl.h>
+	<GL/glu.h>
+	<Macros.hpp>
+	<Shader.hpp>
+
+1450875792 c:\programming\bricks\src\game\game.hpp
+	<SDL2/SDL.h>
+
+1450906668 source:c:\programming\bricks\src\main.cpp
+	<game/Game.hpp>
+	<Macros.hpp>
+
+1450906704 source:c:\programming\bricks\src\math\matrix4.cpp
+	"Matrix4.hpp"
+	<iostream>
+
+1450906690 c:\programming\bricks\src\math\matrix4.hpp
+	<Vector3.hpp>
+	<Vector4.hpp>
+	<array>
+	<iostream>
+
+1450906662 c:\programming\bricks\src\math\vector3.hpp
+	<math.h>
+	<iostream>
+
+1450906660 c:\programming\bricks\src\math\vector4.hpp
+	<math.h>
+	<iostream>
 

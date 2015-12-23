@@ -61,12 +61,11 @@
 			<Add directory="../_libs/SDL2_mixer-2.0.0/i686-w64-mingw32/lib" />
 			<Add directory="../_libs/glew/lib" />
 		</Linker>
-		<Unit filename="main.cpp" />
-		<Unit filename="src/Game.cpp" />
-		<Unit filename="src/Game.hpp" />
-		<Unit filename="src/Macros.hpp" />
+		<Unit filename="src/core/Macros.hpp" />
 		<Unit filename="src/core/Transformable.cpp" />
 		<Unit filename="src/core/Transformable.hpp" />
+		<Unit filename="src/game/Game.cpp" />
+		<Unit filename="src/game/Game.hpp" />
 		<Unit filename="src/graphics/Color.cpp" />
 		<Unit filename="src/graphics/Color.hpp" />
 		<Unit filename="src/graphics/IDrawable.hpp" />
@@ -76,7 +75,12 @@
 		<Unit filename="src/graphics/Shader.hpp" />
 		<Unit filename="src/graphics/Shape.cpp" />
 		<Unit filename="src/graphics/Shape.hpp" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/math/Matrix4.cpp" />
+		<Unit filename="src/math/Matrix4.hpp" />
 		<Unit filename="src/math/Vector2.hpp" />
+		<Unit filename="src/math/Vector3.hpp" />
+		<Unit filename="src/math/Vector4.hpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
