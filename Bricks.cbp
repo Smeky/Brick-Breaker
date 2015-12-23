@@ -63,6 +63,8 @@
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Game.hpp" />
 		<Unit filename="src/Macros.hpp" />
+		<Unit filename="src/graphics/Color.cpp" />
+		<Unit filename="src/graphics/Color.hpp" />
 		<Unit filename="src/graphics/Shader.cpp" />
 		<Unit filename="src/graphics/Shader.hpp" />
 		<Unit filename="src/math/Vector2.hpp" />

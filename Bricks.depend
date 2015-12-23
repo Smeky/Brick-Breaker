@@ -6,7 +6,7 @@
 	<Game.hpp>
 	<Macros.hpp>
 
-1450890238 source:c:\programming\bricks\src\game.cpp
+1450893880 source:c:\programming\bricks\src\game.cpp
 	"Game.hpp"
 	<GL/glew.h>
 	<SDL2/SDL_opengl.h>
@@ -338,7 +338,7 @@
 1450819651 c:\programming\bricks\src\macros.hpp
 	<iostream>
 
-1450883359 source:c:\programming\bricks\src\graphics\shader.cpp
+1450890274 source:c:\programming\bricks\src\graphics\shader.cpp
 	"Shader.hpp"
 	<fstream>
 	<GL/glew.h>
@@ -374,4 +374,10 @@
 1450880452 c:\programming\bricks\src\math\vector2.hpp
 	<math.h>
 	<iostream>
+
+1450895226 source:c:\programming\bricks\src\graphics\color.cpp
+	"Color.hpp"
+
+1450895522 c:\programming\bricks\src\graphics\color.hpp
+	<stdint.h>
 

@@ -63,6 +63,8 @@ bool Game::init() {
         ERROR_PRINT( "Failed to enable VSync" );
     }
 
+    glShadeModel( GL_SMOOTH );
+
     shader = new Shader();
     shader->loadFromFile( Shader::Vertex, "data/shaders/default.vert" );
     shader->loadFromFile( Shader::Fragment, "data/shaders/default.frag" );
@@ -73,8 +75,8 @@ bool Game::init() {
     float vertices[] = {
         // x     y
         +0.0, +0.5,
-        -0.5, -0.5,
-        +0.5, -0.5,
+        -0.4, -0.5,
+        +0.4, -0.5,
     };
 
     GLuint vbo;
