@@ -2,17 +2,18 @@
 1450815386 source:c:\programming\bricks\bricks\main.cpp
 	<iostream>
 
-1450876557 source:c:\programming\bricks\main.cpp
+1450876610 source:c:\programming\bricks\main.cpp
 	<Game.hpp>
 	<Macros.hpp>
-	<fstream>
 
-1450875996 source:c:\programming\bricks\src\game.cpp
+1450890238 source:c:\programming\bricks\src\game.cpp
 	"Game.hpp"
 	<GL/glew.h>
 	<SDL2/SDL_opengl.h>
 	<GL/glu.h>
 	<Macros.hpp>
+	<Shader.hpp>
+	<Vector2.hpp>
 
 1450875792 c:\programming\bricks\src\game.hpp
 	<SDL2/SDL.h>
@@ -337,12 +338,16 @@
 1450819651 c:\programming\bricks\src\macros.hpp
 	<iostream>
 
-1450876563 source:c:\programming\bricks\src\graphics\shader.cpp
+1450883359 source:c:\programming\bricks\src\graphics\shader.cpp
 	"Shader.hpp"
 	<fstream>
+	<GL/glew.h>
 	<Macros.hpp>
+	<Vector2.hpp>
 
-1450876236 c:\programming\bricks\src\graphics\shader.hpp
+1450883423 c:\programming\bricks\src\graphics\shader.hpp
+	<string>
+	<map>
 
 1374523882 c:\programming\_libs\glew\include\gl\glew.h
 	<stddef.h>
@@ -365,4 +370,8 @@
 	<stdint.h>
 	<stdint.h>
 	<inttypes.h>
+
+1450880452 c:\programming\bricks\src\math\vector2.hpp
+	<math.h>
+	<iostream>
 

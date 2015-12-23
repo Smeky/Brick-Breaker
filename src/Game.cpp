@@ -5,11 +5,18 @@
 #include <GL/glu.h>
 
 #include <Macros.hpp>
+#include <Shader.hpp>
+#include <Vector2.hpp>
 
 namespace bb {
 
+const int wWindow = 1024;
+const int hWindow = 576;
+
 SDL_Window* Game::m_window = nullptr;
 bool Game::m_running = false;
+
+Shader* shader = nullptr;
 
 Game::Game()
 {}
@@ -27,7 +34,8 @@ bool Game::init() {
     m_window = SDL_CreateWindow( "Brick Breaker",
                                  SDL_WINDOWPOS_CENTERED,
                                  SDL_WINDOWPOS_CENTERED,
-                                 1024, 576,
+                                 wWindow,
+                                 hWindow,
                                  SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL
                                 );
 
@@ -49,21 +57,39 @@ bool Game::init() {
         return false;
     }
 
+    glViewport( 0, 0, wWindow, hWindow );
+
     if( SDL_GL_SetSwapInterval( 1 ) < 0 ) {
         ERROR_PRINT( "Failed to enable VSync" );
     }
 
+    shader = new Shader();
+    shader->loadFromFile( Shader::Vertex, "data/shaders/default.vert" );
+    shader->loadFromFile( Shader::Fragment, "data/shaders/default.frag" );
+    shader->bindAttribute( AttribLocation::Position, "position" );
+    shader->link();
+    shader->use();
+
     float vertices[] = {
-        // x    y
-        +0.0, -0.5,
-        +0.5, +0.5,
-        -0.5, +0.5
+        // x     y
+        +0.0, +0.5,
+        -0.5, -0.5,
+        +0.5, -0.5,
     };
 
     GLuint vbo;
     glGenBuffers( 1, &vbo );
     glBindBuffer( GL_ARRAY_BUFFER, vbo );
     glBufferData( GL_ARRAY_BUFFER, sizeof( vertices ), vertices, GL_STATIC_DRAW );
+
+    glEnableVertexAttribArray( 0 );
+
+    glVertexAttribPointer( 0,
+                           2,
+                           GL_FLOAT,
+                           GL_FALSE,
+                           2 * sizeof( float ),
+                           (const GLvoid*)0 );
 
     return true;
 }
@@ -113,6 +139,16 @@ void Game::update() {
 void Game::render() {
     glClearColor( 0.1, 0.1, 0.1, 1.0 );
     glClear( GL_COLOR_BUFFER_BIT );
+
+//    shader.use();
+
+
+
+    glDrawArrays( GL_TRIANGLES, 0, 3 );
+
+//    glDisableVertexAttribArray( 0 );
+
+//    shader.stopUsing();
 
     SDL_GL_SwapWindow( m_window );
 }
