@@ -422,11 +422,10 @@
 	<game/Game.hpp>
 	<Macros.hpp>
 
-1450906704 source:c:\programming\bricks\src\math\matrix4.cpp
+1450968358 source:c:\programming\bricks\src\math\matrix4.cpp
 	"Matrix4.hpp"
-	<iostream>
 
-1450968341 c:\programming\bricks\src\math\matrix4.hpp
+1450968367 c:\programming\bricks\src\math\matrix4.hpp
 	<Vector3.hpp>
 	<Vector4.hpp>
 	<array>
@@ -439,4 +438,11 @@
 1450906660 c:\programming\bricks\src\math\vector4.hpp
 	<math.h>
 	<iostream>
+
+1450971034 source:c:\programming\bricks\src\math\matrix3.cpp
+	"Matrix3.hpp"
+
+1450970350 c:\programming\bricks\src\math\matrix3.hpp
+	<Vector3.hpp>
+	<ostream>
 
