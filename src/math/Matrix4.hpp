@@ -159,26 +159,6 @@ struct Matrix4 {
     }
 };
 
-// Matrix4 operator*( float scalar, const Matrix4& m ) {
-//     return m * scalar;
-// }
-
-float determinant( const Matrix4& m );
-Matrix4 inverse( const Matrix4& m );
-Matrix4 hadamardProduct( const Matrix4& a, const Matrix4& b );
-
-Matrix4 translate( const Vec3f& v );
-Matrix4 rotate( float rAngle, const Vec3f& v );
-Matrix4 scale( const Vec3f& v );
-
-Matrix4 ortho( float left, float right, float bottom, float top );
-Matrix4 ortho( float left, float right, float bottom, float top, float zNear, float zFar );
-
-Matrix4 perspective( float fovy, float aspect, float zNear, float zFar );
-Matrix4 infinitePerspective( float fovy, float aspect, float zNear );
-
-Matrix4 lookAt( const Vec3f& position, const Vec3f& center, const Vec3f& up );
-
 std::ostream& operator<<( std::ostream& os, const Matrix4& m );
 
 } // namespace bb
