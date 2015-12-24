@@ -62,8 +62,6 @@
 			<Add directory="../_libs/glew/lib" />
 		</Linker>
 		<Unit filename="src/core/Macros.hpp" />
-		<Unit filename="src/core/Transform.cpp" />
-		<Unit filename="src/core/Transform.hpp" />
 		<Unit filename="src/core/Transformable.cpp" />
 		<Unit filename="src/core/Transformable.hpp" />
 		<Unit filename="src/game/Game.cpp" />
@@ -78,8 +76,6 @@
 		<Unit filename="src/graphics/Shape.cpp" />
 		<Unit filename="src/graphics/Shape.hpp" />
 		<Unit filename="src/main.cpp" />
-		<Unit filename="src/math/Matrix3.cpp" />
-		<Unit filename="src/math/Matrix3.hpp" />
 		<Unit filename="src/math/Matrix4.cpp" />
 		<Unit filename="src/math/Matrix4.hpp" />
 		<Unit filename="src/math/Vector2.hpp" />

@@ -7,6 +7,8 @@
 #include <Macros.hpp>
 #include <Shader.hpp>
 
+#include <Transformable.hpp>
+
 namespace bb {
 
 const int wWindow = 1024;
@@ -21,6 +23,13 @@ Game::Game()
 {}
 
 bool Game::init() {
+    Transformable tra;
+
+    tra.setPos( 20, 20 );
+    tra.move( 10, 30 );
+
+    std::cout << tra.getMatrix() << std::endl;
+
     if( SDL_Init( SDL_INIT_EVERYTHING ) != 0 ) {
         ERROR_PRINT( SDL_GetError() );
         return false;

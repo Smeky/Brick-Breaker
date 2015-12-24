@@ -398,27 +398,30 @@
 1450904972 source:c:\programming\bricks\src\graphics\shape.cpp
 	"Shape.hpp"
 
-1450906003 source:c:\programming\bricks\src\core\transformable.cpp
+1450988264 source:c:\programming\bricks\src\core\transformable.cpp
 	"Transformable.hpp"
+	<cmath>
 
-1450905997 c:\programming\bricks\src\core\transformable.hpp
+1450988250 c:\programming\bricks\src\core\transformable.hpp
+	<Matrix4.hpp>
 	<Vector2.hpp>
 
 1450819651 c:\programming\bricks\src\core\macros.hpp
 	<iostream>
 
-1450906273 source:c:\programming\bricks\src\game\game.cpp
+1450988214 source:c:\programming\bricks\src\game\game.cpp
 	"Game.hpp"
 	<GL/glew.h>
 	<SDL2/SDL_opengl.h>
 	<GL/glu.h>
 	<Macros.hpp>
 	<Shader.hpp>
+	<Transformable.hpp>
 
 1450875792 c:\programming\bricks\src\game\game.hpp
 	<SDL2/SDL.h>
 
-1450906720 source:c:\programming\bricks\src\main.cpp
+1450980956 source:c:\programming\bricks\src\main.cpp
 	<game/Game.hpp>
 	<Macros.hpp>
 
@@ -446,9 +449,8 @@
 	<Vector3.hpp>
 	<ostream>
 
-1450971053 source:c:\programming\bricks\src\core\transform.cpp
+1450972816 source:c:\programming\bricks\src\core\transform.cpp
 	"Transform.hpp"
-	<Vector4.hpp>
 
 1450971044 c:\programming\bricks\src\core\transform.hpp
 	<Vector2.hpp>

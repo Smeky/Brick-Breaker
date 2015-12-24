@@ -1,5 +1,6 @@
 #pragma once
 
+#include <Matrix4.hpp>
 #include <Vector2.hpp>
 
 namespace bb {
@@ -7,8 +8,6 @@ namespace bb {
 class Transformable {
 public:
     Transformable();
-    Transformable( float x, float y, float w = 0, float h = 0 );
-    Transformable( const Vec2f& pos, const Vec2f& size = Vec2f() );
 
     void setPos( const Vec2f& pos );
     void setPos( float x, float y );
@@ -19,9 +18,18 @@ public:
     void move( float x, float y );
     void move( float movement );
 
+    const Matrix4& getMatrix();
+
 protected:
+    Matrix4 m_matrix;
+
     Vec2f m_pos;
-    Vec2f m_size;
+    Vec2f m_scale;
+    Vec2f m_origin;
+    float m_rotation;   // In radians
+
+private:
+    bool m_isUpdateMatrix;
 };
 
 } // namespace bb
