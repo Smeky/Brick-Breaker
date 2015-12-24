@@ -439,10 +439,18 @@
 	<math.h>
 	<iostream>
 
-1450971034 source:c:\programming\bricks\src\math\matrix3.cpp
+1450971143 source:c:\programming\bricks\src\math\matrix3.cpp
 	"Matrix3.hpp"
 
 1450970350 c:\programming\bricks\src\math\matrix3.hpp
 	<Vector3.hpp>
 	<ostream>
+
+1450971053 source:c:\programming\bricks\src\core\transform.cpp
+	"Transform.hpp"
+	<Vector4.hpp>
+
+1450971044 c:\programming\bricks\src\core\transform.hpp
+	<Vector2.hpp>
+	<Matrix3.hpp>
 

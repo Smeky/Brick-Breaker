@@ -119,4 +119,20 @@ Matrix3 Matrix3::operator/( float scalar ) const {
     return m;
 }
 
+std::ostream& operator<<( std::ostream& os, const Matrix3& m ) {
+    os << "Matrix3: " << std::endl;
+
+    for( uint8_t i = 0; i < 3; i++ ) {
+        os << "  ";
+
+        for( uint8_t j = 0; j < 3; j++ ) {
+            os << m[ i ][ j ] << ", ";
+        }
+
+        os << std::endl;
+    }
+
+    return os;
+}
+
 } // namespace bb
