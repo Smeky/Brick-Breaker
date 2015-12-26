@@ -75,6 +75,8 @@
 		<Unit filename="src/graphics/Shader.hpp" />
 		<Unit filename="src/graphics/Shape.cpp" />
 		<Unit filename="src/graphics/Shape.hpp" />
+		<Unit filename="src/graphics/Sprite.cpp" />
+		<Unit filename="src/graphics/Sprite.hpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/math/Matrix4.cpp" />
 		<Unit filename="src/math/Matrix4.hpp" />

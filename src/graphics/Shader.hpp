@@ -10,10 +10,12 @@
 namespace bb {
 
 template <typename T> class Vector2;
+struct Matrix4;
 
 enum AttribLocation {
-    Position    = 0,
-    Color       = 1,
+    AttribPosition    = 0,
+    AttribColor       = 1,
+    AttribTexCoord    = 2,
 };
 
 class Shader {
@@ -43,6 +45,7 @@ public:
     void setUniform( const std::string& name, uint32_t u );
     void setUniform( const std::string& name, bool b );
     void setUniform( const std::string& name, const Vector2<float>& v );
+    void setUniform( const std::string& name, const Matrix4& m );
 
     const std::string& getSource() const;
 

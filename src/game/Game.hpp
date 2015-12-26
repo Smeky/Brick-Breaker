@@ -1,6 +1,8 @@
 #pragma once
 
 #include <SDL2/SDL.h>
+#include <Shader.hpp>
+#include <Sprite.hpp>
 
 namespace bb {
 
@@ -13,6 +15,8 @@ public:
 
     static void close();
 
+    static Shader* shader;
+
 private:
     void onClose();
 
@@ -23,6 +27,8 @@ private:
 private:
     static SDL_Window* m_window;
     static bool m_running;
+
+    Sprite m_sprite;
 
 };
 

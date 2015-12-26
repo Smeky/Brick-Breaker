@@ -1,5 +1,6 @@
 #pragma once
 
+#include <Vector2.hpp>
 #include <Vector3.hpp>
 #include <Vector4.hpp>
 #include <array>
@@ -77,37 +78,52 @@ struct Matrix4 {
     }
 
     Matrix4 operator*( const Matrix4& other ) const {
-        const Vec4f srcA0 = data[ 0 ];
-        const Vec4f srcA1 = data[ 1 ];
-        const Vec4f srcA2 = data[ 2 ];
-        const Vec4f srcA3 = data[ 3 ];
-
-        const Vec4f srcB0 = other[ 0 ];
-        const Vec4f srcB1 = other[ 1 ];
-        const Vec4f srcB2 = other[ 2 ];
-        const Vec4f srcB3 = other[ 3 ];
-
+//        const Vec4f srcA0 = data[ 0 ];
+//        const Vec4f srcA1 = data[ 1 ];
+//        const Vec4f srcA2 = data[ 2 ];
+//        const Vec4f srcA3 = data[ 3 ];
+//
+//        const Vec4f srcB0 = other[ 0 ];
+//        const Vec4f srcB1 = other[ 1 ];
+//        const Vec4f srcB2 = other[ 2 ];
+//        const Vec4f srcB3 = other[ 3 ];
+//
+//        Matrix4 result;
+//
+//        result[ 0 ] = srcA0 * srcB0[ 0 ] +
+//                      srcA1 * srcB0[ 1 ] +
+//                      srcA2 * srcB0[ 2 ] +
+//                      srcA3 * srcB0[ 3 ];
+//
+//        result[ 1 ] = srcA0 * srcB1[ 0 ] +
+//                      srcA1 * srcB1[ 1 ] +
+//                      srcA2 * srcB1[ 2 ] +
+//                      srcA3 * srcB1[ 3 ];
+//
+//        result[ 2 ] = srcA0 * srcB2[ 0 ] +
+//                      srcA1 * srcB2[ 1 ] +
+//                      srcA2 * srcB2[ 2 ] +
+//                      srcA3 * srcB2[ 3 ];
+//
+//        result[ 3 ] = srcA0 * srcB3[ 0 ] +
+//                      srcA1 * srcB3[ 1 ] +
+//                      srcA2 * srcB3[ 2 ] +
+//                      srcA3 * srcB3[ 3 ];
+//
+//        return result;
         Matrix4 result;
 
-        result[ 0 ] = srcA0 * srcB0[ 0 ] +
-                      srcA1 * srcB0[ 1 ] +
-                      srcA2 * srcB0[ 2 ] +
-                      srcA3 * srcB0[ 3 ];
+        for( int aRow = 0; aRow < 4; aRow++ ) {
+            for( int bColumn = 0; bColumn < 4; bColumn++ ) {
+                float sum = 0;
 
-        result[ 1 ] = srcA0 * srcB1[ 0 ] +
-                      srcA1 * srcB1[ 1 ] +
-                      srcA2 * srcB1[ 2 ] +
-                      srcA3 * srcB1[ 3 ];
+                for( int i = 0; i < 4; i++ ) {
+                    sum += data[ aRow ][ i ] * other[ i ][ bColumn ];
+                }
 
-        result[ 2 ] = srcA0 * srcB2[ 0 ] +
-                      srcA1 * srcB2[ 1 ] +
-                      srcA2 * srcB2[ 2 ] +
-                      srcA3 * srcB2[ 3 ];
-
-        result[ 3 ] = srcA0 * srcB3[ 0 ] +
-                      srcA1 * srcB3[ 1 ] +
-                      srcA2 * srcB3[ 2 ] +
-                      srcA3 * srcB3[ 3 ];
+                result[ aRow ][ bColumn ] = sum;
+            }
+        }
 
         return result;
     }
@@ -115,24 +131,7 @@ struct Matrix4 {
         return ( *this = (*this) * other );
     }
 
-    Vec4f operator*( const Vec4f& v ) const {
-        const Vec4f mul0 = data[ 0 ] * v[ 0 ];
-        const Vec4f mul1 = data[ 1 ] * v[ 1 ];
-        const Vec4f mul2 = data[ 2 ] * v[ 2 ];
-        const Vec4f mul3 = data[ 3 ] * v[ 3 ];
 
-        return mul0 + mul1 + mul2 + mul3;
-    }
-
-    Matrix4 operator*( float scalar ) const {
-        Matrix4 m;
-
-        for( uint8_t i = 0; i < 4; i++ ) {
-            m[ i ] = data[ i ] * scalar;
-        }
-
-        return m;
-    }
 
     Matrix4 operator/( float scalar ) const {
         Matrix4 m;
@@ -159,6 +158,17 @@ struct Matrix4 {
     }
 };
 
+Vec4f operator*( const Matrix4& m, const Vec4f& v );
+Matrix4 operator*( const Matrix4& m, float scalar );
+
 std::ostream& operator<<( std::ostream& os, const Matrix4& m );
+
+Matrix4 translate( const Matrix4& m, const Vec2f& translation );
+Matrix4 rotate( const Matrix4& m, float radians );
+Matrix4 scale( const Matrix4& m, const Vec2f& scaleVector );
+Matrix4 ortho( float left, float right, float bottom, float top );
+Matrix4 ortho( float left, float right, float bottom, float top, float zNear, float zFar );
+
+Matrix4 test( const Matrix4& a, const Matrix4& b );
 
 } // namespace bb

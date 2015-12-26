@@ -36,6 +36,14 @@ Color::Color( uint8_t color, uint8_t alpha /* = 255 */ )
 , a( alpha )
 {}
 
+uint8_t Color::operator[]( uint8_t index ) {
+    return data[ index ];
+}
+
+const uint8_t& Color::operator[]( uint8_t index ) const {
+    return data[ index ];
+}
+
 bool operator==( const Color& left, const Color& right ) {
     return ( left.r == right.r ) &&
            ( left.g == right.b ) &&

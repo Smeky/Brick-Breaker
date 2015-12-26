@@ -338,14 +338,15 @@
 1450819651 c:\programming\bricks\src\macros.hpp
 	<iostream>
 
-1450890274 source:c:\programming\bricks\src\graphics\shader.cpp
+1451083554 source:c:\programming\bricks\src\graphics\shader.cpp
 	"Shader.hpp"
 	<fstream>
 	<GL/glew.h>
 	<Macros.hpp>
 	<Vector2.hpp>
+	<Matrix4.hpp>
 
-1450883423 c:\programming\bricks\src\graphics\shader.hpp
+1451077268 c:\programming\bricks\src\graphics\shader.hpp
 	<string>
 	<map>
 
@@ -371,15 +372,15 @@
 	<stdint.h>
 	<inttypes.h>
 
-1450905926 c:\programming\bricks\src\math\vector2.hpp
+1451158425 c:\programming\bricks\src\math\vector2.hpp
 	<math.h>
 	<iostream>
 
-1450898378 source:c:\programming\bricks\src\graphics\color.cpp
+1451079911 source:c:\programming\bricks\src\graphics\color.cpp
 	"Color.hpp"
 	<algorithm>
 
-1450898358 c:\programming\bricks\src\graphics\color.hpp
+1451079890 c:\programming\bricks\src\graphics\color.hpp
 	<stdint.h>
 	<iostream>
 
@@ -398,37 +399,40 @@
 1450904972 source:c:\programming\bricks\src\graphics\shape.cpp
 	"Shape.hpp"
 
-1450988264 source:c:\programming\bricks\src\core\transformable.cpp
+1451158854 source:c:\programming\bricks\src\core\transformable.cpp
 	"Transformable.hpp"
 	<cmath>
 
-1450988250 c:\programming\bricks\src\core\transformable.hpp
+1451159264 c:\programming\bricks\src\core\transformable.hpp
 	<Matrix4.hpp>
 	<Vector2.hpp>
 
 1450819651 c:\programming\bricks\src\core\macros.hpp
 	<iostream>
 
-1450988214 source:c:\programming\bricks\src\game\game.cpp
+1451158887 source:c:\programming\bricks\src\game\game.cpp
 	"Game.hpp"
 	<GL/glew.h>
 	<SDL2/SDL_opengl.h>
 	<GL/glu.h>
 	<Macros.hpp>
-	<Shader.hpp>
-	<Transformable.hpp>
+	<Sprite.hpp>
 
-1450875792 c:\programming\bricks\src\game\game.hpp
+1451157537 c:\programming\bricks\src\game\game.hpp
 	<SDL2/SDL.h>
+	<Shader.hpp>
+	<Sprite.hpp>
 
 1450980956 source:c:\programming\bricks\src\main.cpp
 	<game/Game.hpp>
 	<Macros.hpp>
 
-1450968358 source:c:\programming\bricks\src\math\matrix4.cpp
+1451158828 source:c:\programming\bricks\src\math\matrix4.cpp
 	"Matrix4.hpp"
+	<cmath>
 
-1450968367 c:\programming\bricks\src\math\matrix4.hpp
+1451158832 c:\programming\bricks\src\math\matrix4.hpp
+	<Vector2.hpp>
 	<Vector3.hpp>
 	<Vector4.hpp>
 	<array>
@@ -455,4 +459,14 @@
 1450971044 c:\programming\bricks\src\core\transform.hpp
 	<Vector2.hpp>
 	<Matrix3.hpp>
+
+1451158223 source:c:\programming\bricks\src\graphics\sprite.cpp
+	"Sprite.hpp"
+	<GL/glew.h>
+	<game/Game.hpp>
+
+1451157620 c:\programming\bricks\src\graphics\sprite.hpp
+	<Transformable.hpp>
+	<IDrawable.hpp>
+	<stdint-gcc.h>
 

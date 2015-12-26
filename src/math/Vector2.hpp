@@ -47,6 +47,9 @@ struct Vector2 {
         return *this;
     }
 
+    Vector2<T> operator-() const {
+        return Vector2<T>( - x, - y );
+    }
     template <typename V>
     Vector2<T> operator-( const Vector2<V>& other ) const {
         return Vector2<T>( x - other.x, y - other.y );

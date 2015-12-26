@@ -7,7 +7,7 @@ namespace bb {
 Transformable::Transformable()
 : m_scale( 1, 1 )
 , m_rotation( 0 )
-, m_isUpdateMatrix( true )
+, m_isUpdateMatrix( false )
 {}
 
 void Transformable::setPos( const Vec2f& pos ) {
@@ -40,24 +40,26 @@ void Transformable::move( float movement ) {
     setPos( m_pos + Vec2f( movement, movement ) );
 }
 
-const Matrix4& Transformable::getMatrix() {
+void Transformable::setSize( const Vec2f& size ) {
+    m_size = size;
+
+    m_isUpdateMatrix = true;
+}
+
+const Matrix4& Transformable::getMatrix() const {
     if( m_isUpdateMatrix ) {
-        const float c     = std::cos( m_rotation );
-        const float s     = std::sin( m_rotation );
-        const float sxc   = m_scale.x * c;
-        const float syc   = m_scale.y * c;
-        const float sxs   = m_scale.x * s;
-        const float sys   = m_scale.y * s;
-        const float tx    = -m_origin.x * sxc - m_origin.y * sys + m_pos.x;
-        const float ty    = +m_origin.x * sxs - m_origin.y * syc + m_pos.y;
+        m_matrix = Matrix4();
 
-        m_matrix[ 0 ][ 0 ] = sxc;
-        m_matrix[ 0 ][ 1 ] = -sys;
-        m_matrix[ 0 ][ 3 ] = tx;
+        // Position
+        m_matrix = translate( m_matrix, m_pos - m_origin );
 
-        m_matrix[ 1 ][ 0 ] = sxs;
-        m_matrix[ 1 ][ 1 ] = syc;
-        m_matrix[ 1 ][ 3 ] = ty;
+        // Rotation
+        m_matrix = translate( m_matrix, m_origin );
+        m_matrix = rotate( m_matrix, m_rotation * ( 3.14159 / 180 ) );
+        m_matrix = translate( m_matrix, -m_origin );
+
+        // Size
+        m_matrix = scale( m_matrix, m_scale * m_size );
 
         m_isUpdateMatrix = false;
     }

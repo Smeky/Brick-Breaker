@@ -5,9 +5,8 @@
 #include <GL/glu.h>
 
 #include <Macros.hpp>
-#include <Shader.hpp>
 
-#include <Transformable.hpp>
+#include <Sprite.hpp>
 
 namespace bb {
 
@@ -16,20 +15,12 @@ const int hWindow = 576;
 
 SDL_Window* Game::m_window = nullptr;
 bool Game::m_running = false;
-
-Shader* shader = nullptr;
+Shader* Game::shader = nullptr;
 
 Game::Game()
 {}
 
 bool Game::init() {
-    Transformable tra;
-
-    tra.setPos( 20, 20 );
-    tra.move( 10, 30 );
-
-    std::cout << tra.getMatrix() << std::endl;
-
     if( SDL_Init( SDL_INIT_EVERYTHING ) != 0 ) {
         ERROR_PRINT( SDL_GetError() );
         return false;
@@ -74,30 +65,16 @@ bool Game::init() {
     shader = new Shader();
     shader->loadFromFile( Shader::Vertex, "data/shaders/default.vert" );
     shader->loadFromFile( Shader::Fragment, "data/shaders/default.frag" );
-    shader->bindAttribute( AttribLocation::Position, "position" );
+    shader->bindAttribute( 0, "a_position" );
+    shader->bindAttribute( 1, "a_color" );
+//    shader->bindAttribute( AttribLocation::AttribTexCoord, "a_texCoord" );
     shader->link();
     shader->use();
 
-    float vertices[] = {
-        // x     y
-        +0.0, +0.5,
-        -0.4, -0.5,
-        +0.4, -0.5,
-    };
-
-    GLuint vbo;
-    glGenBuffers( 1, &vbo );
-    glBindBuffer( GL_ARRAY_BUFFER, vbo );
-    glBufferData( GL_ARRAY_BUFFER, sizeof( vertices ), vertices, GL_STATIC_DRAW );
-
-    glEnableVertexAttribArray( 0 );
-
-    glVertexAttribPointer( 0,
-                           2,
-                           GL_FLOAT,
-                           GL_FALSE,
-                           2 * sizeof( float ),
-                           (const GLvoid*)0 );
+    Sprite::createSpriteVAO();
+    m_sprite.setPos( { 100, 100 } );
+    m_sprite.setSize( { 100, 100 } );
+    m_sprite.setRotation( 90 );
 
     return true;
 }
@@ -148,15 +125,7 @@ void Game::render() {
     glClearColor( 0.1, 0.1, 0.1, 1.0 );
     glClear( GL_COLOR_BUFFER_BIT );
 
-//    shader.use();
-
-
-
-    glDrawArrays( GL_TRIANGLES, 0, 3 );
-
-//    glDisableVertexAttribArray( 0 );
-
-//    shader.stopUsing();
+    m_sprite.draw();
 
     SDL_GL_SwapWindow( m_window );
 }

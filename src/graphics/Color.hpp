@@ -15,6 +15,8 @@ struct Color {
     Color( uint8_t _r, uint8_t _g, uint8_t _b, uint8_t _a = 255 );
     Color( uint8_t color, uint8_t alpha = 255 );
 
+    uint8_t operator[]( uint8_t index );
+    const uint8_t& operator[]( uint8_t index ) const;
 
     static const Color Transparent;
     static const Color White;

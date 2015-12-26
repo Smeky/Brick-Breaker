@@ -1,5 +1,7 @@
 #include "Matrix4.hpp"
 
+#include <cmath>
+
 namespace bb {
 
 float determinant( const Matrix4& m ) {
@@ -128,8 +130,8 @@ Matrix4 translate( const Vec3f& v ) {
 }
 
 Matrix4 rotate( float rAngle, const Vec3f& v ) {
-    const float c = cos( rAngle );
-    const float s = sin( rAngle );
+    const float c = std::cos( rAngle );
+    const float s = std::sin( rAngle );
 
     const Vec3f axis( normalized( v ) );
     const Vec3f t = ( 1.0 - c ) * axis;
@@ -163,6 +165,47 @@ Matrix4 scale( const Vec3f& v ) {
                   );
 }
 
+Vec4f operator*( const Matrix4& m, const Vec4f& v ) {
+//    const Vec4f mul0 = m[ 0 ] * v[ 0 ];
+//    const Vec4f mul1 = m[ 1 ] * v[ 1 ];
+//    const Vec4f mul2 = m[ 2 ] * v[ 2 ];
+//    const Vec4f mul3 = m[ 3 ] * v[ 3 ];
+//
+//    return mul0 + mul1 + mul2 + mul3;
+//
+//    m[ 0 ][ 0 ] + v[ 0 ] + m[ 1 ][ 0 ] + v[ 0 ];
+
+//    float add[ 4 ] = { 0, 0, 0, 0 };
+//
+//    for( int i = 0; i < 4; i++ ) {
+//        for( int j = 0; j < 4; j++ ) {
+//            add[ i ] += m[ j ][ i ] * v[ i ];
+//        }
+//    }
+//
+//    return Vec4f( add[ 0 ], add[ 1 ], add[ 2 ], add[ 3 ] );
+
+    Vec4f result;
+
+    for( uint8_t i = 0; i < 4; i++ ) {
+        for( uint8_t j = 0; j < 4; j++ ) {
+            result[ i ] += m[ i ][ j ] * v[ j ];
+        }
+    }
+
+    return result;
+}
+
+Matrix4 operator*( const Matrix4& m, float scalar ) {
+    Matrix4 result;
+
+    for( uint8_t i = 0; i < 4; i++ ) {
+        result[ i ] = m[ i ] * scalar;
+    }
+
+    return result;
+}
+
 std::ostream& operator<<( std::ostream& os, const Matrix4& m ) {
     os << "Matrix4: " << std::endl;
 
@@ -177,6 +220,80 @@ std::ostream& operator<<( std::ostream& os, const Matrix4& m ) {
     }
 
     return os;
+}
+
+Matrix4 translate( const Matrix4& m, const Vec2f& translation ) {
+    Matrix4 result;
+
+    result[ 0 ][ 3 ] = translation.x;
+    result[ 1 ][ 3 ] = translation.y;
+
+    return m * result;
+}
+
+Matrix4 rotate( const Matrix4& m, float radians ) {
+    Matrix4 result;
+
+    float c = std::cos( radians );
+    float s = std::sin( radians );
+
+    result[ 0 ][ 0 ] = c;
+    result[ 0 ][ 1 ] = -s;
+    result[ 1 ][ 0 ] = s;
+    result[ 1 ][ 1 ] = c;
+
+    return m * result;
+}
+
+Matrix4 scale( const Matrix4& m, const Vec2f& scaleVector ) {
+    Matrix4 result;
+
+    result[ 0 ][ 0 ] = scaleVector.x;
+    result[ 1 ][ 1 ] = scaleVector.y;
+
+    return m * result;
+}
+
+Matrix4 ortho( float left, float right, float bottom, float top ) {
+    Matrix4 result;
+
+    result[0][0] = 2.0 / ( right - left );
+    result[1][1] = 2.0 / ( top - bottom );
+    result[0][3] = - ( right + left ) / ( right - left );
+    result[1][3] = - ( top + bottom ) / ( top - bottom );
+
+    return result;
+}
+
+Matrix4 ortho( float left, float right, float bottom, float top, float zNear, float zFar ) {
+    Matrix4 result;
+
+    result[0][0] = 2.0 / ( right - left );
+    result[1][1] = 2.0 / ( top - bottom );
+    result[2][2] = 2.0 / ( zFar - zNear );
+    result[0][3] = - ( right + left ) / ( right - left );
+    result[1][3] = - ( top + bottom ) / ( top - bottom );
+    result[2][3] = - ( zFar + zNear ) / ( zFar - zNear );
+
+    return result;
+}
+
+Matrix4 test( const Matrix4& a, const Matrix4& b ) {
+    Matrix4 result;
+
+    for( uint8_t aRow = 0; aRow < 4; aRow++ ) {
+        for( uint8_t bColumn = 0; bColumn < 4; bColumn++ ) {
+            float sum = 0;
+
+            for( uint8_t i = 0; i < 4; i++ ) {
+                sum += a[ aRow ][ i ] * b[ i ][ bColumn ];
+            }
+
+            result[ aRow ][ bColumn ] = sum;
+        }
+    }
+
+    return result;
 }
 
 } // namespace bb

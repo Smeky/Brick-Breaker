@@ -18,18 +18,26 @@ public:
     void move( float x, float y );
     void move( float movement );
 
-    const Matrix4& getMatrix();
+    void setOrigin( const Vec2f& origin ) { m_origin = origin; m_isUpdateMatrix = true; }
+
+    void setSize( const Vec2f& size );
+
+    void setRotation( float degrees ) { m_rotation = degrees; m_isUpdateMatrix = true; }
+
+    const Matrix4& getMatrix() const;
 
 protected:
-    Matrix4 m_matrix;
+    mutable Matrix4 m_matrix;
 
     Vec2f m_pos;
+    Vec2f m_size;
     Vec2f m_scale;
     Vec2f m_origin;
-    float m_rotation;   // In radians
+    float m_rotation;   // In degrees
 
 private:
-    bool m_isUpdateMatrix;
+    mutable bool m_isUpdateMatrix;
+
 };
 
 } // namespace bb
