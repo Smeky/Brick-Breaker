@@ -392,8 +392,8 @@
 1451242298 c:\programming\bricks\src\graphics\rectshape.hpp
 	<Shape.hpp>
 
-1450906369 c:\programming\bricks\src\graphics\shape.hpp
-	<IDrawable.hpp>
+1451255314 c:\programming\bricks\src\graphics\shape.hpp
+	<IRenderable.hpp>
 	<Transformable.hpp>
 
 1451243006 c:\programming\bricks\src\graphics\idrawable.hpp
@@ -413,7 +413,7 @@
 1450819651 c:\programming\bricks\src\core\macros.hpp
 	<iostream>
 
-1451240449 source:c:\programming\bricks\src\game\game.cpp
+1451255944 source:c:\programming\bricks\src\game\game.cpp
 	"Game.hpp"
 	<GL/glew.h>
 	<SDL2/SDL_opengl.h>
@@ -421,10 +421,10 @@
 	<Macros.hpp>
 	<Sprite.hpp>
 
-1451240417 c:\programming\bricks\src\game\game.hpp
+1451254022 c:\programming\bricks\src\game\game.hpp
 	<SDL2/SDL.h>
-	<Shader.hpp>
 	<Sprite.hpp>
+	<Renderer.hpp>
 
 1450980956 source:c:\programming\bricks\src\main.cpp
 	<game/Game.hpp>
@@ -463,22 +463,29 @@
 	<Vector2.hpp>
 	<Matrix3.hpp>
 
-1451240298 source:c:\programming\bricks\src\graphics\sprite.cpp
+1451257596 source:c:\programming\bricks\src\graphics\sprite.cpp
 	"Sprite.hpp"
 	<GL/glew.h>
 	<Vertex.hpp>
 	<game/Game.hpp>
 	<Color.hpp>
+	<Renderer.hpp>
 
-1451157620 c:\programming\bricks\src\graphics\sprite.hpp
+1451253752 c:\programming\bricks\src\graphics\sprite.hpp
 	<Transformable.hpp>
-	<IDrawable.hpp>
+	<IRenderable.hpp>
+	<VertexArray.hpp>
 	<stdint-gcc.h>
 
-1451227156 source:c:\programming\bricks\src\graphics\renderer.cpp
+1451258155 source:c:\programming\bricks\src\graphics\renderer.cpp
 	"Renderer.hpp"
+	<GL/glew.h>
 
-1451227134 c:\programming\bricks\src\graphics\renderer.hpp
+1451257138 c:\programming\bricks\src\graphics\renderer.hpp
+	<stdint-gcc.h>
+	<VertexArray.hpp>
+	<Shader.hpp>
+	<Matrix4.hpp>
 
 1451227579 c:\programming\bricks\src\graphics\vertex.hpp
 	<Vector2.hpp>
@@ -486,4 +493,14 @@
 
 1451243009 source:c:\programming\bricks\src\graphics\idrawable.cpp
 	"IDrawable.hpp"
+
+1451258132 source:c:\programming\bricks\src\graphics\vertexarray.cpp
+	"VertexArray.hpp"
+
+1451258107 c:\programming\bricks\src\graphics\vertexarray.hpp
+	<vector>
+	<Vertex.hpp>
+
+1451253740 c:\programming\bricks\src\graphics\irenderable.hpp
+	<Renderer.hpp>
 

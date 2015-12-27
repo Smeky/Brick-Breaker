@@ -15,7 +15,6 @@ const int hWindow = 576;
 
 SDL_Window* Game::m_window = nullptr;
 bool Game::m_running = false;
-Shader* Game::shader = nullptr;
 
 Game::Game()
 {}
@@ -62,16 +61,11 @@ bool Game::init() {
         ERROR_PRINT( "Failed to enable VSync" );
     }
 
-    shader = new Shader();
-    shader->loadFromFile( Shader::Vertex, "data/shaders/default.vert" );
-    shader->loadFromFile( Shader::Fragment, "data/shaders/default.frag" );
-    shader->bindAttribute( 0, "a_position" );
-    shader->bindAttribute( 1, "a_color" );
-    shader->bindAttribute( 2, "a_texCoords" );
-    shader->link();
-    shader->use();
+    if( !m_renderer.init() ) {
+        ERROR_PRINT( "Renderer failed to init" );
+        return false;
+    }
 
-    Sprite::createSpriteVAO();
     m_sprite.setPos( { 100, 100 } );
     m_sprite.setSize( { 100, 100 } );
 
@@ -100,6 +94,8 @@ void Game::close() {
 /* Private */
 
 void Game::onClose() {
+    m_renderer.close();
+
     SDL_DestroyWindow( m_window );
     SDL_Quit();
 }
@@ -127,8 +123,8 @@ void Game::render() {
     glClearColor( 0.1, 0.1, 0.1, 1.0 );
     glClear( GL_COLOR_BUFFER_BIT );
 
-    m_sprite.draw();
-    m_sprite2.draw();
+    m_sprite.render( m_renderer, RenderStates() );
+    m_sprite2.render( m_renderer, RenderStates() );
 
     SDL_GL_SwapWindow( m_window );
 }

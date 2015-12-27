@@ -68,8 +68,7 @@
 		<Unit filename="src/game/Game.hpp" />
 		<Unit filename="src/graphics/Color.cpp" />
 		<Unit filename="src/graphics/Color.hpp" />
-		<Unit filename="src/graphics/IDrawable.cpp" />
-		<Unit filename="src/graphics/IDrawable.hpp" />
+		<Unit filename="src/graphics/IRenderable.hpp" />
 		<Unit filename="src/graphics/RectShape.cpp" />
 		<Unit filename="src/graphics/RectShape.hpp" />
 		<Unit filename="src/graphics/Renderer.cpp" />
@@ -81,6 +80,8 @@
 		<Unit filename="src/graphics/Sprite.cpp" />
 		<Unit filename="src/graphics/Sprite.hpp" />
 		<Unit filename="src/graphics/Vertex.hpp" />
+		<Unit filename="src/graphics/VertexArray.cpp" />
+		<Unit filename="src/graphics/VertexArray.hpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/math/Matrix4.cpp" />
 		<Unit filename="src/math/Matrix4.hpp" />

@@ -10,45 +10,63 @@
 
 namespace bb {
 
-uint32_t Sprite::s_spriteVAO = 0;
-
 Sprite::Sprite()
-{}
+{
+    m_vertices.resize( 6 );
+    m_vertices[ 0 ] = Vertex( Vec2f( 0.0, 1.0 ), Color::Red, Vec2f() );
+    m_vertices[ 1 ] = Vertex( Vec2f( 1.0, 0.0 ), Color::White, Vec2f() );
+    m_vertices[ 2 ] = Vertex( Vec2f( 0.0, 0.0 ), Color::White, Vec2f() );
+    m_vertices[ 3 ] = Vertex( Vec2f( 0.0, 1.0 ), Color::White, Vec2f() );
+    m_vertices[ 4 ] = Vertex( Vec2f( 1.0, 1.0 ), Color::White, Vec2f() );
+    m_vertices[ 5 ] = Vertex( Vec2f( 1.0, 0.0 ), Color::White, Vec2f() );
 
-void Sprite::draw() const {
-    if( s_spriteVAO == 0 ) {
-        return;
-    }
-
-    Shader* shader = Game::shader;
-
-    if( shader ) {
-        shader->use();
-
-        shader->setUniform( "u_model", getMatrix() );
-        shader->setUniform( "u_projection", ortho( 0, 1024, 576, 0 ) );
-        shader->setUniform( "u_color", Color::White );
-
-        glBindVertexArray( s_spriteVAO );
-        glDrawArrays( GL_TRIANGLES, 0, 6 );
-        glBindVertexArray( 0 );
-
-        shader->stopUsing();
-    }
+//        Vertex( Vec2f( 0.0, 1.0 ), Color::White, Vec2f() ), // Vertex 0
+//        Vertex( Vec2f( 1.0, 0.0 ), Color::White, Vec2f() ), // Vertex 1
+//        Vertex( Vec2f( 0.0, 0.0 ), Color::White, Vec2f() ), // Vertex 2
+//
+//        Vertex( Vec2f( 0.0, 1.0 ), Color::White, Vec2f() ), // Vertex 0
+//        Vertex( Vec2f( 1.0, 1.0 ), Color::White, Vec2f() ), // Vertex 2
+//        Vertex( Vec2f( 1.0, 0.0 ), Color::White, Vec2f() ), // Vertex 3
 }
 
-void Sprite::createSpriteVAO() {
-    const Vertex vertices[] = {
-        Vertex( Vec2f( 0.0, 1.0 ), Color::White, Vec2f() ), // Vertex 0
-        Vertex( Vec2f( 1.0, 0.0 ), Color::White, Vec2f() ), // Vertex 1
-        Vertex( Vec2f( 0.0, 0.0 ), Color::White, Vec2f() ), // Vertex 2
+void Sprite::render( Renderer& renderer, RenderStates states ) const {
+    states.transform *= getMatrix();
 
-        Vertex( Vec2f( 0.0, 1.0 ), Color::White, Vec2f() ), // Vertex 0
-        Vertex( Vec2f( 1.0, 1.0 ), Color::White, Vec2f() ), // Vertex 2
-        Vertex( Vec2f( 1.0, 0.0 ), Color::White, Vec2f() ), // Vertex 3
-    };
+    renderer.render( m_vertices, states );
 
-    s_spriteVAO = Renderer::createVAO( sizeof( vertices ), vertices );
+//    if( s_spriteVAO == 0 ) {
+//        return;
+//    }
+//
+//    Shader* shader = Game::shader;
+//
+//    if( shader ) {
+//        shader->use();
+//
+//        shader->setUniform( "u_model", getMatrix() );
+//        shader->setUniform( "u_projection", ortho( 0, 1024, 576, 0 ) );
+//        shader->setUniform( "u_color", Color::White );
+//
+//        glBindVertexArray( s_spriteVAO );
+//        glDrawArrays( GL_TRIANGLES, 0, 6 );
+//        glBindVertexArray( 0 );
+//
+//        shader->stopUsing();
+//    }
+}
+
+//void Sprite::createSpriteVAO() {
+//    const Vertex vertices[] = {
+//        Vertex( Vec2f( 0.0, 1.0 ), Color::White, Vec2f() ), // Vertex 0
+//        Vertex( Vec2f( 1.0, 0.0 ), Color::White, Vec2f() ), // Vertex 1
+//        Vertex( Vec2f( 0.0, 0.0 ), Color::White, Vec2f() ), // Vertex 2
+//
+//        Vertex( Vec2f( 0.0, 1.0 ), Color::White, Vec2f() ), // Vertex 0
+//        Vertex( Vec2f( 1.0, 1.0 ), Color::White, Vec2f() ), // Vertex 2
+//        Vertex( Vec2f( 1.0, 0.0 ), Color::White, Vec2f() ), // Vertex 3
+//    };
+//
+//    m_ = Renderer::createVAO( sizeof( vertices ), vertices );
 
 //    GLuint vbo;
 //
@@ -87,6 +105,6 @@ void Sprite::createSpriteVAO() {
 //
 //    glBindBuffer( GL_ARRAY_BUFFER, 0 );
 //    glBindVertexArray( 0 );
-}
+//}
 
 } // namespace bb

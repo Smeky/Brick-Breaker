@@ -1,15 +1,15 @@
 #pragma once
 
-#include <IDrawable.hpp>
+#include <IRenderable.hpp>
 #include <Transformable.hpp>
 
 namespace bb {
 
-class Shape : public IDrawable, public Transformable {
+class Shape : public IRenderable, public Transformable {
 public:
     Shape();
 
-    virtual void draw() {}
+    virtual void render( Renderer& renderer, RenderStates states ) const {}
 
 protected:
 

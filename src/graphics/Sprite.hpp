@@ -1,21 +1,20 @@
 #pragma once
 
 #include <Transformable.hpp>
-#include <IDrawable.hpp>
+#include <IRenderable.hpp>
+#include <VertexArray.hpp>
 #include <stdint-gcc.h>
 
 namespace bb {
 
-class Sprite : public IDrawable, public Transformable {
+class Sprite : public IRenderable, public Transformable {
 public:
     Sprite();
 
-    void draw() const;
-
-    void static createSpriteVAO();
+    void render( Renderer& renderer, RenderStates states ) const;
 
 private:
-    static uint32_t s_spriteVAO;
+    VertexArray m_vertices;
 
 };
 
