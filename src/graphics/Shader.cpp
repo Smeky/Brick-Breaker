@@ -6,6 +6,7 @@
 #include <Macros.hpp>
 #include <Vector2.hpp>
 #include <Matrix4.hpp>
+#include <Color.hpp>
 
 std::string stringFromFile( const std::string& filename ) {
     std::string output;
@@ -179,6 +180,16 @@ void Shader::setUniform( const std::string& name, const Matrix4& m ) {
 
     if( loc != - 1 ) {
         glUniformMatrix4fv( loc, 1, GL_TRUE, m[ 0 ].data );
+    }
+}
+
+void Shader::setUniform( const std::string& name, const Color& c ) {
+    use();
+
+    GLint loc = getUniformLoc( name );
+
+    if( loc != - 1 ) {
+        glUniform4fv( loc, 1, c.getNormalized().data );
     }
 }
 

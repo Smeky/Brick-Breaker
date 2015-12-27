@@ -36,6 +36,13 @@ Color::Color( uint8_t color, uint8_t alpha /* = 255 */ )
 , a( alpha )
 {}
 
+Vec4f Color::getNormalized() const {
+    return Vec4f( (float)r / 255,
+                  (float)g / 255,
+                  (float)b / 255,
+                  (float)a / 255 );
+}
+
 uint8_t Color::operator[]( uint8_t index ) {
     return data[ index ];
 }

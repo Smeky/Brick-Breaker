@@ -29,6 +29,7 @@ private:
     static bool m_running;
 
     Sprite m_sprite;
+    Sprite m_sprite2;
 
 };
 

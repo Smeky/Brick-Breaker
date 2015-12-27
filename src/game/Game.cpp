@@ -67,14 +67,16 @@ bool Game::init() {
     shader->loadFromFile( Shader::Fragment, "data/shaders/default.frag" );
     shader->bindAttribute( 0, "a_position" );
     shader->bindAttribute( 1, "a_color" );
-//    shader->bindAttribute( AttribLocation::AttribTexCoord, "a_texCoord" );
+    shader->bindAttribute( 2, "a_texCoords" );
     shader->link();
     shader->use();
 
     Sprite::createSpriteVAO();
     m_sprite.setPos( { 100, 100 } );
     m_sprite.setSize( { 100, 100 } );
-    m_sprite.setRotation( 90 );
+
+    m_sprite2.setPos( { 300, 100 } );
+    m_sprite2.setSize( { 100, 100 } );
 
     return true;
 }
@@ -126,6 +128,7 @@ void Game::render() {
     glClear( GL_COLOR_BUFFER_BIT );
 
     m_sprite.draw();
+    m_sprite2.draw();
 
     SDL_GL_SwapWindow( m_window );
 }

@@ -11,6 +11,7 @@ namespace bb {
 
 template <typename T> class Vector2;
 struct Matrix4;
+struct Color;
 
 enum AttribLocation {
     AttribPosition    = 0,
@@ -46,6 +47,7 @@ public:
     void setUniform( const std::string& name, bool b );
     void setUniform( const std::string& name, const Vector2<float>& v );
     void setUniform( const std::string& name, const Matrix4& m );
+    void setUniform( const std::string& name, const Color& c );
 
     const std::string& getSource() const;
 

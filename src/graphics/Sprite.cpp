@@ -1,9 +1,11 @@
 #include "Sprite.hpp"
 
 #include <GL/glew.h>
+#include <Vertex.hpp>
 
 // Temporary
 #include <game/Game.hpp>
+#include <Color.hpp>
 
 namespace bb {
 
@@ -24,6 +26,7 @@ void Sprite::draw() const {
 
         shader->setUniform( "u_model", getMatrix() );
         shader->setUniform( "u_projection", ortho( 0, 1024, 576, 0 ) );
+        shader->setUniform( "u_color", Color::White );
 
         glBindVertexArray( s_spriteVAO );
         glDrawArrays( GL_TRIANGLES, 0, 6 );
@@ -34,15 +37,14 @@ void Sprite::draw() const {
 }
 
 void Sprite::createSpriteVAO() {
-    const float vertices[] = {
-    //  x,   y,   r,   g,   b,   a
-        0.0, 1.0, 1.0, 1.0, 1.0, 1.0,   // Vertex 0
-        1.0, 0.0, 1.0, 1.0, 1.0, 1.0,   // Vertex 1
-        0.0, 0.0, 1.0, 1.0, 1.0, 1.0,   // Vertex 2
+    const Vertex vertices[] = {
+        Vertex( Vec2f( 0.0, 1.0 ), Color::White, Vec2f() ), // Vertex 0
+        Vertex( Vec2f( 1.0, 0.0 ), Color::White, Vec2f() ), // Vertex 1
+        Vertex( Vec2f( 0.0, 0.0 ), Color::White, Vec2f() ), // Vertex 2
 
-        0.0, 1.0, 1.0, 1.0, 1.0, 1.0,   // Vertex 0
-        1.0, 1.0, 1.0, 1.0, 1.0, 1.0,   // Vertex 2
-        1.0, 0.0, 1.0, 1.0, 1.0, 1.0,   // Vertex 3
+        Vertex( Vec2f( 0.0, 1.0 ), Color::White, Vec2f() ), // Vertex 0
+        Vertex( Vec2f( 1.0, 1.0 ), Color::White, Vec2f() ), // Vertex 2
+        Vertex( Vec2f( 1.0, 0.0 ), Color::White, Vec2f() ), // Vertex 3
     };
 
     GLuint vbo;
@@ -57,9 +59,28 @@ void Sprite::createSpriteVAO() {
 
     glEnableVertexAttribArray( 0 ); // Position
     glEnableVertexAttribArray( 1 ); // Color
+    glEnableVertexAttribArray( 2 ); // TexCoord
 
-    glVertexAttribPointer( 0, 2, GL_FLOAT, GL_FALSE, 6 * sizeof( float ), nullptr );
-    glVertexAttribPointer( 1, 4, GL_FLOAT, GL_FALSE, 6 * sizeof( float ), (const GLvoid*)( 2 * sizeof( float ) ) );
+    glVertexAttribPointer( 0,
+                           2,
+                           GL_FLOAT,
+                           GL_FALSE,
+                           sizeof( Vertex ),
+                           nullptr );
+
+    glVertexAttribPointer( 1,
+                           4,
+                           GL_UNSIGNED_BYTE,
+                           GL_TRUE,
+                           sizeof( Vertex ),
+                           (const GLvoid*)( sizeof( Vec2f ) ) );
+
+    glVertexAttribPointer( 2,
+                           2,
+                           GL_FLOAT,
+                           GL_FALSE,
+                           sizeof( Vertex ),
+                           (const GLvoid*)( sizeof( Vec2f ) + sizeof( Color ) ) );
 
     glBindBuffer( GL_ARRAY_BUFFER, 0 );
     glBindVertexArray( 0 );
