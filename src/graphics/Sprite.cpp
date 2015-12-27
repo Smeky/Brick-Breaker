@@ -6,6 +6,7 @@
 // Temporary
 #include <game/Game.hpp>
 #include <Color.hpp>
+#include <Renderer.hpp>
 
 namespace bb {
 
@@ -47,43 +48,45 @@ void Sprite::createSpriteVAO() {
         Vertex( Vec2f( 1.0, 0.0 ), Color::White, Vec2f() ), // Vertex 3
     };
 
-    GLuint vbo;
+    s_spriteVAO = Renderer::createVAO( sizeof( vertices ), vertices );
 
-    glGenVertexArrays( 1, &s_spriteVAO );
-    glGenBuffers( 1, &vbo );
-
-    glBindBuffer( GL_ARRAY_BUFFER, vbo );
-    glBufferData( GL_ARRAY_BUFFER, sizeof( vertices ), vertices, GL_STATIC_DRAW );
-
-    glBindVertexArray( s_spriteVAO );
-
-    glEnableVertexAttribArray( 0 ); // Position
-    glEnableVertexAttribArray( 1 ); // Color
-    glEnableVertexAttribArray( 2 ); // TexCoord
-
-    glVertexAttribPointer( 0,
-                           2,
-                           GL_FLOAT,
-                           GL_FALSE,
-                           sizeof( Vertex ),
-                           nullptr );
-
-    glVertexAttribPointer( 1,
-                           4,
-                           GL_UNSIGNED_BYTE,
-                           GL_TRUE,
-                           sizeof( Vertex ),
-                           (const GLvoid*)( sizeof( Vec2f ) ) );
-
-    glVertexAttribPointer( 2,
-                           2,
-                           GL_FLOAT,
-                           GL_FALSE,
-                           sizeof( Vertex ),
-                           (const GLvoid*)( sizeof( Vec2f ) + sizeof( Color ) ) );
-
-    glBindBuffer( GL_ARRAY_BUFFER, 0 );
-    glBindVertexArray( 0 );
+//    GLuint vbo;
+//
+//    glGenVertexArrays( 1, &s_spriteVAO );
+//    glGenBuffers( 1, &vbo );
+//
+//    glBindBuffer( GL_ARRAY_BUFFER, vbo );
+//    glBufferData( GL_ARRAY_BUFFER, sizeof( vertices ), vertices, GL_STATIC_DRAW );
+//
+//    glBindVertexArray( s_spriteVAO );
+//
+//    glEnableVertexAttribArray( 0 ); // Position
+//    glEnableVertexAttribArray( 1 ); // Color
+//    glEnableVertexAttribArray( 2 ); // TexCoord
+//
+//    glVertexAttribPointer( 0,
+//                           2,
+//                           GL_FLOAT,
+//                           GL_FALSE,
+//                           sizeof( Vertex ),
+//                           nullptr );
+//
+//    glVertexAttribPointer( 1,
+//                           4,
+//                           GL_UNSIGNED_BYTE,
+//                           GL_TRUE,
+//                           sizeof( Vertex ),
+//                           (const GLvoid*)( sizeof( Vec2f ) ) );
+//
+//    glVertexAttribPointer( 2,
+//                           2,
+//                           GL_FLOAT,
+//                           GL_FALSE,
+//                           sizeof( Vertex ),
+//                           (const GLvoid*)( sizeof( Vec2f ) + sizeof( Color ) ) );
+//
+//    glBindBuffer( GL_ARRAY_BUFFER, 0 );
+//    glBindVertexArray( 0 );
 }
 
 } // namespace bb

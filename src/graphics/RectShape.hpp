@@ -10,8 +10,6 @@ public:
 
     void draw();
 
-protected:
-
 private:
 
 

@@ -389,14 +389,15 @@
 1450904876 source:c:\programming\bricks\src\graphics\rectshape.cpp
 	"RectShape.hpp"
 
-1450904949 c:\programming\bricks\src\graphics\rectshape.hpp
+1451242298 c:\programming\bricks\src\graphics\rectshape.hpp
 	<Shape.hpp>
 
 1450906369 c:\programming\bricks\src\graphics\shape.hpp
 	<IDrawable.hpp>
 	<Transformable.hpp>
 
-1450904759 c:\programming\bricks\src\graphics\idrawable.hpp
+1451243006 c:\programming\bricks\src\graphics\idrawable.hpp
+	<stdint-gcc.h>
 
 1450904972 source:c:\programming\bricks\src\graphics\shape.cpp
 	"Shape.hpp"
@@ -412,7 +413,7 @@
 1450819651 c:\programming\bricks\src\core\macros.hpp
 	<iostream>
 
-1451239629 source:c:\programming\bricks\src\game\game.cpp
+1451240449 source:c:\programming\bricks\src\game\game.cpp
 	"Game.hpp"
 	<GL/glew.h>
 	<SDL2/SDL_opengl.h>
@@ -482,4 +483,7 @@
 1451227579 c:\programming\bricks\src\graphics\vertex.hpp
 	<Vector2.hpp>
 	<Color.hpp>
+
+1451243009 source:c:\programming\bricks\src\graphics\idrawable.cpp
+	"IDrawable.hpp"
 

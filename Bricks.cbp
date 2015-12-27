@@ -68,6 +68,7 @@
 		<Unit filename="src/game/Game.hpp" />
 		<Unit filename="src/graphics/Color.cpp" />
 		<Unit filename="src/graphics/Color.hpp" />
+		<Unit filename="src/graphics/IDrawable.cpp" />
 		<Unit filename="src/graphics/IDrawable.hpp" />
 		<Unit filename="src/graphics/RectShape.cpp" />
 		<Unit filename="src/graphics/RectShape.hpp" />
