@@ -3,11 +3,6 @@
 #include <GL/glew.h>
 #include <Vertex.hpp>
 
-// Temporary
-#include <game/Game.hpp>
-#include <Color.hpp>
-#include <Renderer.hpp>
-
 namespace bb {
 
 Sprite::Sprite()
