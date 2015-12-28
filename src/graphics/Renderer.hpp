@@ -21,7 +21,7 @@ public:
     bool init();
     void close();
 
-    void render( const VertexArray& vertices, const RenderStates& states ) const;
+    void draw( const VertexArray& vertices, const RenderStates& states ) const;
 
 //    static uint32_t createVAO( uint32_t size, const Vertex* vertices );
 

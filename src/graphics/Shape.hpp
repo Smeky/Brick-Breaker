@@ -1,18 +1,18 @@
 #pragma once
 
-#include <IRenderable.hpp>
+#include <Drawable.hpp>
 #include <Transformable.hpp>
 
 namespace bb {
 
-class Shape : public IRenderable, public Transformable {
+class Shape : public Drawable, public Transformable {
 public:
     Shape();
 
-    virtual void render( Renderer& renderer, RenderStates states ) const {}
+    virtual void draw( Renderer& renderer, RenderStates states ) const {}
 
 protected:
-
+    VertexArray m_vertices;
 
 private:
 

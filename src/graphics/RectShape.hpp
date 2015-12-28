@@ -8,8 +8,6 @@ class RectShape : public Shape {
 public:
     RectShape();
 
-    void draw();
-
 private:
 
 

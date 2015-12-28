@@ -123,8 +123,8 @@ void Game::render() {
     glClearColor( 0.1, 0.1, 0.1, 1.0 );
     glClear( GL_COLOR_BUFFER_BIT );
 
-    m_sprite.render( m_renderer, RenderStates() );
-    m_sprite2.render( m_renderer, RenderStates() );
+    m_sprite.draw( m_renderer, RenderStates() );
+    m_sprite2.draw( m_renderer, RenderStates() );
 
     SDL_GL_SwapWindow( m_window );
 }

@@ -21,7 +21,7 @@ bool Renderer::init() {
     glBindBuffer( GL_ARRAY_BUFFER, m_vbo );
     glBufferData( GL_ARRAY_BUFFER,
                   m_vertexCache.size() * sizeof( Vertex ),
-                 m_vertexCache.data(),
+                  m_vertexCache.data(),
                   GL_DYNAMIC_DRAW );
 
     glBindVertexArray( m_vao );
@@ -72,7 +72,7 @@ void Renderer::close() {
     }
 }
 
-void Renderer::render( const VertexArray& vertices, const RenderStates& states ) const {
+void Renderer::draw( const VertexArray& vertices, const RenderStates& states ) const {
     // Nothing to draw
     if( vertices.size() == 0 ) {
         return;

@@ -13,26 +13,18 @@ namespace bb {
 Sprite::Sprite()
 {
     m_vertices.resize( 6 );
-    m_vertices[ 0 ] = Vertex( Vec2f( 0.0, 1.0 ), Color::Red, Vec2f() );
+    m_vertices[ 0 ] = Vertex( Vec2f( 0.0, 1.0 ), Color::White, Vec2f() );
     m_vertices[ 1 ] = Vertex( Vec2f( 1.0, 0.0 ), Color::White, Vec2f() );
     m_vertices[ 2 ] = Vertex( Vec2f( 0.0, 0.0 ), Color::White, Vec2f() );
     m_vertices[ 3 ] = Vertex( Vec2f( 0.0, 1.0 ), Color::White, Vec2f() );
     m_vertices[ 4 ] = Vertex( Vec2f( 1.0, 1.0 ), Color::White, Vec2f() );
     m_vertices[ 5 ] = Vertex( Vec2f( 1.0, 0.0 ), Color::White, Vec2f() );
-
-//        Vertex( Vec2f( 0.0, 1.0 ), Color::White, Vec2f() ), // Vertex 0
-//        Vertex( Vec2f( 1.0, 0.0 ), Color::White, Vec2f() ), // Vertex 1
-//        Vertex( Vec2f( 0.0, 0.0 ), Color::White, Vec2f() ), // Vertex 2
-//
-//        Vertex( Vec2f( 0.0, 1.0 ), Color::White, Vec2f() ), // Vertex 0
-//        Vertex( Vec2f( 1.0, 1.0 ), Color::White, Vec2f() ), // Vertex 2
-//        Vertex( Vec2f( 1.0, 0.0 ), Color::White, Vec2f() ), // Vertex 3
 }
 
-void Sprite::render( Renderer& renderer, RenderStates states ) const {
+void Sprite::draw( Renderer& renderer, RenderStates states ) const {
     states.transform *= getMatrix();
 
-    renderer.render( m_vertices, states );
+    renderer.draw( m_vertices, states );
 
 //    if( s_spriteVAO == 0 ) {
 //        return;
