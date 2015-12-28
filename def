@@ -1,0 +1,8 @@
+[display]
+multi-sampling=true
+output-framerate=60
+viewport=1280x756
+
+[gource]
+auto-skip-seconds=0.5
+

@@ -11,10 +11,14 @@ public:
 
     virtual void draw( Renderer& renderer, RenderStates states ) const;
 
+    void setColor( const Color& color );
+    const Color& getColor() const;
+
+    VertexArray& getVertices();
+
 protected:
     VertexArray m_vertices;
-
-private:
+    Color m_color;
 
 
 };

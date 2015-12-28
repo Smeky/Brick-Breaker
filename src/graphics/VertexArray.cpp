@@ -25,7 +25,11 @@ const Vertex* VertexArray::data() const {
     return m_vertices.data();
 }
 
-const std::vector<Vertex>& VertexArray::getVertices() const {
+std::vector<Vertex>& VertexArray::getVector() {
+    return m_vertices;
+}
+
+const std::vector<Vertex>& VertexArray::getVector() const {
     return m_vertices;
 }
 

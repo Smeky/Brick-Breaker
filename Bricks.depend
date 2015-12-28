@@ -386,20 +386,20 @@
 	<iostream>
 	<Vector4.hpp>
 
-1451319098 source:c:\programming\bricks\src\graphics\rectshape.cpp
+1451332282 source:c:\programming\bricks\src\graphics\rectshape.cpp
 	"RectShape.hpp"
 
 1451319101 c:\programming\bricks\src\graphics\rectshape.hpp
 	<Shape.hpp>
 
-1451319346 c:\programming\bricks\src\graphics\shape.hpp
+1451331594 c:\programming\bricks\src\graphics\shape.hpp
 	<Drawable.hpp>
 	<Transformable.hpp>
 
 1451243006 c:\programming\bricks\src\graphics\idrawable.hpp
 	<stdint-gcc.h>
 
-1451319530 source:c:\programming\bricks\src\graphics\shape.cpp
+1451331614 source:c:\programming\bricks\src\graphics\shape.cpp
 	"Shape.hpp"
 
 1451159253 source:c:\programming\bricks\src\core\transformable.cpp
@@ -413,17 +413,16 @@
 1450819651 c:\programming\bricks\src\core\macros.hpp
 	<iostream>
 
-1451321665 source:c:\programming\bricks\src\game\game.cpp
+1451332314 source:c:\programming\bricks\src\game\game.cpp
 	"Game.hpp"
 	<GL/glew.h>
 	<SDL2/SDL_opengl.h>
 	<GL/glu.h>
 	<Macros.hpp>
-	<Sprite.hpp>
 
-1451322393 c:\programming\bricks\src\game\game.hpp
+1451331484 c:\programming\bricks\src\game\game.hpp
 	<SDL2/SDL.h>
-	<Sprite.hpp>
+	<RectShape.hpp>
 	<Renderer.hpp>
 	<Clock.hpp>
 
@@ -472,7 +471,7 @@
 	<Drawable.hpp>
 	<VertexArray.hpp>
 
-1451319462 source:c:\programming\bricks\src\graphics\renderer.cpp
+1451332297 source:c:\programming\bricks\src\graphics\renderer.cpp
 	"Renderer.hpp"
 	<GL/glew.h>
 	<RenderStates.hpp>
@@ -488,10 +487,10 @@
 1451243009 source:c:\programming\bricks\src\graphics\idrawable.cpp
 	"IDrawable.hpp"
 
-1451258132 source:c:\programming\bricks\src\graphics\vertexarray.cpp
+1451331464 source:c:\programming\bricks\src\graphics\vertexarray.cpp
 	"VertexArray.hpp"
 
-1451258107 c:\programming\bricks\src\graphics\vertexarray.hpp
+1451332334 c:\programming\bricks\src\graphics\vertexarray.hpp
 	<vector>
 	<Vertex.hpp>
 
@@ -506,7 +505,7 @@
 	<Shader.hpp>
 	<Matrix4.hpp>
 
-1451322068 source:c:\programming\bricks\src\core\time.cpp
+1451322554 source:c:\programming\bricks\src\core\time.cpp
 	"Time.hpp"
 	<iomanip>
 

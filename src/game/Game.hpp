@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SDL2/SDL.h>
-#include <Sprite.hpp>
+#include <RectShape.hpp>
 #include <Renderer.hpp>
 #include <Clock.hpp>
 
@@ -27,8 +27,8 @@ private:
     static SDL_Window* m_window;
     static bool m_running;
 
-    Sprite m_sprite;
-    Sprite m_sprite2;
+    RectShape m_s1;
+    RectShape m_s2;
 
     Renderer m_renderer;
 

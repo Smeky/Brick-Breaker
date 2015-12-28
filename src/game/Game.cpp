@@ -6,8 +6,6 @@
 
 #include <Macros.hpp>
 
-#include <Sprite.hpp>
-
 namespace bb {
 
 const int wWindow = 1024;
@@ -67,11 +65,15 @@ bool Game::init() {
         return false;
     }
 
-    m_sprite.setPos( { 100, 100 } );
-    m_sprite.setSize( { 100, 100 } );
+    m_s1.setPos( { 100, 100 } );
+    m_s1.setSize( { 100, 100 } );
 
-    m_sprite2.setPos( { 300, 100 } );
-    m_sprite2.setSize( { 100, 100 } );
+    m_s2.setPos( { 300, 100 } );
+    m_s2.setSize( { 100, 100 } );
+
+    m_s1.setColor( Color::Red );
+    m_s1.getVertices()[ 0 ].color = Color::Yellow;
+    m_s1.getVertices()[ 2 ].color = Color::Yellow;
 
     m_runClock.restart();
 
@@ -126,8 +128,8 @@ void Game::render() {
     glClearColor( 0.1, 0.1, 0.1, 1.0 );
     glClear( GL_COLOR_BUFFER_BIT );
 
-    m_sprite.draw( m_renderer, RenderStates() );
-    m_sprite2.draw( m_renderer, RenderStates() );
+    m_s1.draw( m_renderer, RenderStates() );
+    m_s2.draw( m_renderer, RenderStates() );
 
     SDL_GL_SwapWindow( m_window );
 }

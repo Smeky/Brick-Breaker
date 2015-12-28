@@ -5,7 +5,7 @@
 
 namespace bb {
 
-class VertexArray {
+struct VertexArray {
 public:
     VertexArray();
 
@@ -16,7 +16,8 @@ public:
     size_t size() const;
     const Vertex* data() const;
 
-    const std::vector<Vertex>& getVertices() const;
+    std::vector<Vertex>& getVector();
+    const std::vector<Vertex>& getVector() const;
 
 private:
     std::vector<Vertex> m_vertices;

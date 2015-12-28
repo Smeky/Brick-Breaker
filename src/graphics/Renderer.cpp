@@ -123,7 +123,7 @@ void Renderer::draw( const VertexArray& vertices, const RenderStates& states ) c
     shader->setUniform( "u_model", states.transform );
     shader->setUniform( "u_projection", ortho( 0, 1024, 576, 0 ) );
 
-    glDrawArrays( GL_TRIANGLES, 0, vertices.size() );
+    glDrawArrays( GL_QUADS, 0, vertices.size() );
 
     shader->stopUsing();
     glBindBuffer( GL_ARRAY_BUFFER, 0 );
