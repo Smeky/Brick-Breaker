@@ -399,7 +399,7 @@
 1451243006 c:\programming\bricks\src\graphics\idrawable.hpp
 	<stdint-gcc.h>
 
-1450904972 source:c:\programming\bricks\src\graphics\shape.cpp
+1451319530 source:c:\programming\bricks\src\graphics\shape.cpp
 	"Shape.hpp"
 
 1451159253 source:c:\programming\bricks\src\core\transformable.cpp
@@ -504,4 +504,12 @@
 1451319416 c:\programming\bricks\src\graphics\renderstates.hpp
 	<Shader.hpp>
 	<Matrix4.hpp>
+
+1451321538 source:c:\programming\bricks\src\core\time.cpp
+	"Time.hpp"
+	<iomanip>
+
+1451321522 c:\programming\bricks\src\core\time.hpp
+	<stdint-gcc.h>
+	<ostream>
 

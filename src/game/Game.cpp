@@ -19,6 +19,7 @@ bool Game::m_running = false;
 Game::Game()
 {}
 
+
 bool Game::init() {
     if( SDL_Init( SDL_INIT_EVERYTHING ) != 0 ) {
         ERROR_PRINT( SDL_GetError() );
