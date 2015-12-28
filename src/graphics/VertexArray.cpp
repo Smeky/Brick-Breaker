@@ -3,6 +3,7 @@
 namespace bb {
 
 VertexArray::VertexArray()
+: m_primitiveType( PrimitiveType::PType_Triangles )
 {}
 
 Vertex& VertexArray::operator[]( uint32_t index ) {
@@ -31,6 +32,14 @@ std::vector<Vertex>& VertexArray::getVector() {
 
 const std::vector<Vertex>& VertexArray::getVector() const {
     return m_vertices;
+}
+
+void VertexArray::setPrimitiveType( PrimitiveType type ) {
+    m_primitiveType = type;
+}
+
+PrimitiveType VertexArray::getPrimitiveType() const {
+    return m_primitiveType;
 }
 
 } // namespace bb

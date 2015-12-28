@@ -471,7 +471,7 @@
 	<Drawable.hpp>
 	<VertexArray.hpp>
 
-1451332297 source:c:\programming\bricks\src\graphics\renderer.cpp
+1451335162 source:c:\programming\bricks\src\graphics\renderer.cpp
 	"Renderer.hpp"
 	<GL/glew.h>
 	<RenderStates.hpp>
@@ -487,12 +487,13 @@
 1451243009 source:c:\programming\bricks\src\graphics\idrawable.cpp
 	"IDrawable.hpp"
 
-1451331464 source:c:\programming\bricks\src\graphics\vertexarray.cpp
+1451335156 source:c:\programming\bricks\src\graphics\vertexarray.cpp
 	"VertexArray.hpp"
 
-1451332334 c:\programming\bricks\src\graphics\vertexarray.hpp
+1451334605 c:\programming\bricks\src\graphics\vertexarray.hpp
 	<vector>
 	<Vertex.hpp>
+	<PrimitiveTypes.h>
 
 1451253740 c:\programming\bricks\src\graphics\irenderable.hpp
 	<Renderer.hpp>
@@ -519,4 +520,6 @@
 1451322416 source:c:\programming\bricks\src\core\clock.cpp
 	"Clock.hpp"
 	<SDL2/SDL_timer.h>
+
+1451335017 c:\programming\bricks\src\graphics\primitivetypes.h
 

@@ -2,10 +2,11 @@
 
 #include <vector>
 #include <Vertex.hpp>
+#include <PrimitiveTypes.h>
 
 namespace bb {
 
-struct VertexArray {
+class VertexArray {
 public:
     VertexArray();
 
@@ -19,9 +20,12 @@ public:
     std::vector<Vertex>& getVector();
     const std::vector<Vertex>& getVector() const;
 
+    void setPrimitiveType( PrimitiveType type );
+    PrimitiveType getPrimitiveType() const;
+
 private:
     std::vector<Vertex> m_vertices;
-
+    PrimitiveType m_primitiveType;
 };
 
 } // namespace bb

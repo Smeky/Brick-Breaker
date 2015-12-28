@@ -5,6 +5,19 @@
 
 namespace bb {
 
+const GLenum GLPrimitives[] = {
+    GL_POINTS,
+    GL_LINES,
+    GL_LINE_LOOP,
+    GL_LINE_STRIP,
+    GL_TRIANGLES,
+    GL_TRIANGLE_STRIP,
+    GL_TRIANGLE_FAN,
+    GL_QUADS,
+    GL_QUAD_STRIP,
+    GL_POLYGON
+};
+
 Renderer::Renderer()
 : m_defShader( nullptr )
 , m_vbo( 0 )
@@ -123,7 +136,9 @@ void Renderer::draw( const VertexArray& vertices, const RenderStates& states ) c
     shader->setUniform( "u_model", states.transform );
     shader->setUniform( "u_projection", ortho( 0, 1024, 576, 0 ) );
 
-    glDrawArrays( GL_QUADS, 0, vertices.size() );
+    const GLenum mode = GLPrimitives[ vertices.getPrimitiveType() ];
+
+    glDrawArrays( mode, 0, vertices.size() );
 
     shader->stopUsing();
     glBindBuffer( GL_ARRAY_BUFFER, 0 );
