@@ -2,6 +2,16 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+	<File name="src\core\Clock.hpp" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\core\Clock.cpp" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="src\core\Macros.hpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
@@ -147,5 +157,5 @@
 			<Cursor1 position="291" topLine="0" />
 		</Cursor>
 	</File>
-	<EditorTabsLayout layout="094cae50568155ed0000ba3100000002=0;Bricks:src\math\Matrix4.hpp,1;Bricks:src\math\Vector2.hpp,2;Bricks:src\math\Vector3.hpp,3;Bricks:src\math\Vector4.hpp,4;Bricks:src\graphics\Color.cpp,5;Bricks:src\math\Matrix4.cpp,6;Bricks:src\core\Macros.hpp,*7;Bricks:src\game\Game.cpp,8;Bricks:src\game\Game.hpp,9;Bricks:src\main.cpp,10;Bricks:src\core\Transformable.cpp,11;Bricks:src\core\Transformable.hpp,12;Bricks:src\graphics\Shader.cpp,13;Bricks:src\graphics\Shader.hpp,14;Bricks:src\graphics\Color.hpp,15;Bricks:src\graphics\Shape.cpp,16;Bricks:src\graphics\Shape.hpp,17;Bricks:src\graphics\RectShape.cpp,18;Bricks:src\graphics\RectShape.hpp,19;Bricks:src\graphics\Sprite.hpp,20;Bricks:src\graphics\Sprite.cpp,21;Bricks:src\graphics\Renderer.hpp,22;Bricks:src\graphics\Renderer.cpp,23;Bricks:src\graphics\Vertex.hpp,24;Bricks:src\graphics\VertexArray.hpp,25;Bricks:src\graphics\VertexArray.cpp,26;Bricks:src\graphics\Drawable.hpp,27;Bricks:src\graphics\RenderStates.hpp,28;Bricks:src\core\Time.hpp,29;Bricks:src\core\Time.cpp@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=409;besth=356;minw=409;minh=356;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=094cae50568155ed0000ba3100000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
+	<EditorTabsLayout layout="094cae50568155ed0000ba3100000002=0;Bricks:src\math\Matrix4.hpp,1;Bricks:src\math\Vector2.hpp,2;Bricks:src\math\Vector3.hpp,3;Bricks:src\math\Vector4.hpp,4;Bricks:src\graphics\Color.cpp,5;Bricks:src\math\Matrix4.cpp,6;Bricks:src\core\Macros.hpp,*7;Bricks:src\game\Game.cpp,8;Bricks:src\game\Game.hpp,9;Bricks:src\main.cpp,10;Bricks:src\core\Transformable.cpp,11;Bricks:src\core\Transformable.hpp,12;Bricks:src\graphics\Shader.cpp,13;Bricks:src\graphics\Shader.hpp,14;Bricks:src\graphics\Color.hpp,15;Bricks:src\graphics\Shape.cpp,16;Bricks:src\graphics\Shape.hpp,17;Bricks:src\graphics\RectShape.cpp,18;Bricks:src\graphics\RectShape.hpp,19;Bricks:src\graphics\Sprite.hpp,20;Bricks:src\graphics\Sprite.cpp,21;Bricks:src\graphics\Renderer.hpp,22;Bricks:src\graphics\Renderer.cpp,23;Bricks:src\graphics\Vertex.hpp,24;Bricks:src\graphics\VertexArray.hpp,25;Bricks:src\graphics\VertexArray.cpp,26;Bricks:src\graphics\Drawable.hpp,27;Bricks:src\graphics\RenderStates.hpp,28;Bricks:src\core\Time.hpp,29;Bricks:src\core\Time.cpp,30;Bricks:src\core\Clock.hpp,31;Bricks:src\core\Clock.cpp@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=409;besth=356;minw=409;minh=356;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=094cae50568155ed0000ba3100000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
 </CodeBlocks_layout_file>

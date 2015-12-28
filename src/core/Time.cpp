@@ -44,8 +44,16 @@ Time& Time::operator-=( Time other ) {
     return ( *this = (*this) - other );
 }
 
+Time Time::fromMilliseconds( uint32_t ms ) {
+    Time t;
+
+    t.setMilliseconds( ms );
+
+    return t;
+}
+
 std::ostream& operator<<( std::ostream& os, Time time ) {
-    return os << std::fixed << std::setprecision( 2 ) << time.seconds << "s";
+    return os << std::fixed << std::setprecision( 3 ) << time.seconds << "s";
 }
 
 } // namespace bb

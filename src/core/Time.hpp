@@ -20,6 +20,8 @@ struct Time {
     Time operator-( Time other ) const;
     Time& operator+=( Time other );
     Time& operator-=( Time other );
+
+    static Time fromMilliseconds( uint32_t ms );
 };
 
 std::ostream& operator<<( std::ostream& os, Time time );

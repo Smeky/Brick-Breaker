@@ -73,6 +73,8 @@ bool Game::init() {
     m_sprite2.setPos( { 300, 100 } );
     m_sprite2.setSize( { 100, 100 } );
 
+    m_runClock.restart();
+
     return true;
 }
 
@@ -117,7 +119,7 @@ void Game::handleInput() {
 }
 
 void Game::update() {
-
+    Time delta = m_runClock.restart();
 }
 
 void Game::render() {

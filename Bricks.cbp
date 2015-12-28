@@ -61,6 +61,8 @@
 			<Add directory="../_libs/SDL2_mixer-2.0.0/i686-w64-mingw32/lib" />
 			<Add directory="../_libs/glew/lib" />
 		</Linker>
+		<Unit filename="src/core/Clock.cpp" />
+		<Unit filename="src/core/Clock.hpp" />
 		<Unit filename="src/core/Macros.hpp" />
 		<Unit filename="src/core/Time.cpp" />
 		<Unit filename="src/core/Time.hpp" />

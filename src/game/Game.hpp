@@ -3,6 +3,7 @@
 #include <SDL2/SDL.h>
 #include <Sprite.hpp>
 #include <Renderer.hpp>
+#include <Clock.hpp>
 
 namespace bb {
 
@@ -30,6 +31,8 @@ private:
     Sprite m_sprite2;
 
     Renderer m_renderer;
+
+    Clock m_runClock;
 };
 
 } // namespace bb
