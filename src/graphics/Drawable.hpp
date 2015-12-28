@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Renderer.hpp>
+#include <RenderStates.hpp>
 
 namespace bb {
 

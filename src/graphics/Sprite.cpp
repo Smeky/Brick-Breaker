@@ -1,8 +1,5 @@
 #include "Sprite.hpp"
 
-#include <GL/glew.h>
-#include <Vertex.hpp>
-
 namespace bb {
 
 Sprite::Sprite()

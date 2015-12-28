@@ -71,6 +71,7 @@
 		<Unit filename="src/graphics/Drawable.hpp" />
 		<Unit filename="src/graphics/RectShape.cpp" />
 		<Unit filename="src/graphics/RectShape.hpp" />
+		<Unit filename="src/graphics/RenderStates.hpp" />
 		<Unit filename="src/graphics/Renderer.cpp" />
 		<Unit filename="src/graphics/Renderer.hpp" />
 		<Unit filename="src/graphics/Shader.cpp" />

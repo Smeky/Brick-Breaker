@@ -392,7 +392,7 @@
 1451319101 c:\programming\bricks\src\graphics\rectshape.hpp
 	<Shape.hpp>
 
-1451319120 c:\programming\bricks\src\graphics\shape.hpp
+1451319346 c:\programming\bricks\src\graphics\shape.hpp
 	<Drawable.hpp>
 	<Transformable.hpp>
 
@@ -463,29 +463,22 @@
 	<Vector2.hpp>
 	<Matrix3.hpp>
 
-1451318962 source:c:\programming\bricks\src\graphics\sprite.cpp
+1451319324 source:c:\programming\bricks\src\graphics\sprite.cpp
 	"Sprite.hpp"
-	<GL/glew.h>
-	<Vertex.hpp>
-	<game/Game.hpp>
-	<Color.hpp>
-	<Renderer.hpp>
 
-1451318956 c:\programming\bricks\src\graphics\sprite.hpp
+1451319315 c:\programming\bricks\src\graphics\sprite.hpp
 	<Transformable.hpp>
 	<Drawable.hpp>
 	<VertexArray.hpp>
-	<stdint-gcc.h>
 
-1451318972 source:c:\programming\bricks\src\graphics\renderer.cpp
+1451319462 source:c:\programming\bricks\src\graphics\renderer.cpp
 	"Renderer.hpp"
 	<GL/glew.h>
+	<RenderStates.hpp>
 
-1451318978 c:\programming\bricks\src\graphics\renderer.hpp
+1451319509 c:\programming\bricks\src\graphics\renderer.hpp
 	<stdint-gcc.h>
 	<VertexArray.hpp>
-	<Shader.hpp>
-	<Matrix4.hpp>
 
 1451227579 c:\programming\bricks\src\graphics\vertex.hpp
 	<Vector2.hpp>
@@ -504,6 +497,11 @@
 1451253740 c:\programming\bricks\src\graphics\irenderable.hpp
 	<Renderer.hpp>
 
-1451318952 c:\programming\bricks\src\graphics\drawable.hpp
+1451319524 c:\programming\bricks\src\graphics\drawable.hpp
 	<Renderer.hpp>
+	<RenderStates.hpp>
+
+1451319416 c:\programming\bricks\src\graphics\renderstates.hpp
+	<Shader.hpp>
+	<Matrix4.hpp>
 

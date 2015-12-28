@@ -3,16 +3,10 @@
 #include <stdint-gcc.h>
 #include <VertexArray.hpp>
 
-
-#include <Shader.hpp>
-#include <Matrix4.hpp>
-
 namespace bb {
 
-struct RenderStates {
-    Shader* shader = nullptr;
-    Matrix4 transform;
-};
+struct RenderStates;
+class Shader;
 
 class Renderer {
 public:
@@ -22,8 +16,6 @@ public:
     void close();
 
     void draw( const VertexArray& vertices, const RenderStates& states ) const;
-
-//    static uint32_t createVAO( uint32_t size, const Vertex* vertices );
 
 private:
     Shader* m_defShader; // Default shader

@@ -9,7 +9,7 @@ class Shape : public Drawable, public Transformable {
 public:
     Shape();
 
-    virtual void draw( Renderer& renderer, RenderStates states ) const {}
+    virtual void draw( Renderer& renderer, RenderStates states ) const;
 
 protected:
     VertexArray m_vertices;

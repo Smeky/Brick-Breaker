@@ -3,7 +3,6 @@
 #include <Transformable.hpp>
 #include <Drawable.hpp>
 #include <VertexArray.hpp>
-#include <stdint-gcc.h>
 
 namespace bb {
 
