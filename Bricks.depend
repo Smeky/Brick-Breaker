@@ -491,10 +491,10 @@
 1451335381 source:c:\programming\bricks\src\graphics\vertexarray.cpp
 	"VertexArray.hpp"
 
-1451335343 c:\programming\bricks\src\graphics\vertexarray.hpp
+1451425576 c:\programming\bricks\src\graphics\vertexarray.hpp
 	<vector>
 	<Vertex.hpp>
-	<PrimitiveTypes.h>
+	<PrimitiveTypes.hpp>
 
 1451253740 c:\programming\bricks\src\graphics\irenderable.hpp
 	<Renderer.hpp>
@@ -524,7 +524,7 @@
 
 1451335017 c:\programming\bricks\src\graphics\primitivetypes.h
 
-1451424903 source:c:\programming\bricks\src\game\levelstate.cpp
+1451425353 source:c:\programming\bricks\src\game\levelstate.cpp
 	"LevelState.hpp"
 	<Macros.hpp>
 	<Keyboard.hpp>
@@ -570,4 +570,6 @@
 
 1451424919 source:c:\programming\bricks\src\game\brick.cpp
 	"Brick.hpp"
+
+1451335017 c:\programming\bricks\src\graphics\primitivetypes.hpp
 

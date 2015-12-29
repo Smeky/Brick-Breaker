@@ -2,7 +2,7 @@
 
 #include <vector>
 #include <Vertex.hpp>
-#include <PrimitiveTypes.h>
+#include <PrimitiveTypes.hpp>
 
 namespace bb {
 
