@@ -7,6 +7,8 @@
 
 namespace bb {
 
+class IGameState;
+
 class Game {
 public:
     Game();
@@ -33,6 +35,8 @@ private:
     Renderer m_renderer;
 
     Clock m_runClock;
+
+    IGameState* m_gameState;
 };
 
 } // namespace bb

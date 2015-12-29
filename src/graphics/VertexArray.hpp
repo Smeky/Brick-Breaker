@@ -9,6 +9,7 @@ namespace bb {
 class VertexArray {
 public:
     VertexArray();
+    VertexArray( PrimitiveType type, uint32_t size = 0 );
 
     Vertex& operator[]( uint32_t index );
     const Vertex& operator[]( uint32_t index ) const;

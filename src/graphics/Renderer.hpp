@@ -2,10 +2,10 @@
 
 #include <stdint-gcc.h>
 #include <VertexArray.hpp>
+#include <RenderStates.hpp>
 
 namespace bb {
 
-struct RenderStates;
 class Shader;
 
 class Renderer {
@@ -15,7 +15,7 @@ public:
     bool init();
     void close();
 
-    void draw( const VertexArray& vertices, const RenderStates& states ) const;
+    void draw( const VertexArray& vertices, const RenderStates& states = RenderStates() ) const;
 
 private:
     Shader* m_defShader; // Default shader

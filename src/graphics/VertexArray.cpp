@@ -6,6 +6,14 @@ VertexArray::VertexArray()
 : m_primitiveType( PrimitiveType::PType_Triangles )
 {}
 
+VertexArray::VertexArray( PrimitiveType type, uint32_t size /* = 0 */ )
+: m_primitiveType( type )
+{
+    if( size != 0 ) {
+        resize( size );
+    }
+}
+
 Vertex& VertexArray::operator[]( uint32_t index ) {
     return m_vertices[ index ];
 }

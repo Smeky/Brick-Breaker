@@ -5,6 +5,7 @@
 #include <GL/glu.h>
 
 #include <Macros.hpp>
+#include <LevelState.hpp>
 
 namespace bb {
 
@@ -15,8 +16,8 @@ SDL_Window* Game::m_window = nullptr;
 bool Game::m_running = false;
 
 Game::Game()
+: m_gameState( nullptr )
 {}
-
 
 bool Game::init() {
     if( SDL_Init( SDL_INIT_EVERYTHING ) != 0 ) {
@@ -77,6 +78,9 @@ bool Game::init() {
 
     m_runClock.restart();
 
+    m_gameState = new LevelState();
+    m_gameState->init();
+
     return true;
 }
 
@@ -99,6 +103,12 @@ void Game::close() {
 /* Private */
 
 void Game::onClose() {
+    if( m_gameState ) {
+        m_gameState->close();
+
+        delete m_gameState;
+    }
+
     m_renderer.close();
 
     SDL_DestroyWindow( m_window );
@@ -117,19 +127,33 @@ void Game::handleInput() {
                 close();
             }
         }
+
+        if( m_gameState ) {
+            m_gameState->handleInput( event );
+        }
     }
 }
 
 void Game::update() {
     Time delta = m_runClock.restart();
+
+    if( m_gameState ) {
+        m_gameState->update( delta );
+    }
 }
 
 void Game::render() {
     glClearColor( 0.1, 0.1, 0.1, 1.0 );
     glClear( GL_COLOR_BUFFER_BIT );
 
-    m_s1.draw( m_renderer, RenderStates() );
-    m_s2.draw( m_renderer, RenderStates() );
+    RenderStates defRenderStates;
+
+    if( m_gameState ) {
+        m_gameState->render( m_renderer, defRenderStates );
+    }
+
+    m_s1.draw( m_renderer, defRenderStates );
+    m_s2.draw( m_renderer, defRenderStates );
 
     SDL_GL_SwapWindow( m_window );
 }

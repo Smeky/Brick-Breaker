@@ -1,7 +1,6 @@
 #include "Renderer.hpp"
 
 #include <GL/glew.h>
-#include <RenderStates.hpp>
 
 namespace bb {
 
@@ -86,7 +85,7 @@ void Renderer::close() {
     }
 }
 
-void Renderer::draw( const VertexArray& vertices, const RenderStates& states ) const {
+void Renderer::draw( const VertexArray& vertices, const RenderStates& states /* = RenderStates() */ ) const {
     // Nothing to draw
     if( vertices.size() == 0 ) {
         return;

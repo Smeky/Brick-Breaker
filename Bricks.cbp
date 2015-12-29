@@ -18,6 +18,7 @@
 					<Add directory="src/graphics" />
 					<Add directory="src/math" />
 					<Add directory="src/core" />
+					<Add directory="src/game" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -31,6 +32,7 @@
 					<Add directory="src/graphics" />
 					<Add directory="src/math" />
 					<Add directory="src/core" />
+					<Add directory="src/game" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -63,6 +65,7 @@
 		</Linker>
 		<Unit filename="src/core/Clock.cpp" />
 		<Unit filename="src/core/Clock.hpp" />
+		<Unit filename="src/core/IGameState.hpp" />
 		<Unit filename="src/core/Macros.hpp" />
 		<Unit filename="src/core/Time.cpp" />
 		<Unit filename="src/core/Time.hpp" />
@@ -70,6 +73,8 @@
 		<Unit filename="src/core/Transformable.hpp" />
 		<Unit filename="src/game/Game.cpp" />
 		<Unit filename="src/game/Game.hpp" />
+		<Unit filename="src/game/LevelState.cpp" />
+		<Unit filename="src/game/LevelState.hpp" />
 		<Unit filename="src/graphics/Color.cpp" />
 		<Unit filename="src/graphics/Color.hpp" />
 		<Unit filename="src/graphics/Drawable.hpp" />
