@@ -44,12 +44,20 @@ Time& Time::operator-=( Time other ) {
     return ( *this = (*this) - other );
 }
 
+float Time::operator*( float f ) const {
+    return seconds * f;
+}
+
 Time Time::fromMilliseconds( uint32_t ms ) {
     Time t;
 
     t.setMilliseconds( ms );
 
     return t;
+}
+
+float operator*( float f, Time t ) {
+    return f * t.seconds;
 }
 
 std::ostream& operator<<( std::ostream& os, Time time ) {

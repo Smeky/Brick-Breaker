@@ -65,16 +65,6 @@ bool Game::init() {
         return false;
     }
 
-    m_s1.setPos( { 100, 100 } );
-    m_s1.setSize( { 100, 100 } );
-
-    m_s2.setPos( { 300, 100 } );
-    m_s2.setSize( { 100, 100 } );
-
-    m_s1.setColor( Color::Red );
-    m_s1.getVertices()[ 0 ].color = Color::Yellow;
-    m_s1.getVertices()[ 2 ].color = Color::Yellow;
-
     m_runClock.restart();
 
     m_gameState = new LevelState( *this );
@@ -97,6 +87,14 @@ void Game::run() {
 
 void Game::close() {
     m_running = false;
+}
+
+Vec2i Game::getWindowSize() const {
+    Vec2i size;
+
+    SDL_GetWindowSize( m_window, &size.x, &size.y );
+
+    return size;
 }
 
 /* Private */
@@ -150,9 +148,6 @@ void Game::render() {
     if( m_gameState ) {
         m_gameState->render( m_renderer, defRenderStates );
     }
-
-    m_s1.draw( m_renderer, defRenderStates );
-    m_s2.draw( m_renderer, defRenderStates );
 
     SDL_GL_SwapWindow( m_window );
 }

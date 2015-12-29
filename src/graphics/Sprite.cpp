@@ -13,7 +13,7 @@ Sprite::Sprite()
     m_vertices.setPrimitiveType( PrimitiveType::PType_Quads );
 }
 
-void Sprite::draw( Renderer& renderer, RenderStates states ) const {
+void Sprite::draw( const Renderer& renderer, RenderStates states ) const {
     states.transform *= getMatrix();
 
     renderer.draw( m_vertices, states );

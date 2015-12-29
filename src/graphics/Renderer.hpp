@@ -7,6 +7,7 @@
 namespace bb {
 
 class Shader;
+class Drawable;
 
 class Renderer {
 public:
@@ -15,6 +16,7 @@ public:
     bool init();
     void close();
 
+    void draw( const Drawable& drawable, const RenderStates& states ) const;
     void draw( const VertexArray& vertices, const RenderStates& states = RenderStates() ) const;
 
 private:

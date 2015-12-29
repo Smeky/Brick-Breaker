@@ -46,6 +46,18 @@ void Transformable::setSize( const Vec2f& size ) {
     m_isUpdateMatrix = true;
 }
 
+void Transformable::setSize( float w, float h ) {
+    setSize( { w, h } );
+}
+
+void Transformable::setSize( float wh ) {
+    setPos( { wh, wh } );
+}
+
+Vec2f Transformable::getSize() const {
+    return m_size;
+}
+
 const Matrix4& Transformable::getMatrix() const {
     if( m_isUpdateMatrix ) {
         m_matrix = Matrix4();

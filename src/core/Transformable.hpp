@@ -21,6 +21,9 @@ public:
     void setOrigin( const Vec2f& origin ) { m_origin = origin; m_isUpdateMatrix = true; }
 
     void setSize( const Vec2f& size );
+    void setSize( float w, float h );
+    void setSize( float wh );
+    Vec2f getSize() const;
 
     void setRotation( float degrees ) { m_rotation = degrees; m_isUpdateMatrix = true; }
 

@@ -9,7 +9,7 @@ class Drawable {;
 public:
     virtual ~Drawable() {};
 
-    virtual void draw( Renderer& renderer, RenderStates states ) const = 0;
+    virtual void draw( const Renderer& renderer, RenderStates states ) const = 0;
 };
 
 } // namespace bb

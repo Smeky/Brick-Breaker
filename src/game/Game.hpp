@@ -1,7 +1,6 @@
 #pragma once
 
 #include <SDL2/SDL.h>
-#include <RectShape.hpp>
 #include <Renderer.hpp>
 #include <Clock.hpp>
 
@@ -18,6 +17,8 @@ public:
 
     void close();
 
+    Vec2i getWindowSize() const;
+
 private:
     void onClose();
 
@@ -28,9 +29,6 @@ private:
 private:
     SDL_Window* m_window;
     bool m_running;
-
-    RectShape m_s1;
-    RectShape m_s2;
 
     Renderer m_renderer;
 

@@ -9,7 +9,7 @@ class Shape : public Drawable, public Transformable {
 public:
     Shape();
 
-    virtual void draw( Renderer& renderer, RenderStates states ) const;
+    virtual void draw( const Renderer& renderer, RenderStates states ) const;
 
     void setColor( const Color& color );
     const Color& getColor() const;

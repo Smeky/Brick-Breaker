@@ -1,6 +1,7 @@
 #include "Renderer.hpp"
 
 #include <GL/glew.h>
+#include <Drawable.hpp>
 
 namespace bb {
 
@@ -83,6 +84,10 @@ void Renderer::close() {
         delete m_defShader;
         m_defShader = nullptr;
     }
+}
+
+void Renderer::draw( const Drawable& drawble, const RenderStates& states ) const {
+    drawble.draw( *this, states );
 }
 
 void Renderer::draw( const VertexArray& vertices, const RenderStates& states /* = RenderStates() */ ) const {

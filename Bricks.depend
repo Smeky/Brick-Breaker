@@ -392,28 +392,28 @@
 1451319101 c:\programming\bricks\src\graphics\rectshape.hpp
 	<Shape.hpp>
 
-1451331594 c:\programming\bricks\src\graphics\shape.hpp
+1451421319 c:\programming\bricks\src\graphics\shape.hpp
 	<Drawable.hpp>
 	<Transformable.hpp>
 
 1451243006 c:\programming\bricks\src\graphics\idrawable.hpp
 	<stdint-gcc.h>
 
-1451331614 source:c:\programming\bricks\src\graphics\shape.cpp
+1451421328 source:c:\programming\bricks\src\graphics\shape.cpp
 	"Shape.hpp"
 
-1451159253 source:c:\programming\bricks\src\core\transformable.cpp
+1451421133 source:c:\programming\bricks\src\core\transformable.cpp
 	"Transformable.hpp"
 	<cmath>
 
-1451159264 c:\programming\bricks\src\core\transformable.hpp
+1451420893 c:\programming\bricks\src\core\transformable.hpp
 	<Matrix4.hpp>
 	<Vector2.hpp>
 
 1450819651 c:\programming\bricks\src\core\macros.hpp
 	<iostream>
 
-1451419944 source:c:\programming\bricks\src\game\game.cpp
+1451421026 source:c:\programming\bricks\src\game\game.cpp
 	"Game.hpp"
 	<GL/glew.h>
 	<SDL2/SDL_opengl.h>
@@ -421,9 +421,8 @@
 	<Macros.hpp>
 	<LevelState.hpp>
 
-1451420025 c:\programming\bricks\src\game\game.hpp
+1451421012 c:\programming\bricks\src\game\game.hpp
 	<SDL2/SDL.h>
-	<RectShape.hpp>
 	<Renderer.hpp>
 	<Clock.hpp>
 
@@ -464,19 +463,20 @@
 	<Vector2.hpp>
 	<Matrix3.hpp>
 
-1451335295 source:c:\programming\bricks\src\graphics\sprite.cpp
+1451421332 source:c:\programming\bricks\src\graphics\sprite.cpp
 	"Sprite.hpp"
 
-1451319315 c:\programming\bricks\src\graphics\sprite.hpp
+1451421319 c:\programming\bricks\src\graphics\sprite.hpp
 	<Transformable.hpp>
 	<Drawable.hpp>
 	<VertexArray.hpp>
 
-1451335447 source:c:\programming\bricks\src\graphics\renderer.cpp
+1451421250 source:c:\programming\bricks\src\graphics\renderer.cpp
 	"Renderer.hpp"
 	<GL/glew.h>
+	<Drawable.hpp>
 
-1451335441 c:\programming\bricks\src\graphics\renderer.hpp
+1451421142 c:\programming\bricks\src\graphics\renderer.hpp
 	<stdint-gcc.h>
 	<VertexArray.hpp>
 	<RenderStates.hpp>
@@ -499,7 +499,7 @@
 1451253740 c:\programming\bricks\src\graphics\irenderable.hpp
 	<Renderer.hpp>
 
-1451335543 c:\programming\bricks\src\graphics\drawable.hpp
+1451421281 c:\programming\bricks\src\graphics\drawable.hpp
 	<Renderer.hpp>
 	<RenderStates.hpp>
 
@@ -507,11 +507,11 @@
 	<Shader.hpp>
 	<Matrix4.hpp>
 
-1451322554 source:c:\programming\bricks\src\core\time.cpp
+1451421237 source:c:\programming\bricks\src\core\time.cpp
 	"Time.hpp"
 	<iomanip>
 
-1451322048 c:\programming\bricks\src\core\time.hpp
+1451421233 c:\programming\bricks\src\core\time.hpp
 	<stdint-gcc.h>
 	<ostream>
 
@@ -524,13 +524,15 @@
 
 1451335017 c:\programming\bricks\src\graphics\primitivetypes.h
 
-1451419997 source:c:\programming\bricks\src\game\levelstate.cpp
+1451421887 source:c:\programming\bricks\src\game\levelstate.cpp
 	"LevelState.hpp"
 	<Macros.hpp>
+	<Keyboard.hpp>
 
-1451420014 c:\programming\bricks\src\game\levelstate.hpp
+1451421534 c:\programming\bricks\src\game\levelstate.hpp
 	<IGameState.hpp>
 	<Game.hpp>
+	<Player.hpp>
 
 1451420005 c:\programming\bricks\src\core\igamestate.hpp
 	<SDL2/SDL_events.h>
@@ -541,10 +543,10 @@
 1451398359 c:\programming\bricks\src\core\event.hpp
 	<Keyboard.hpp>
 
-1451391751 c:\programming\bricks\src\core\keyboard.hpp
+1451421741 c:\programming\bricks\src\core\keyboard.hpp
 	<SDL2/SDL_keyboard.h>
 
-1451391834 source:c:\programming\bricks\src\core\keyboard.cpp
+1451421929 source:c:\programming\bricks\src\core\keyboard.cpp
 	"Keyboard.hpp"
 	<SDL2/SDL_events.h>
 
@@ -554,4 +556,10 @@
 
 1451397817 c:\programming\bricks\src\core\input.hpp
 	<Event.hpp>
+
+1451421563 source:c:\programming\bricks\src\game\player.cpp
+	"Player.hpp"
+
+1451421706 c:\programming\bricks\src\game\player.hpp
+	<RectShape.hpp>
 

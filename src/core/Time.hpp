@@ -21,8 +21,12 @@ struct Time {
     Time& operator+=( Time other );
     Time& operator-=( Time other );
 
+    float operator*( float f ) const;
+
     static Time fromMilliseconds( uint32_t ms );
 };
+
+float operator*( float f, Time t );
 
 std::ostream& operator<<( std::ostream& os, Time time );
 

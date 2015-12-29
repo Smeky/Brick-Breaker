@@ -2,6 +2,7 @@
 
 #include <IGameState.hpp>
 #include <Game.hpp>
+#include <Player.hpp>
 
 namespace bb {
 
@@ -17,8 +18,15 @@ public:
     void render( Renderer& renderer, RenderStates states ) const;
 
 private:
+    void setupGrid();
+    void setupPlayer();
+
+    void handlePlayerMovement( Time delta );
+
+private:
     Game& m_game;
 
+    Player m_player;
 };
 
 } // namespace bb

@@ -10,7 +10,7 @@ class Sprite : public Drawable, public Transformable {
 public:
     Sprite();
 
-    void draw( Renderer& renderer, RenderStates states ) const;
+    void draw( const Renderer& renderer, RenderStates states ) const;
 
 private:
     VertexArray m_vertices;

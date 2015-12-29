@@ -80,6 +80,8 @@
 		<Unit filename="src/game/Game.hpp" />
 		<Unit filename="src/game/LevelState.cpp" />
 		<Unit filename="src/game/LevelState.hpp" />
+		<Unit filename="src/game/Player.cpp" />
+		<Unit filename="src/game/Player.hpp" />
 		<Unit filename="src/graphics/Color.cpp" />
 		<Unit filename="src/graphics/Color.hpp" />
 		<Unit filename="src/graphics/Drawable.hpp" />
