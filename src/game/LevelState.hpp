@@ -3,6 +3,9 @@
 #include <IGameState.hpp>
 #include <Game.hpp>
 #include <Player.hpp>
+#include <Brick.hpp>
+
+#include <vector>
 
 namespace bb {
 
@@ -18,8 +21,8 @@ public:
     void render( Renderer& renderer, RenderStates states ) const;
 
 private:
-    void setupGrid();
     void setupPlayer();
+    void setupBricks();
 
     void handlePlayerMovement( Time delta );
 
@@ -27,6 +30,8 @@ private:
     Game& m_game;
 
     Player m_player;
+
+    std::vector<Brick> m_bricks;
 };
 
 } // namespace bb

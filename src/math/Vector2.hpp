@@ -40,6 +40,10 @@ struct Vector2 {
         return Vector2<T>( x + other.x, y + other.y );
     }
     template <typename V>
+    Vector2<T> operator+( V v ) const {
+        return Vector2<T>( x + v, y + v );
+    }
+    template <typename V>
     Vector2<T>& operator+=( const Vector2<V>& other ) {
         x += other.x;
         y += other.y;

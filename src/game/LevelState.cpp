@@ -11,7 +11,7 @@ LevelState::LevelState( Game& game )
 
 void LevelState::init() {
     setupPlayer();
-    setupGrid();
+    setupBricks();
 }
 
 void LevelState::close() {
@@ -28,12 +28,43 @@ void LevelState::update( Time delta ) {
 
 void LevelState::render( Renderer& renderer, RenderStates states ) const {
     renderer.draw( m_player, states );
+
+    for( const Brick& brick : m_bricks ) {
+        renderer.draw( brick, states );
+    }
 }
 
 /* Private */
 
-void LevelState::setupGrid() {
+void LevelState::setupBricks() {
+    const uint8_t height = 7;
+    const uint8_t width = 13;
 
+    const float brickOffset = 2;
+
+    const Vec2f brickSize = Vec2f( 70, 30 );
+    const Vec2f fieldSize = Vec2f( ( brickOffset + brickSize.x ) * width,
+                                   ( brickOffset + brickSize.y ) * height );
+
+    const Vec2i windowSize = m_game.getWindowSize();
+    const Vec2f fieldPos = Vec2f( ( windowSize.x - fieldSize.x ) / 2,
+                                  60 );
+
+    m_bricks.resize( height * width );
+
+    for( uint8_t y = 0; y < height; y++ ) {
+        for( uint8_t x = 0; x < width; x++ ) {
+            Brick brick;
+
+            brick.setSize( brickSize );
+            brick.setPos( fieldPos + Vec2i( x, y ) * ( brickSize + brickOffset ) );
+            brick.setColor( Color::Orange );
+            brick.getVertices()[ 0 ].color = Color::Yellow;
+
+            size_t index = y * width + x;
+            m_bricks[ index ] = brick;
+        }
+    }
 }
 
 void LevelState::setupPlayer() {
