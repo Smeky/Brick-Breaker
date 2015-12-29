@@ -67,6 +67,8 @@
 		<Unit filename="src/core/Clock.hpp" />
 		<Unit filename="src/core/Event.hpp" />
 		<Unit filename="src/core/IGameState.hpp" />
+		<Unit filename="src/core/Input.cpp" />
+		<Unit filename="src/core/Input.hpp" />
 		<Unit filename="src/core/Keyboard.cpp" />
 		<Unit filename="src/core/Keyboard.hpp" />
 		<Unit filename="src/core/Macros.hpp" />

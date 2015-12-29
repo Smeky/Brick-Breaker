@@ -4,7 +4,8 @@
 
 namespace bb {
 
-LevelState::LevelState()
+LevelState::LevelState( Game& game )
+: m_game( game )
 {}
 
 void LevelState::init() {

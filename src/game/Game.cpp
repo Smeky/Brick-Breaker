@@ -6,19 +6,16 @@
 
 #include <Macros.hpp>
 #include <LevelState.hpp>
-#include <Event.hpp>
-#include <Keyboard.hpp>
 
 namespace bb {
 
 const int wWindow = 1024;
 const int hWindow = 576;
 
-SDL_Window* Game::m_window = nullptr;
-bool Game::m_running = false;
-
 Game::Game()
-: m_gameState( nullptr )
+: m_window( nullptr )
+, m_running( false )
+, m_gameState( nullptr )
 {}
 
 bool Game::init() {
@@ -80,7 +77,7 @@ bool Game::init() {
 
     m_runClock.restart();
 
-    m_gameState = new LevelState();
+    m_gameState = new LevelState( *this );
     m_gameState->init();
 
     return true;
@@ -142,9 +139,6 @@ void Game::update() {
     if( m_gameState ) {
         m_gameState->update( delta );
     }
-
-    std::cout << Keyboard::isPressed( Key::A ) << " ";
-    std::cout << (int)( SDL_GetKeyboardState( nullptr )[ SDL_SCANCODE_A ] ) << std::endl;
 }
 
 void Game::render() {

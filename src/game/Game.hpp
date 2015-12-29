@@ -16,7 +16,7 @@ public:
     bool init();
     void run();
 
-    static void close();
+    void close();
 
 private:
     void onClose();
@@ -26,8 +26,8 @@ private:
     void render();
 
 private:
-    static SDL_Window* m_window;
-    static bool m_running;
+    SDL_Window* m_window;
+    bool m_running;
 
     RectShape m_s1;
     RectShape m_s2;

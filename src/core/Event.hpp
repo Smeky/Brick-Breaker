@@ -6,19 +6,24 @@ namespace bb {
 
 struct Event {
     enum Type {
-        Window,
-        Keyboard,
-        MouseMove,
-        MouseButton,
-        MouseWheel,
-        Quit,
+        Unknown,
 
-        KeyPressed,
-        KeyReleased,
+        KeyDown,
+        KeyUp,
+
+        MouseMotion,
+        MouseButtonDown,
+        MouseButtonUp,
+        MouseWheel,
+
+        Quit,
+    };
+
+    union {
+        Key key;
     };
 
     Type type;
-    Key key;
 };
 
 } // namespace bb

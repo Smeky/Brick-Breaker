@@ -1,12 +1,13 @@
 #pragma once
 
 #include <IGameState.hpp>
+#include <Game.hpp>
 
 namespace bb {
 
 class LevelState : public IGameState {
 public:
-    LevelState();
+    LevelState( Game& game );
 
     void init();
     void close();
@@ -16,8 +17,7 @@ public:
     void render( Renderer& renderer, RenderStates states ) const;
 
 private:
-
-
+    Game& m_game;
 
 };
 
