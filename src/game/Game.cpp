@@ -6,6 +6,8 @@
 
 #include <Macros.hpp>
 #include <LevelState.hpp>
+#include <Event.hpp>
+#include <Keyboard.hpp>
 
 namespace bb {
 
@@ -140,6 +142,9 @@ void Game::update() {
     if( m_gameState ) {
         m_gameState->update( delta );
     }
+
+    std::cout << Keyboard::isPressed( Key::A ) << " ";
+    std::cout << (int)( SDL_GetKeyboardState( nullptr )[ SDL_SCANCODE_A ] ) << std::endl;
 }
 
 void Game::render() {

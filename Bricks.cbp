@@ -65,7 +65,10 @@
 		</Linker>
 		<Unit filename="src/core/Clock.cpp" />
 		<Unit filename="src/core/Clock.hpp" />
+		<Unit filename="src/core/Event.hpp" />
 		<Unit filename="src/core/IGameState.hpp" />
+		<Unit filename="src/core/Keyboard.cpp" />
+		<Unit filename="src/core/Keyboard.hpp" />
 		<Unit filename="src/core/Macros.hpp" />
 		<Unit filename="src/core/Time.cpp" />
 		<Unit filename="src/core/Time.hpp" />

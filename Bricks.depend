@@ -413,13 +413,15 @@
 1450819651 c:\programming\bricks\src\core\macros.hpp
 	<iostream>
 
-1451388669 source:c:\programming\bricks\src\game\game.cpp
+1451391789 source:c:\programming\bricks\src\game\game.cpp
 	"Game.hpp"
 	<GL/glew.h>
 	<SDL2/SDL_opengl.h>
 	<GL/glu.h>
 	<Macros.hpp>
 	<LevelState.hpp>
+	<Event.hpp>
+	<Keyboard.hpp>
 
 1451388409 c:\programming\bricks\src\game\game.hpp
 	<SDL2/SDL.h>
@@ -524,8 +526,9 @@
 
 1451335017 c:\programming\bricks\src\graphics\primitivetypes.h
 
-1451388542 source:c:\programming\bricks\src\game\levelstate.cpp
+1451388730 source:c:\programming\bricks\src\game\levelstate.cpp
 	"LevelState.hpp"
+	<Macros.hpp>
 
 1451388706 c:\programming\bricks\src\game\levelstate.hpp
 	<IGameState.hpp>
@@ -535,4 +538,14 @@
 	<Time.hpp>
 	<Renderer.hpp>
 	<RenderStates.hpp>
+
+1451392054 c:\programming\bricks\src\core\event.hpp
+	<Keyboard.hpp>
+
+1451391751 c:\programming\bricks\src\core\keyboard.hpp
+	<SDL2/SDL_keyboard.h>
+
+1451391834 source:c:\programming\bricks\src\core\keyboard.cpp
+	"Keyboard.hpp"
+	<SDL2/SDL_events.h>
 
