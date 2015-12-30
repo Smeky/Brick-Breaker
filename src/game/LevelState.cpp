@@ -38,7 +38,7 @@ void LevelState::render( Renderer& renderer, RenderStates states ) const {
 
 void LevelState::setupBricks() {
     const uint8_t height = 7;
-    const uint8_t width = 13;
+    const uint8_t width = 11;
 
     const float brickOffset = 2;
 
@@ -58,8 +58,10 @@ void LevelState::setupBricks() {
 
             brick.setSize( brickSize );
             brick.setPos( fieldPos + Vec2i( x, y ) * ( brickSize + brickOffset ) );
-            brick.setColor( Color::Orange );
-            brick.getVertices()[ 0 ].color = Color::Yellow;
+            brick.setColor( Color( 60, 125, 190 ) );
+            brick.getVertices()[ 0 ].color = Color( 90, 150, 205 );
+            brick.getVertices()[ 2 ].color = Color( 50, 90, 140 );
+            brick.getVertices()[ 3 ].color = Color( 50, 90, 140 );
 
             size_t index = y * width + x;
             m_bricks[ index ] = brick;

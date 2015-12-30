@@ -6,6 +6,7 @@
 
 #include <Macros.hpp>
 #include <LevelState.hpp>
+#include <CircleShape.hpp>
 
 namespace bb {
 

@@ -84,10 +84,11 @@
 		<Unit filename="src/game/LevelState.hpp" />
 		<Unit filename="src/game/Player.cpp" />
 		<Unit filename="src/game/Player.hpp" />
+		<Unit filename="src/graphics/CircleShape.cpp" />
+		<Unit filename="src/graphics/CircleShape.hpp" />
 		<Unit filename="src/graphics/Color.cpp" />
 		<Unit filename="src/graphics/Color.hpp" />
 		<Unit filename="src/graphics/Drawable.hpp" />
-		<Unit filename="src/graphics/PrimitiveTypes.h" />
 		<Unit filename="src/graphics/PrimitiveTypes.hpp" />
 		<Unit filename="src/graphics/RectShape.cpp" />
 		<Unit filename="src/graphics/RectShape.hpp" />

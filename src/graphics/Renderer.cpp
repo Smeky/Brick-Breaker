@@ -22,7 +22,7 @@ Renderer::Renderer()
 : m_defShader( nullptr )
 , m_vbo( 0 )
 , m_vao( 0 )
-, m_defMaxVertexCount( 32 )
+, m_defMaxVertexCount( 64 )
 , m_maxVertexCount( m_defMaxVertexCount )
 {}
 

@@ -51,7 +51,7 @@ void Transformable::setSize( float w, float h ) {
 }
 
 void Transformable::setSize( float wh ) {
-    setPos( { wh, wh } );
+    setSize( { wh, wh } );
 }
 
 Vec2f Transformable::getSize() const {
