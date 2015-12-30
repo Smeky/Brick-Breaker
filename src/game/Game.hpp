@@ -34,6 +34,8 @@ private:
 
     Clock m_runClock;
 
+    float m_timeAccumulator;
+
     IGameState* m_gameState;
 };
 

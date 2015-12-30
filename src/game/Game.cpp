@@ -13,9 +13,12 @@ namespace bb {
 const int wWindow = 1024;
 const int hWindow = 576;
 
+const float timeStep = 1.0 / 60;
+
 Game::Game()
 : m_window( nullptr )
 , m_running( false )
+, m_timeAccumulator( 0 )
 , m_gameState( nullptr )
 {}
 
@@ -57,11 +60,11 @@ bool Game::init() {
 
     glViewport( 0, 0, wWindow, hWindow );
 
-    if( SDL_GL_SetSwapInterval( -1 ) < 0 ) {
-        if( SDL_GL_SetSwapInterval( 1 ) < 0 ) {
-            ERROR_PRINT( "Failed to enable VSync" );
-        }
-    }
+//    if( SDL_GL_SetSwapInterval( -1 ) < 0 ) {
+//        if( SDL_GL_SetSwapInterval( 1 ) < 0 ) {
+//            ERROR_PRINT( "Failed to enable VSync" );
+//        }
+//    }
 
     if( !m_renderer.init() ) {
         ERROR_PRINT( "Renderer failed to init" );
@@ -135,10 +138,16 @@ void Game::handleInput() {
 }
 
 void Game::update() {
-    Time delta = m_runClock.restart();
+    m_timeAccumulator += m_runClock.restart().seconds;
 
-    if( m_gameState ) {
-        m_gameState->update( delta );
+    while( m_timeAccumulator >= timeStep ) {
+        m_timeAccumulator -= timeStep;
+
+        Time delta = timeStep;
+
+        if( m_gameState ) {
+            m_gameState->update( delta );
+        }
     }
 }
 

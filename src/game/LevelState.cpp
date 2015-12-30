@@ -65,7 +65,7 @@ void LevelState::setupPlayer() {
                      windowSize.y - playerSize.y - 4 );
 
     m_player.setColor( Color::Red );
-    m_player.setVelocity( 1000 );
+    m_player.setVelocity( 200 );
 }
 
 void LevelState::setupBricks() {
