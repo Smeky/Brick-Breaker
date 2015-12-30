@@ -57,8 +57,10 @@ bool Game::init() {
 
     glViewport( 0, 0, wWindow, hWindow );
 
-    if( SDL_GL_SetSwapInterval( 1 ) < 0 ) {
-        ERROR_PRINT( "Failed to enable VSync" );
+    if( SDL_GL_SetSwapInterval( -1 ) < 0 ) {
+        if( SDL_GL_SetSwapInterval( 1 ) < 0 ) {
+            ERROR_PRINT( "Failed to enable VSync" );
+        }
     }
 
     if( !m_renderer.init() ) {

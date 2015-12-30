@@ -76,6 +76,8 @@
 		<Unit filename="src/core/Time.hpp" />
 		<Unit filename="src/core/Transformable.cpp" />
 		<Unit filename="src/core/Transformable.hpp" />
+		<Unit filename="src/game/Ball.cpp" />
+		<Unit filename="src/game/Ball.hpp" />
 		<Unit filename="src/game/Brick.cpp" />
 		<Unit filename="src/game/Brick.hpp" />
 		<Unit filename="src/game/Game.cpp" />

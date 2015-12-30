@@ -4,6 +4,7 @@
 #include <Game.hpp>
 #include <Player.hpp>
 #include <Brick.hpp>
+#include <Ball.hpp>
 
 #include <vector>
 
@@ -24,7 +25,21 @@ private:
     void setupPlayer();
     void setupBricks();
 
+    void givePlayerNewBall();
+    void firePlayerBall();
+
     void handlePlayerMovement( Time delta );
+    void handleBallMovement( Time delta );
+
+    void handleBallCollWindow( Ball& ball );
+
+    Ball createNewBall();
+
+    void centerBallOnPlayer( Ball& ball );
+
+private:
+    const float m_defBallRadius = 6.0;
+    const float m_defBallVelocity = 400.0;
 
 private:
     Game& m_game;
@@ -32,6 +47,10 @@ private:
     Player m_player;
 
     std::vector<Brick> m_bricks;
+    std::vector<Ball> m_balls;
+
+    Ball m_ballToFire;
+    bool m_hasBallToFire;
 };
 
 } // namespace bb

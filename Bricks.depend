@@ -392,7 +392,7 @@
 1451319101 c:\programming\bricks\src\graphics\rectshape.hpp
 	<Shape.hpp>
 
-1451421319 c:\programming\bricks\src\graphics\shape.hpp
+1451505865 c:\programming\bricks\src\graphics\shape.hpp
 	<Drawable.hpp>
 	<Transformable.hpp>
 
@@ -413,7 +413,7 @@
 1450819651 c:\programming\bricks\src\core\macros.hpp
 	<iostream>
 
-1451488342 source:c:\programming\bricks\src\game\game.cpp
+1451510377 source:c:\programming\bricks\src\game\game.cpp
 	"Game.hpp"
 	<GL/glew.h>
 	<SDL2/SDL_opengl.h>
@@ -525,16 +525,18 @@
 
 1451335017 c:\programming\bricks\src\graphics\primitivetypes.h
 
-1451481162 source:c:\programming\bricks\src\game\levelstate.cpp
+1451508459 source:c:\programming\bricks\src\game\levelstate.cpp
 	"LevelState.hpp"
 	<Macros.hpp>
 	<Keyboard.hpp>
+	<cmath>
 
-1451424540 c:\programming\bricks\src\game\levelstate.hpp
+1451508149 c:\programming\bricks\src\game\levelstate.hpp
 	<IGameState.hpp>
 	<Game.hpp>
 	<Player.hpp>
 	<Brick.hpp>
+	<Ball.hpp>
 	<vector>
 
 1451420005 c:\programming\bricks\src\core\igamestate.hpp
@@ -574,10 +576,16 @@
 
 1451335017 c:\programming\bricks\src\graphics\primitivetypes.hpp
 
-1451488129 source:c:\programming\bricks\src\graphics\circleshape.cpp
+1451507277 source:c:\programming\bricks\src\graphics\circleshape.cpp
 	"CircleShape.hpp"
 	<cmath>
 
 1451482170 c:\programming\bricks\src\graphics\circleshape.hpp
 	<Shape.hpp>
+
+1451505326 source:c:\programming\bricks\src\game\ball.cpp
+	"Ball.hpp"
+
+1451505995 c:\programming\bricks\src\game\ball.hpp
+	<CircleShape.hpp>
 
