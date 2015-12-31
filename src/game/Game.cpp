@@ -60,11 +60,11 @@ bool Game::init() {
 
     glViewport( 0, 0, wWindow, hWindow );
 
-//    if( SDL_GL_SetSwapInterval( -1 ) < 0 ) {
-//        if( SDL_GL_SetSwapInterval( 1 ) < 0 ) {
-//            ERROR_PRINT( "Failed to enable VSync" );
-//        }
-//    }
+    if( SDL_GL_SetSwapInterval( -1 ) < 0 ) {
+        if( SDL_GL_SetSwapInterval( 1 ) < 0 ) {
+            ERROR_PRINT( "Failed to enable VSync" );
+        }
+    }
 
     if( !m_renderer.init() ) {
         ERROR_PRINT( "Renderer failed to init" );
@@ -138,17 +138,18 @@ void Game::handleInput() {
 }
 
 void Game::update() {
-    m_timeAccumulator += m_runClock.restart().seconds;
+//    m_timeAccumulator += m_runClock.restart().seconds;
+//
+//    while( m_timeAccumulator >= timeStep ) {
+//        m_timeAccumulator -= timeStep;
 
-    while( m_timeAccumulator >= timeStep ) {
-        m_timeAccumulator -= timeStep;
-
-        Time delta = timeStep;
+//        Time delta = timeStep;
+        Time delta = m_runClock.restart() ;
 
         if( m_gameState ) {
             m_gameState->update( delta );
         }
-    }
+//    }
 }
 
 void Game::render() {

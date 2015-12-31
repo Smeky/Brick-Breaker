@@ -116,20 +116,44 @@ void LevelState::givePlayerNewBall() {
 }
 
 void LevelState::firePlayerBall() {
-    const Vec2f playerCenter = m_player.getPos() - m_player.getSize() / 2;
-    const Vec2i windowSize = m_game.getWindowSize();
+//    const Vec2f playerCenter = m_player.getPos() + m_player.getSize() / 2;
+//    const Vec2i windowSize = m_game.getWindowSize();
+//
+//    const float PI = 3.14159265;
+//
+//    // Calculate fire angle based on players position
+//    const float factor = playerCenter.x / windowSize.x;
+//    const float angle = factor * PI + PI;
+//    const float velocity = m_ballToFire.getVelocity();
+//
+//    m_ballToFire.setDirVelocity( Vec2f( velocity * std::cos( angle ),
+//                                        velocity * std::sin( angle ) ) );
+//
+//    // Fire the ball
+//    m_balls.push_back( m_ballToFire );
+//    m_hasBallToFire = false;
+//
+//    givePlayerNewBall();
+
+
+    const float PI = 3.14159265;
 
     // Calculate fire angle based on players position
-    const float factor = playerCenter.x / windowSize.x;
-    const float angle = 180 - factor * 180;
-    const float velocity = m_ballToFire.getVelocity();
+    for( float  i = 0; i < 70; i++ ) {
+        const float factor = i / 70;
+        const float angle = factor * PI + PI;
+        const float velocity = m_ballToFire.getVelocity();
 
-    m_ballToFire.setDirVelocity( Vec2f( velocity * std::sin( angle ),
-                                        velocity * std::cos( angle ) ) );
+        m_ballToFire.setDirVelocity( Vec2f( velocity * std::cos( angle ),
+                                            velocity * std::sin( angle ) ) );
 
-    // Fire the ball
-    m_balls.push_back( m_ballToFire );
+        // Fire the ball
+        m_balls.push_back( m_ballToFire );
+    }
+
     m_hasBallToFire = false;
+
+    givePlayerNewBall();
 }
 
 void LevelState::handlePlayerMovement( Time delta ) {
