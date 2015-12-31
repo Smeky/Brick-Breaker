@@ -108,12 +108,12 @@ float cross( const Vector2<T>& a, const Vector2<V>& b ) {
     return a.x * b.y - a.y * b.x;
 }
 
-template <typename T, typename V>
+template <typename T>
 float lenghtSquared( const Vector2<T>& a ) {
     return dot( a, a );
 }
 
-template <typename T, typename V>
+template <typename T>
 float lenght( const Vector2<T>& a ) {
     return sqrtf( lenghtSquared( a ) );
 }

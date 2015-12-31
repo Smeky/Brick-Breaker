@@ -32,14 +32,15 @@ private:
     void handleBallMovement( Time delta );
 
     void handleBallCollWindow( Ball& ball );
+    void handleBallCollBricks( Ball& ball );
 
     Ball createNewBall();
 
     void centerBallOnPlayer( Ball& ball );
 
 private:
-    const float m_defBallRadius = 6.0;
-    const float m_defBallVelocity = 400.0;
+    const float m_defBallRadius = 5.0;
+    const float m_defBallVelocity = 200.0;
 
 private:
     Game& m_game;

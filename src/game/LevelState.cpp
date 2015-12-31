@@ -7,6 +7,28 @@
 
 namespace bb {
 
+float clamp( float value, float min, float max ) {
+    return std::max( min, std::min( max, value ) );
+}
+
+Vec2f clamp( const Vec2f& value, const Vec2f& min, const Vec2f& max ) {
+    return Vec2f( clamp( value.x, min.x, max.x ),
+                  clamp( value.y, min.y, max.y ) );
+}
+
+bool CheckCollision( const CircleShape& circle, const RectShape& rect ) {
+    const Vec2f ballCenter = circle.getPos() + circle.getRadius();
+
+    const Vec2f aabbHalfExtent = rect.getSize() / 2;
+    const Vec2f aabbCenter = rect.getPos() + aabbHalfExtent;
+
+    const Vec2f difference = ballCenter - aabbCenter;
+    const Vec2f clamped = clamp( difference, - aabbHalfExtent, aabbHalfExtent );
+    const Vec2f closest = aabbCenter + clamped;
+
+    return lenght( closest - ballCenter ) < circle.getRadius();
+}
+
 LevelState::LevelState( Game& game )
 : m_game( game )
 , m_hasBallToFire( false )
@@ -30,6 +52,9 @@ void LevelState::handleInput( SDL_Event event ) {
                 firePlayerBall();
             }
         }
+        else if( event.key.keysym.sym == SDLK_r ) {
+            m_balls.clear();
+        }
     }
 }
 
@@ -39,8 +64,6 @@ void LevelState::update( Time delta ) {
 }
 
 void LevelState::render( Renderer& renderer, RenderStates states ) const {
-    renderer.draw( m_player, states );
-
     for( const Brick& brick : m_bricks ) {
         renderer.draw( brick, states );
     }
@@ -52,13 +75,15 @@ void LevelState::render( Renderer& renderer, RenderStates states ) const {
     if( m_hasBallToFire ) {
         renderer.draw( m_ballToFire, states );
     }
+
+    renderer.draw( m_player, states );
 }
 
 /* Private */
 
 void LevelState::setupPlayer() {
     const Vec2i windowSize = m_game.getWindowSize();
-    const Vec2f playerSize = Vec2f( 120, 12 );
+    const Vec2f playerSize = Vec2f( 120, 7 );
 
     m_player.setSize( playerSize );
     m_player.setPos( ( windowSize.x - playerSize.x ) / 2,
@@ -116,44 +141,44 @@ void LevelState::givePlayerNewBall() {
 }
 
 void LevelState::firePlayerBall() {
-//    const Vec2f playerCenter = m_player.getPos() + m_player.getSize() / 2;
-//    const Vec2i windowSize = m_game.getWindowSize();
-//
-//    const float PI = 3.14159265;
-//
-//    // Calculate fire angle based on players position
-//    const float factor = playerCenter.x / windowSize.x;
-//    const float angle = factor * PI + PI;
-//    const float velocity = m_ballToFire.getVelocity();
-//
-//    m_ballToFire.setDirVelocity( Vec2f( velocity * std::cos( angle ),
-//                                        velocity * std::sin( angle ) ) );
-//
-//    // Fire the ball
-//    m_balls.push_back( m_ballToFire );
-//    m_hasBallToFire = false;
-//
-//    givePlayerNewBall();
-
+    const Vec2f playerCenter = m_player.getPos() + m_player.getSize() / 2;
+    const Vec2i windowSize = m_game.getWindowSize();
 
     const float PI = 3.14159265;
 
     // Calculate fire angle based on players position
-    for( float  i = 0; i < 70; i++ ) {
-        const float factor = i / 70;
-        const float angle = factor * PI + PI;
-        const float velocity = m_ballToFire.getVelocity();
+    const float factor = playerCenter.x / windowSize.x;
+    const float angle = factor * PI + PI;
+    const float velocity = m_ballToFire.getVelocity();
 
-        m_ballToFire.setDirVelocity( Vec2f( velocity * std::cos( angle ),
-                                            velocity * std::sin( angle ) ) );
+    m_ballToFire.setDirVelocity( Vec2f( velocity * std::cos( angle ),
+                                        velocity * std::sin( angle ) ) );
 
-        // Fire the ball
-        m_balls.push_back( m_ballToFire );
-    }
-
+    // Fire the ball
+    m_balls.push_back( m_ballToFire );
     m_hasBallToFire = false;
 
     givePlayerNewBall();
+
+
+//    const float PI = 3.14159265;
+//
+//    // Calculate fire angle based on players position
+//    for( float  i = 0; i < 499; i++ ) {
+//        const float factor = ( 1 + i ) / 500;
+//        const float angle = factor * PI + PI;
+//        const float velocity = m_ballToFire.getVelocity();
+//
+//        m_ballToFire.setDirVelocity( Vec2f( velocity * std::cos( angle ),
+//                                            velocity * std::sin( angle ) ) );
+//
+//        // Fire the ball
+//        m_balls.push_back( m_ballToFire );
+//    }
+//
+//    m_hasBallToFire = false;
+//
+//    givePlayerNewBall();
 }
 
 void LevelState::handlePlayerMovement( Time delta ) {
@@ -198,13 +223,14 @@ void LevelState::handleBallMovement( Time delta ) {
         ball.move( ball.getDirVelocity() * delta.seconds );
 
         handleBallCollWindow( ball );
+        handleBallCollBricks( ball );
     }
 }
 
 void LevelState::handleBallCollWindow( Ball& ball ) {
     const Vec2i windowSize = m_game.getWindowSize();
     const Vec2f ballPos = ball.getPos();
-    const float ballRadius = ball.getRadius();
+    const float ballSize = ball.getRadius() * 2;
     const Vec2f ballVel = ball.getDirVelocity();
 
     // X-Axis
@@ -212,8 +238,8 @@ void LevelState::handleBallCollWindow( Ball& ball ) {
         ball.setPos( 0, ballPos.y );
         ball.setDirVelocity( Vec2f( - ballVel.x, ballVel.y ) );
     }
-    else if( ballPos.x + ballRadius > windowSize.x ) {
-        ball.setPos( windowSize.x - ballRadius, ballPos.y );
+    else if( ballPos.x + ballSize > windowSize.x ) {
+        ball.setPos( windowSize.x - ballSize, ballPos.y );
         ball.setDirVelocity( Vec2f( - ballVel.x, ballVel.y ) );
     }
 
@@ -222,9 +248,20 @@ void LevelState::handleBallCollWindow( Ball& ball ) {
         ball.setPos( ballPos.x, 0 );
         ball.setDirVelocity( Vec2f( ballVel.x, - ballVel.y ) );
     }
-    else if( ballPos.y + ballRadius > windowSize.y ) {
-        ball.setPos( ballPos.x, windowSize.y - ballRadius );
+    else if( ballPos.y + ballSize > windowSize.y ) {
+        ball.setPos( ballPos.x, windowSize.y - ballSize );
         ball.setDirVelocity( Vec2f( ballVel.x, - ballVel.y ) );
+    }
+}
+
+void LevelState::handleBallCollBricks( Ball& ball ) {
+    for( auto it = m_bricks.begin(); it != m_bricks.end(); ) {
+        if( CheckCollision( ball, *it ) ) {
+            m_bricks.erase( it );
+        }
+        else {
+            it++;
+        }
     }
 }
 
@@ -243,8 +280,9 @@ void LevelState::centerBallOnPlayer( Ball& ball ) {
     const Vec2f playerPos = m_player.getPos();
     const Vec2f playerSize = m_player.getSize();
     const Vec2i windowSize = m_game.getWindowSize();
+    const float factor = ( playerPos.x + playerSize.x / 2 ) / windowSize.x;
 
-    const float xCenter = playerPos.x + playerSize.x / 2;
+    const float xCenter = playerPos.x + playerSize.x * factor;
     const float ballRad = ball.getRadius();
 
     ball.setPos( xCenter - ballRad, playerPos.y - ballRad * 2 );
