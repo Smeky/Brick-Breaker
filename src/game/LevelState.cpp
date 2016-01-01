@@ -16,17 +16,73 @@ Vec2f clamp( const Vec2f& value, const Vec2f& min, const Vec2f& max ) {
                   clamp( value.y, min.y, max.y ) );
 }
 
-bool CheckCollision( const CircleShape& circle, const RectShape& rect ) {
-    const Vec2f ballCenter = circle.getPos() + circle.getRadius();
+enum Direction {
+    Dir_Up,
+    Dir_Right,
+    Dir_Down,
+    Dir_Left
+};
 
-    const Vec2f aabbHalfExtent = rect.getSize() / 2;
-    const Vec2f aabbCenter = rect.getPos() + aabbHalfExtent;
+Direction vectorDirection( const Vec2f& target ) {
+    static const Vec2f compass[] = {
+        Vec2f(  0.0,  1.0 ),
+        Vec2f(  1.0,  0.0 ),
+        Vec2f(  0.0, -1.0 ),
+        Vec2f( -1.0,  0.0 ),
+    };
 
-    const Vec2f difference = ballCenter - aabbCenter;
-    const Vec2f clamped = clamp( difference, - aabbHalfExtent, aabbHalfExtent );
-    const Vec2f closest = aabbCenter + clamped;
+    float max = 0.0;
+    int bestMatch = -1;
 
-    return lenght( closest - ballCenter ) < circle.getRadius();
+    for( int i = 0; i < 4; i++ ) {
+        float dotProduct = dot( normalized( target ), compass[ i ] );
+
+        if( dotProduct > max ) {
+            max = dotProduct;
+            bestMatch = i;
+        }
+    }
+
+    return (Direction)bestMatch;
+}
+
+bool checkCollision( const CircleShape& circle,
+                     const Brick& brick,
+                     Direction& dir )
+{
+    Vec2f ballCenter = circle.getPos() + circle.getRadius();
+
+    Vec2f aabbHalfExtent = brick.getSize() / 2;
+    Vec2f aabbCenter = brick.getPos() + aabbHalfExtent;
+
+    Vec2f difference = ballCenter - aabbCenter;
+    Vec2f clamped = clamp( difference, - aabbHalfExtent, aabbHalfExtent );
+    Vec2f closest = aabbCenter + clamped;
+
+    float distance = lenght( closest - ballCenter );
+
+    if( distance < circle.getRadius() ) {
+        dir = vectorDirection( difference );
+
+        Vec2f brickCenter = brick.getPos() + brick.getSize() / 2;
+        Vec2f circCenter = circle.getPos() + circle.getRadius();
+
+        const float* cornerAngles = brick.getCornerAngles();
+
+        // Rect center to ball center
+        float cc = angle( brickCenter, circCenter );
+
+        // Get collision side based on ball-to-brick angle
+        if(      cc >= cornerAngles[ 0 ] && cc <= cornerAngles[ 1 ] ) dir = Direction::Dir_Up;
+        else if( cc >= cornerAngles[ 1 ] && cc <= cornerAngles[ 2 ] ) dir = Direction::Dir_Right;
+        else if( cc >= cornerAngles[ 2 ] && cc <= cornerAngles[ 3 ] ) dir = Direction::Dir_Down;
+        else if( cc >= cornerAngles[ 3 ] && cc <= cornerAngles[ 0 ] ) dir = Direction::Dir_Left;
+
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 LevelState::LevelState( Game& game )
@@ -53,7 +109,7 @@ void LevelState::handleInput( SDL_Event event ) {
             }
         }
         else if( event.key.keysym.sym == SDLK_r ) {
-            m_balls.clear();
+            restartLevel();
         }
     }
 }
@@ -119,11 +175,21 @@ void LevelState::setupBricks() {
             brick.getVertices()[ 0 ].color = Color( 90, 150, 205 );
             brick.getVertices()[ 2 ].color = Color( 50, 90, 140 );
             brick.getVertices()[ 3 ].color = Color( 50, 90, 140 );
+            brick.updateCornerAngles();
 
             size_t index = y * width + x;
             m_bricks[ index ] = brick;
         }
     }
+}
+
+void LevelState::restartLevel() {
+    m_balls.clear();
+
+    setupPlayer();
+    setupBricks();
+
+    givePlayerNewBall();
 }
 
 void LevelState::givePlayerNewBall() {
@@ -164,8 +230,8 @@ void LevelState::firePlayerBall() {
 //    const float PI = 3.14159265;
 //
 //    // Calculate fire angle based on players position
-//    for( float  i = 0; i < 499; i++ ) {
-//        const float factor = ( 1 + i ) / 500;
+//    for( float  i = 0; i < 9; i++ ) {
+//        const float factor = ( 1 + i ) / 10;
 //        const float angle = factor * PI + PI;
 //        const float velocity = m_ballToFire.getVelocity();
 //
@@ -255,12 +321,49 @@ void LevelState::handleBallCollWindow( Ball& ball ) {
 }
 
 void LevelState::handleBallCollBricks( Ball& ball ) {
-    for( auto it = m_bricks.begin(); it != m_bricks.end(); ) {
-        if( CheckCollision( ball, *it ) ) {
+    Direction dir;
+
+    Vec2f ballVelocity = ball.getDirVelocity();
+
+    for( auto it = m_bricks.begin(); it != m_bricks.end(); it++ ) {
+        // Check for collision
+        if( checkCollision( ball, *it, dir ) ) {
+            // Direction of collision
+            if( dir == Dir_Left || dir == Dir_Right ) {
+                // Reverse direction of movement
+                ballVelocity.x = -ballVelocity.x;
+                ball.setDirVelocity( ballVelocity );
+
+//                // Calculate by how much did the ball exceed brick's border
+//                float penetration = ball.getRadius() - std::abs( diffVector.x );
+//
+//                // Move back based on collision direction
+//                if( dir == Dir_Left ) {
+//                    ball.move( penetration, 0 );
+//                }
+//                else {
+//                    ball.move( -penetration, 0 );
+//                }
+            }
+            else {
+                // Reverse direction of movement
+                ballVelocity.y = -ballVelocity.y;
+                ball.setDirVelocity( ballVelocity );
+
+//                // Calculate by how much did the ball exceed brick's border
+//                float penetration = ball.getRadius() - std::abs( diffVector.y );
+//
+//                // Move back based on collision direction
+//                if( dir == Dir_Up ) {
+//                    ball.move( 0, -penetration );
+//                }
+//                else {
+//                    ball.move( 0, +penetration );
+//                }
+            }
+
             m_bricks.erase( it );
-        }
-        else {
-            it++;
+            break;
         }
     }
 }

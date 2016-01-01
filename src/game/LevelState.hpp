@@ -25,6 +25,8 @@ private:
     void setupPlayer();
     void setupBricks();
 
+    void restartLevel();
+
     void givePlayerNewBall();
     void firePlayerBall();
 
@@ -40,7 +42,7 @@ private:
 
 private:
     const float m_defBallRadius = 5.0;
-    const float m_defBallVelocity = 200.0;
+    const float m_defBallVelocity = 300.0;
 
 private:
     Game& m_game;

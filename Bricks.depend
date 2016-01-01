@@ -373,8 +373,8 @@
 	<stdint.h>
 	<inttypes.h>
 
-1451571091 c:\programming\bricks\src\math\vector2.hpp
-	<math.h>
+1451590118 c:\programming\bricks\src\math\vector2.hpp
+	<cmath>
 	<iostream>
 
 1451240201 source:c:\programming\bricks\src\graphics\color.cpp
@@ -525,13 +525,13 @@
 
 1451335017 c:\programming\bricks\src\graphics\primitivetypes.h
 
-1451567078 source:c:\programming\bricks\src\game\levelstate.cpp
+1451659469 source:c:\programming\bricks\src\game\levelstate.cpp
 	"LevelState.hpp"
 	<Macros.hpp>
 	<Keyboard.hpp>
 	<cmath>
 
-1451569760 c:\programming\bricks\src\game\levelstate.hpp
+1451655999 c:\programming\bricks\src\game\levelstate.hpp
 	<IGameState.hpp>
 	<Game.hpp>
 	<Player.hpp>
@@ -568,10 +568,10 @@
 1451421706 c:\programming\bricks\src\game\player.hpp
 	<RectShape.hpp>
 
-1451424463 c:\programming\bricks\src\game\brick.hpp
+1451659518 c:\programming\bricks\src\game\brick.hpp
 	<RectShape.hpp>
 
-1451424919 source:c:\programming\bricks\src\game\brick.cpp
+1451660630 source:c:\programming\bricks\src\game\brick.cpp
 	"Brick.hpp"
 
 1451335017 c:\programming\bricks\src\graphics\primitivetypes.hpp

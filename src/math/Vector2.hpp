@@ -1,6 +1,6 @@
 #pragma once
 
-#include <math.h>
+#include <cmath>
 #include <iostream>
 
 namespace bb {
@@ -115,12 +115,17 @@ float lenghtSquared( const Vector2<T>& a ) {
 
 template <typename T>
 float lenght( const Vector2<T>& a ) {
-    return sqrtf( lenghtSquared( a ) );
+    return sqrt( lenghtSquared( a ) );
 }
 
 template <typename T>
 Vector2<T> normalized( const Vector2<T>& a ) {
     return a * ( 1.0 / lenght( a ) );
+}
+
+template <typename T, typename V>
+float angle( const Vector2<T>& a, const Vector2<V>& b ) {
+    return std::atan2( b.y - a.y, b.x - a.x );
 }
 
 template <typename T>
