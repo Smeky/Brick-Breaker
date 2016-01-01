@@ -33,6 +33,7 @@ private:
     void handlePlayerMovement( Time delta );
     void handleBallMovement( Time delta );
 
+    void handleBallCollPlayer( Ball& ball );
     void handleBallCollWindow( Ball& ball );
     void handleBallCollBricks( Ball& ball );
 

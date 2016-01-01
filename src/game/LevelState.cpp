@@ -5,6 +5,8 @@
 
 #include <cmath>
 
+const float PI = 3.14159265;
+
 namespace bb {
 
 float clamp( float value, float min, float max ) {
@@ -146,7 +148,7 @@ void LevelState::setupPlayer() {
                      windowSize.y - playerSize.y - 4 );
 
     m_player.setColor( Color::Red );
-    m_player.setVelocity( 200 );
+    m_player.setVelocity( 300 );
 }
 
 void LevelState::setupBricks() {
@@ -209,8 +211,6 @@ void LevelState::givePlayerNewBall() {
 void LevelState::firePlayerBall() {
     const Vec2f playerCenter = m_player.getPos() + m_player.getSize() / 2;
     const Vec2i windowSize = m_game.getWindowSize();
-
-    const float PI = 3.14159265;
 
     // Calculate fire angle based on players position
     const float factor = playerCenter.x / windowSize.x;
@@ -288,8 +288,29 @@ void LevelState::handleBallMovement( Time delta ) {
     for( Ball& ball : m_balls ) {
         ball.move( ball.getDirVelocity() * delta.seconds );
 
+        handleBallCollPlayer( ball );
         handleBallCollWindow( ball );
         handleBallCollBricks( ball );
+    }
+}
+
+void LevelState::handleBallCollPlayer( Ball& ball ) {
+    const Vec2f playerSize = m_player.getSize();
+    const Vec2f ballCenter = ball.getPos() + ball.getRadius() - m_player.getPos();
+
+    // If ball is in player's Y-axis
+    if( ball.getPos().y + ball.getRadius() * 2 >= m_player.getPos().y ) {
+        // If ball collided with player
+        if( ballCenter.x >= 0 && ballCenter.x <= playerSize.x ) {
+            const float offset = playerSize.x / 12;
+
+            const float factor = ( offset + ballCenter.x ) / ( playerSize.x + offset * 2 );
+            const float angle = factor * PI + PI;
+            const float velocity = ball.getVelocity();
+
+            ball.setDirVelocity( Vec2f( velocity * std::cos( angle ),
+                                        velocity * std::sin( angle ) ) );
+        }
     }
 }
 
