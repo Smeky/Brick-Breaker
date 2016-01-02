@@ -34,12 +34,15 @@ private:
     void handleBallMovement( Time delta );
 
     void handleBallCollPlayer( Ball& ball );
-    void handleBallCollWindow( Ball& ball );
+    // Returns true if ball went outside of level ( screen bottom )
+    bool handleBallCollWindow( Ball& ball );
     void handleBallCollBricks( Ball& ball );
 
     Ball createNewBall();
 
     void centerBallOnPlayer( Ball& ball );
+
+    void handleOutsideBall();
 
 private:
     const float m_defBallRadius = 5.0;

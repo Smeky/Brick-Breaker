@@ -285,36 +285,28 @@ void LevelState::handlePlayerMovement( Time delta ) {
 }
 
 void LevelState::handleBallMovement( Time delta ) {
-    for( Ball& ball : m_balls ) {
+    for( auto it = m_balls.begin(); it != m_balls.end(); ) {
+        Ball& ball = *it;
+
         ball.move( ball.getDirVelocity() * delta.seconds );
 
-        handleBallCollPlayer( ball );
-        handleBallCollWindow( ball );
-        handleBallCollBricks( ball );
-    }
-}
+        if( handleBallCollWindow( ball ) ) {
+            handleOutsideBall();
 
-void LevelState::handleBallCollPlayer( Ball& ball ) {
-    const Vec2f playerSize = m_player.getSize();
-    const Vec2f ballCenter = ball.getPos() + ball.getRadius() - m_player.getPos();
+            // Replace the ball with last one
+            ball = m_balls.back();
+            m_balls.pop_back();
+        }
+        else {
+            handleBallCollPlayer( ball );
+            handleBallCollBricks( ball );
 
-    // If ball is in player's Y-axis
-    if( ball.getPos().y + ball.getRadius() * 2 >= m_player.getPos().y ) {
-        // If ball collided with player
-        if( ballCenter.x >= 0 && ballCenter.x <= playerSize.x ) {
-            const float offset = playerSize.x / 12;
-
-            const float factor = ( offset + ballCenter.x ) / ( playerSize.x + offset * 2 );
-            const float angle = factor * PI + PI;
-            const float velocity = ball.getVelocity();
-
-            ball.setDirVelocity( Vec2f( velocity * std::cos( angle ),
-                                        velocity * std::sin( angle ) ) );
+            it++;
         }
     }
 }
 
-void LevelState::handleBallCollWindow( Ball& ball ) {
+bool LevelState::handleBallCollWindow( Ball& ball ) {
     const Vec2i windowSize = m_game.getWindowSize();
     const Vec2f ballPos = ball.getPos();
     const float ballSize = ball.getRadius() * 2;
@@ -335,9 +327,30 @@ void LevelState::handleBallCollWindow( Ball& ball ) {
         ball.setPos( ballPos.x, 0 );
         ball.setDirVelocity( Vec2f( ballVel.x, - ballVel.y ) );
     }
-    else if( ballPos.y + ballSize > windowSize.y ) {
-        ball.setPos( ballPos.x, windowSize.y - ballSize );
-        ball.setDirVelocity( Vec2f( ballVel.x, - ballVel.y ) );
+    else if( ballPos.y > windowSize.y + ball.getRadius() ) {
+        return true;
+    }
+
+    return false;
+}
+
+void LevelState::handleBallCollPlayer( Ball& ball ) {
+    const Vec2f playerSize = m_player.getSize();
+    const Vec2f ballCenter = ball.getPos() + ball.getRadius() - m_player.getPos();
+
+    // If ball is in player's Y-axis
+    if( ball.getPos().y + ball.getRadius() * 2 >= m_player.getPos().y ) {
+        // If ball collided with player
+        if( ballCenter.x >= 0 && ballCenter.x <= playerSize.x ) {
+            const float offset = playerSize.x / 12;
+
+            const float factor = ( offset + ballCenter.x ) / ( playerSize.x + offset * 2 );
+            const float angle = factor * PI + PI;
+            const float velocity = ball.getVelocity();
+
+            ball.setDirVelocity( Vec2f( velocity * std::cos( angle ),
+                                        velocity * std::sin( angle ) ) );
+        }
     }
 }
 
@@ -410,6 +423,10 @@ void LevelState::centerBallOnPlayer( Ball& ball ) {
     const float ballRad = ball.getRadius();
 
     ball.setPos( xCenter - ballRad, playerPos.y - ballRad * 2 );
+}
+
+void LevelState::handleOutsideBall() {
+    // Remove health, etc.
 }
 
 } // namespace bb
