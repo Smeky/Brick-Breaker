@@ -5,6 +5,7 @@
 #include <Player.hpp>
 #include <Brick.hpp>
 #include <Ball.hpp>
+#include <Powerup.hpp>
 
 #include <vector>
 
@@ -32,6 +33,7 @@ private:
 
     void handlePlayerMovement( Time delta );
     void handleBallMovement( Time delta );
+    void handlePowerupMovement( Time delta );
 
     void handleBallCollPlayer( Ball& ball );
     // Returns true if ball went outside of level ( screen bottom )
@@ -43,10 +45,12 @@ private:
     void centerBallOnPlayer( Ball& ball );
 
     void handleOutsideBall();
+    void handlePowerupSpawn( const Brick& brick );
 
 private:
     const float m_defBallRadius = 5.0;
     const float m_defBallVelocity = 300.0;
+    const float m_defPowerupVelocity = 300.0;
 
 private:
     Game& m_game;
@@ -55,6 +59,7 @@ private:
 
     std::vector<Brick> m_bricks;
     std::vector<Ball> m_balls;
+    std::vector<Powerup> m_powerups;
 
     Ball m_ballToFire;
     bool m_hasBallToFire;

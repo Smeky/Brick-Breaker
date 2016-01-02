@@ -13,6 +13,7 @@ const Color Color::Green       = Color( 0, 255, 0 );
 const Color Color::Blue        = Color( 0, 0, 255 );
 const Color Color::Yellow      = Color( 255, 255, 0 );
 const Color Color::Orange      = Color( 255, 153, 0 );
+const Color Color::Purple      = Color( 255, 0, 255 );
 
 Color::Color()
 : r( 0 )

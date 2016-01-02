@@ -104,7 +104,7 @@ void Renderer::draw( const VertexArray& vertices, const RenderStates& states /* 
 
     shader->use();
     shader->setUniform( "u_model", states.transform );
-    shader->setUniform( "u_projection", ortho( 0, 1024, 576, 0 ) );
+    shader->setUniform( "u_projection", ortho( 0, 1024, 756, 0 ) );
 
     glBegin( GLPrimitives[ vertices.getPrimitiveType() ] );
         for( const Vertex& v : vertices.getVector() ) {

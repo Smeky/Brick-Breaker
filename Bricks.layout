@@ -7,9 +7,14 @@
 			<Cursor1 position="178" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\graphics\RectShape.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\graphics\RectShape.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="73" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\game\Powerup.hpp" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\graphics\RenderStates.hpp" open="0" top="0" tabpos="32" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -29,8 +34,33 @@
 	</File>
 	<File name="src\game\LevelState.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="11314" topLine="341" />
+			<Cursor1 position="439" topLine="0" />
 		</Cursor>
+		<Folding>
+			<Collapse line="11" />
+			<Collapse line="15" />
+			<Collapse line="20" />
+			<Collapse line="27" />
+			<Collapse line="53" />
+			<Collapse line="94" />
+			<Collapse line="101" />
+			<Collapse line="105" />
+			<Collapse line="118" />
+			<Collapse line="123" />
+			<Collapse line="141" />
+			<Collapse line="153" />
+			<Collapse line="187" />
+			<Collapse line="196" />
+			<Collapse line="210" />
+			<Collapse line="249" />
+			<Collapse line="286" />
+			<Collapse line="308" />
+			<Collapse line="336" />
+			<Collapse line="356" />
+			<Collapse line="404" />
+			<Collapse line="415" />
+			<Collapse line="427" />
+		</Folding>
 	</File>
 	<File name="src\graphics\RectShape.hpp" open="0" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
@@ -42,12 +72,12 @@
 			<Cursor1 position="82" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\game\Ball.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\game\Ball.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="327" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\game\Game.hpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\game\Game.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="482" topLine="4" />
 		</Cursor>
@@ -77,7 +107,7 @@
 			<Cursor1 position="490" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\graphics\CircleShape.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\graphics\CircleShape.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="364" topLine="18" />
 		</Cursor>
@@ -112,7 +142,7 @@
 			<Cursor1 position="177" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\game\Brick.hpp" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\game\Brick.hpp" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="237" topLine="0" />
 		</Cursor>
@@ -132,7 +162,7 @@
 			<Cursor1 position="489" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\core\Keyboard.hpp" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\core\Keyboard.hpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1939" topLine="65" />
 		</Cursor>
@@ -162,7 +192,7 @@
 			<Cursor1 position="76" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\game\Brick.cpp" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\game\Brick.cpp" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="132" topLine="0" />
 		</Cursor>
@@ -202,12 +232,12 @@
 			<Cursor1 position="1333" topLine="48" />
 		</Cursor>
 	</File>
-	<File name="src\graphics\Color.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\graphics\Color.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\math\Vector2.hpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\math\Vector2.hpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1789" topLine="34" />
 		</Cursor>
@@ -239,7 +269,7 @@
 	</File>
 	<File name="src\game\LevelState.hpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1031" topLine="15" />
+			<Cursor1 position="971" topLine="15" />
 		</Cursor>
 	</File>
 	<File name="src\graphics\PrimitiveTypes.hpp" open="0" top="0" tabpos="45" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -247,5 +277,5 @@
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<EditorTabsLayout layout="094e1db05687fffa0000daf000000002=0;Bricks:src\game\Game.cpp,*1;Bricks:src\game\LevelState.cpp,2;Bricks:src\game\LevelState.hpp,3;Bricks:src\game\Game.hpp,4;Bricks:src\game\Ball.cpp,5;Bricks:src\graphics\Renderer.cpp,6;Bricks:src\graphics\CircleShape.cpp,7;Bricks:src\graphics\RectShape.cpp,8;Bricks:src\math\Vector2.hpp,9;Bricks:src\graphics\Color.hpp,10;Bricks:src\core\Keyboard.hpp,11;Bricks:src\core\Transformable.cpp,12;Bricks:src\game\Brick.cpp,13;Bricks:src\game\Brick.hpp,14;Bricks:src\core\Transformable.hpp@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=409;besth=356;minw=409;minh=356;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=094e1db05687fffa0000daf000000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
+	<EditorTabsLayout layout="094e239056880770001dfe8300000002=1;Bricks:src\game\Powerup.hpp,*0;Bricks:src\game\LevelState.cpp,2;Bricks:src\game\LevelState.hpp,3;Bricks:src\core\Transformable.cpp,4;Bricks:src\core\Transformable.hpp,5;Bricks:src\game\Game.cpp,6;Bricks:src\graphics\Renderer.cpp,7;Bricks:src\graphics\Color.hpp,8;Bricks:src\graphics\Color.cpp@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=837;besth=364;minw=837;minh=364;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=094e239056880770001dfe8300000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
 </CodeBlocks_layout_file>

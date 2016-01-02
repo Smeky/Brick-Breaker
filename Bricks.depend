@@ -377,11 +377,11 @@
 	<cmath>
 	<iostream>
 
-1451240201 source:c:\programming\bricks\src\graphics\color.cpp
+1451758522 source:c:\programming\bricks\src\graphics\color.cpp
 	"Color.hpp"
 	<algorithm>
 
-1451240147 c:\programming\bricks\src\graphics\color.hpp
+1451758508 c:\programming\bricks\src\graphics\color.hpp
 	<stdint.h>
 	<iostream>
 	<Vector4.hpp>
@@ -402,18 +402,18 @@
 1451421328 source:c:\programming\bricks\src\graphics\shape.cpp
 	"Shape.hpp"
 
-1451748790 source:c:\programming\bricks\src\core\transformable.cpp
+1451757497 source:c:\programming\bricks\src\core\transformable.cpp
 	"Transformable.hpp"
 	<cmath>
 
-1451748790 c:\programming\bricks\src\core\transformable.hpp
+1451756581 c:\programming\bricks\src\core\transformable.hpp
 	<Matrix4.hpp>
 	<Vector2.hpp>
 
 1450819651 c:\programming\bricks\src\core\macros.hpp
 	<iostream>
 
-1451518676 source:c:\programming\bricks\src\game\game.cpp
+1451757177 source:c:\programming\bricks\src\game\game.cpp
 	"Game.hpp"
 	<GL/glew.h>
 	<SDL2/SDL_opengl.h>
@@ -472,7 +472,7 @@
 	<Drawable.hpp>
 	<VertexArray.hpp>
 
-1451520357 source:c:\programming\bricks\src\graphics\renderer.cpp
+1451757197 source:c:\programming\bricks\src\graphics\renderer.cpp
 	"Renderer.hpp"
 	<GL/glew.h>
 	<Drawable.hpp>
@@ -525,18 +525,19 @@
 
 1451335017 c:\programming\bricks\src\graphics\primitivetypes.h
 
-1451748790 source:c:\programming\bricks\src\game\levelstate.cpp
+1451757711 source:c:\programming\bricks\src\game\levelstate.cpp
 	"LevelState.hpp"
 	<Macros.hpp>
 	<Keyboard.hpp>
 	<cmath>
 
-1451754806 c:\programming\bricks\src\game\levelstate.hpp
+1451756394 c:\programming\bricks\src\game\levelstate.hpp
 	<IGameState.hpp>
 	<Game.hpp>
 	<Player.hpp>
 	<Brick.hpp>
 	<Ball.hpp>
+	<Powerup.hpp>
 	<vector>
 
 1451420005 c:\programming\bricks\src\core\igamestate.hpp
@@ -588,4 +589,7 @@
 
 1451505995 c:\programming\bricks\src\game\ball.hpp
 	<CircleShape.hpp>
+
+1451756267 c:\programming\bricks\src\game\powerup.hpp
+	<RectShape.hpp>
 

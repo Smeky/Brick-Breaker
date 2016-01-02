@@ -86,6 +86,7 @@
 		<Unit filename="src/game/LevelState.hpp" />
 		<Unit filename="src/game/Player.cpp" />
 		<Unit filename="src/game/Player.hpp" />
+		<Unit filename="src/game/Powerup.hpp" />
 		<Unit filename="src/graphics/CircleShape.cpp" />
 		<Unit filename="src/graphics/CircleShape.hpp" />
 		<Unit filename="src/graphics/Color.cpp" />

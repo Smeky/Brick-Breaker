@@ -58,6 +58,24 @@ Vec2f Transformable::getSize() const {
     return m_size;
 }
 
+void Transformable::setCenter( const Vec2f& center ) {
+    m_pos = center - m_size / 2;
+
+    m_isUpdateMatrix = true;
+}
+
+void Transformable::setCenter( float x, float y ) {
+    setCenter( { x, y } );
+}
+
+void Transformable::setCenter( float xy ) {
+    setCenter( { xy, xy } );
+}
+
+Vec2f Transformable::getCenter() const {
+    return m_pos + m_size / 2;
+}
+
 const Matrix4& Transformable::getMatrix() const {
     if( m_isUpdateMatrix ) {
         m_matrix = Matrix4();

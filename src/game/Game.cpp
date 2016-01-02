@@ -11,7 +11,7 @@
 namespace bb {
 
 const int wWindow = 1024;
-const int hWindow = 576;
+const int hWindow = 756;
 
 const float timeStep = 1.0 / 60;
 

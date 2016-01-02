@@ -30,6 +30,7 @@ struct Color {
     static const Color Blue;
     static const Color Yellow;
     static const Color Orange;
+    static const Color Purple;
 };
 
 bool operator==( const Color& left, const Color& right );

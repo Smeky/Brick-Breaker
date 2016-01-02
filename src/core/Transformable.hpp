@@ -25,6 +25,11 @@ public:
     void setSize( float wh );
     Vec2f getSize() const;
 
+    void setCenter( const Vec2f& center );
+    void setCenter( float x, float y );
+    void setCenter( float xy );
+    Vec2f getCenter() const;
+
     void setRotation( float degrees ) { m_rotation = degrees; m_isUpdateMatrix = true; }
 
     const Matrix4& getMatrix() const;

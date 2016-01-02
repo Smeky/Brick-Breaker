@@ -87,6 +87,21 @@ bool checkCollision( const CircleShape& circle,
     }
 }
 
+bool checkCollision( const RectShape& a, const RectShape& b ) {
+    const Vec2f aPos = a.getPos();
+    const Vec2f aSize = a.getSize();
+
+    const Vec2f bPos = b.getPos();
+    const Vec2f bSize = b.getSize();
+
+    if(      aPos.x > bPos.x + bSize.w ) return false;
+    else if( aPos.x + aSize.w < bPos.x ) return false;
+    else if( aPos.y > bPos.y + bSize.h ) return false;
+    else if( aPos.y + aSize.h < bPos.y ) return false;
+
+    return true;
+}
+
 LevelState::LevelState( Game& game )
 : m_game( game )
 , m_hasBallToFire( false )
@@ -119,11 +134,16 @@ void LevelState::handleInput( SDL_Event event ) {
 void LevelState::update( Time delta ) {
     handlePlayerMovement( delta );
     handleBallMovement( delta );
+    handlePowerupMovement( delta );
 }
 
 void LevelState::render( Renderer& renderer, RenderStates states ) const {
     for( const Brick& brick : m_bricks ) {
         renderer.draw( brick, states );
+    }
+
+    for( const Powerup& powerup : m_powerups ) {
+        renderer.draw( powerup, states );
     }
 
     for( const Ball& ball : m_balls ) {
@@ -306,6 +326,25 @@ void LevelState::handleBallMovement( Time delta ) {
     }
 }
 
+void LevelState::handlePowerupMovement( Time delta ) {
+    for( auto it = m_powerups.begin(); it != m_powerups.end(); ) {
+        Powerup& powerup = *it;
+
+        powerup.move( 0, m_defPowerupVelocity * delta.seconds );
+
+        if( checkCollision( powerup, m_player ) ) {
+            // Todo: add powerup buff
+
+            // Replace powerup by last one
+            powerup = m_powerups.back();
+            m_powerups.pop_back();
+        }
+        else {
+            it++;
+        }
+    }
+}
+
 bool LevelState::handleBallCollWindow( Ball& ball ) {
     const Vec2i windowSize = m_game.getWindowSize();
     const Vec2f ballPos = ball.getPos();
@@ -360,8 +399,12 @@ void LevelState::handleBallCollBricks( Ball& ball ) {
     Vec2f ballVelocity = ball.getDirVelocity();
 
     for( auto it = m_bricks.begin(); it != m_bricks.end(); it++ ) {
+        Brick& brick = *it;
+
         // Check for collision
-        if( checkCollision( ball, *it, dir ) ) {
+        if( checkCollision( ball, brick, dir ) ) {
+            handlePowerupSpawn( brick );
+
             // Direction of collision
             if( dir == Dir_Left || dir == Dir_Right ) {
                 // Reverse direction of movement
@@ -396,7 +439,8 @@ void LevelState::handleBallCollBricks( Ball& ball ) {
 //                }
             }
 
-            m_bricks.erase( it );
+            brick = m_bricks.back();
+            m_bricks.pop_back();
             break;
         }
     }
@@ -429,4 +473,27 @@ void LevelState::handleOutsideBall() {
     // Remove health, etc.
 }
 
+void LevelState::handlePowerupSpawn( const Brick& brick ) {
+    static const Powerup::Type types[] = {
+        Powerup::AddBall,
+        Powerup::Speedup,
+        Powerup::Slow,
+        Powerup::PaddleGrow,
+        Powerup::PaddleShrink,
+        Powerup::Damage,
+        Powerup::Chaos,
+    };
+
+    // Todo: Roll a chance to spawn powerup and choose random powerup
+
+    Powerup powerup;
+    powerup.setSize( 30 );
+    powerup.setCenter( brick.getCenter() );
+    powerup.setColor( Color::Orange );
+
+    m_powerups.push_back( powerup );
+}
+
 } // namespace bb
+
+
