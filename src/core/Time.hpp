@@ -14,7 +14,7 @@ struct Time {
     void setMilliseconds( uint32_t ms );
     uint32_t asMilliseconds() const;
 
-    Time& operator=( float seconds );
+    Time& operator=( float s );
     bool operator==( Time other ) const;
     bool operator!=( Time other ) const;
     bool operator>=( Time other ) const;

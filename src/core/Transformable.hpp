@@ -25,6 +25,10 @@ public:
     void setSize( float wh );
     Vec2f getSize() const;
 
+    void resize( const Vec2f& size );
+    void resize( float w, float h );
+    void resize( float wh );
+
     void setCenter( const Vec2f& center );
     void setCenter( float x, float y );
     void setCenter( float xy );

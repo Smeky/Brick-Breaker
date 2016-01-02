@@ -72,6 +72,8 @@
 		<Unit filename="src/core/Keyboard.cpp" />
 		<Unit filename="src/core/Keyboard.hpp" />
 		<Unit filename="src/core/Macros.hpp" />
+		<Unit filename="src/core/RNG.cpp" />
+		<Unit filename="src/core/RNG.hpp" />
 		<Unit filename="src/core/Time.cpp" />
 		<Unit filename="src/core/Time.hpp" />
 		<Unit filename="src/core/Timer.cpp" />

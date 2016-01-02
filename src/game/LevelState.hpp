@@ -26,6 +26,7 @@ public:
 private:
     void setupPlayer();
     void setupBricks();
+    void setupPUEffects();
 
     void restartLevel();
 
@@ -51,8 +52,22 @@ private:
     void handlePowerupSpawn( const Brick& brick );
 
     bool isPUEffectActive( Powerup::Type type ) const;
+    // Make sure if there's unused power-up effect
+    bool canAddPUEffect() const;
+
+    void addPUEffect( Powerup::Type type );
+    void delPUEffect( Powerup::Type type );
+    void refreshPUEffect( Powerup::Type type );
+
 
 private:
+    const float m_defPlayerVelocity = 300.0;
+    const float m_playerSpeedupVelocity = 600.0;
+    const float m_playerSlowVelocity = 150.0;
+
+    const float m_playerPaddleGrowSize = 25.0;
+    const float m_playerPaddleShrinkSize = 25.0;
+
     const float m_defBallRadius = 5.0;
     const float m_defBallVelocity = 300.0;
     const float m_defPowerupVelocity = 300.0;

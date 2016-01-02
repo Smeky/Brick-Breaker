@@ -110,6 +110,7 @@ LevelState::LevelState( Game& game )
 void LevelState::init() {
     setupPlayer();
     setupBricks();
+    setupPUEffects();
 
     givePlayerNewBall();
 
@@ -117,7 +118,10 @@ void LevelState::init() {
 }
 
 void LevelState::close() {
-
+    m_balls.clear();
+    m_bricks.clear();
+    m_powerups.clear();
+    m_puEffects.clear();
 }
 
 void LevelState::handleInput( SDL_Event event ) {
@@ -137,6 +141,8 @@ void LevelState::update( Time delta ) {
     handlePlayerMovement( delta );
     handleBallMovement( delta );
     handlePowerupMovement( delta );
+
+    updatePowerupEffects( delta );
 }
 
 void LevelState::render( Renderer& renderer, RenderStates states ) const {
@@ -207,11 +213,32 @@ void LevelState::setupBricks() {
     }
 }
 
+void LevelState::setupPUEffects() {
+    static const Powerup::Type types[] = {
+        Powerup::AddBall,
+        Powerup::Speedup,
+        Powerup::Slow,
+        Powerup::PaddleGrow,
+        Powerup::PaddleShrink,
+        Powerup::Damage,
+        Powerup::Chaos,
+    };
+
+    m_puEffects.resize( Powerup::Total );
+
+    for( uint8_t i = 0; i < Powerup::Total; i++ ) {
+        m_puEffects[ i ].type = types[ i ];
+    }
+}
+
 void LevelState::restartLevel() {
     m_balls.clear();
+    m_powerups.clear();
+    m_puEffects.clear();
 
     setupPlayer();
     setupBricks();
+    setupPUEffects();
 
     givePlayerNewBall();
 }
@@ -335,7 +362,13 @@ void LevelState::handlePowerupMovement( Time delta ) {
         powerup.move( 0, m_defPowerupVelocity * delta.seconds );
 
         if( checkCollision( powerup, m_player ) ) {
-            // Todo: add powerup buff
+            // Add power-up effect
+            if( !isPUEffectActive( powerup.type ) ) {
+                addPUEffect( powerup.type );
+            }
+            else {
+                refreshPUEffect( powerup.type );
+            }
 
             // Replace powerup by last one
             powerup = m_powerups.back();
@@ -354,7 +387,7 @@ void LevelState::updatePowerupEffects( Time delta ) {
             // If effect's timer is finished
             if( effect.update( delta ) ) {
                 // Deactivate effect
-                effect.active = false;
+                delPUEffect( effect.type );
             }
         }
     }
@@ -505,12 +538,117 @@ void LevelState::handlePowerupSpawn( const Brick& brick ) {
     powerup.setSize( 30 );
     powerup.setCenter( brick.getCenter() );
     powerup.setColor( Color::Orange );
+    powerup.type = Powerup::PaddleGrow;
 
     m_powerups.push_back( powerup );
 }
 
 bool LevelState::isPUEffectActive( Powerup::Type type ) const {
     return m_puEffects[ type ].active;
+}
+
+bool LevelState::canAddPUEffect() const {
+    for( const PowerupEffect& effect : m_puEffects ) {
+        if( !effect.active ) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+void LevelState::addPUEffect( Powerup::Type type ) {
+//    AddBall,
+//    Speedup,
+//    Slow,
+//    PaddleGrow,
+//    PaddleShrink,
+//    Damage,
+//    Chaos,
+
+    m_puEffects[ type ].active = true;
+    m_puEffects[ type ].timer.setLimit( 5.0 );
+    m_puEffects[ type ].timer.reset();
+
+    switch( type ) {
+    case Powerup::AddBall: {
+        if( !m_hasBallToFire ) {
+            givePlayerNewBall();
+        }
+    } break;
+
+    case Powerup::Speedup: {
+        m_player.setVelocity( m_playerSpeedupVelocity );
+    } break;
+
+    case Powerup::Slow: {
+        m_player.setVelocity( m_playerSlowVelocity );
+    } break;
+
+    case Powerup::PaddleGrow: {
+        m_player.move( - m_playerPaddleGrowSize, 0.0 );
+        m_player.resize( m_playerPaddleGrowSize * 2, 0.0 );
+    } break;
+
+    case Powerup::PaddleShrink: {
+        m_player.move( m_playerPaddleShrinkSize, 0.0 );
+        m_player.resize( - m_playerPaddleGrowSize * 2, 0.0 );
+    } break;
+
+    case Powerup::Damage: {
+
+    } break;
+
+    case Powerup::Chaos: {
+
+    } break;
+
+    default: break;
+    }
+}
+
+void LevelState::delPUEffect( Powerup::Type type ) {
+    m_puEffects[ type ].active = false;
+
+    switch( type ) {
+    case Powerup::AddBall: {
+        if( !m_hasBallToFire ) {
+            givePlayerNewBall();
+        }
+    } break;
+
+    case Powerup::Speedup: {
+        m_player.setVelocity( m_defPlayerVelocity );
+    } break;
+
+    case Powerup::Slow: {
+        m_player.setVelocity( m_defPlayerVelocity );
+    } break;
+
+    case Powerup::PaddleGrow: {
+        m_player.move( m_playerPaddleGrowSize, 0.0 );
+        m_player.resize( - m_playerPaddleGrowSize * 2, 0.0 );
+    } break;
+
+    case Powerup::PaddleShrink: {
+        m_player.move( - m_playerPaddleShrinkSize, 0.0 );
+        m_player.resize( m_playerPaddleGrowSize * 2, 0.0 );
+    } break;
+
+    case Powerup::Damage: {
+
+    } break;
+
+    case Powerup::Chaos: {
+
+    } break;
+
+    default: break;
+    }
+}
+
+void LevelState::refreshPUEffect( Powerup::Type type ) {
+    m_puEffects[ type ].timer.reset();
 }
 
 } // namespace bb

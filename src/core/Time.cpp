@@ -20,8 +20,9 @@ uint32_t Time::asMilliseconds() const {
     return (uint32_t)( seconds * 1000 );
 }
 
-Time& Time::operator=( float seconds ) {
-    return ( *this = (*this).seconds = seconds );
+Time& Time::operator=( float s ) {
+    seconds = s;
+    return *this;
 }
 
 bool Time::operator==( Time other ) const {

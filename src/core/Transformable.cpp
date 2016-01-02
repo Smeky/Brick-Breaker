@@ -58,6 +58,18 @@ Vec2f Transformable::getSize() const {
     return m_size;
 }
 
+void Transformable::resize( const Vec2f& size ) {
+    setSize( m_size + size );
+}
+
+void Transformable::resize( float w, float h ) {
+    setSize( m_size + Vec2f( w, h ) );
+}
+
+void Transformable::resize( float wh ) {
+    setSize( m_size + Vec2f( wh, wh ) );
+}
+
 void Transformable::setCenter( const Vec2f& center ) {
     m_pos = center - m_size / 2;
 
