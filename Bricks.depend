@@ -508,11 +508,11 @@
 	<Shader.hpp>
 	<Matrix4.hpp>
 
-1451421237 source:c:\programming\bricks\src\core\time.cpp
+1451759362 source:c:\programming\bricks\src\core\time.cpp
 	"Time.hpp"
 	<iomanip>
 
-1451421233 c:\programming\bricks\src\core\time.hpp
+1451759347 c:\programming\bricks\src\core\time.hpp
 	<stdint-gcc.h>
 	<ostream>
 
@@ -525,7 +525,7 @@
 
 1451335017 c:\programming\bricks\src\graphics\primitivetypes.h
 
-1451757711 source:c:\programming\bricks\src\game\levelstate.cpp
+1451758597 source:c:\programming\bricks\src\game\levelstate.cpp
 	"LevelState.hpp"
 	<Macros.hpp>
 	<Keyboard.hpp>
@@ -592,4 +592,10 @@
 
 1451756267 c:\programming\bricks\src\game\powerup.hpp
 	<RectShape.hpp>
+
+1451759219 source:c:\programming\bricks\src\core\timer.cpp
+	"Timer.hpp"
+
+1451759223 c:\programming\bricks\src\core\timer.hpp
+	<Time.hpp>
 

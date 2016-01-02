@@ -74,6 +74,8 @@
 		<Unit filename="src/core/Macros.hpp" />
 		<Unit filename="src/core/Time.cpp" />
 		<Unit filename="src/core/Time.hpp" />
+		<Unit filename="src/core/Timer.cpp" />
+		<Unit filename="src/core/Timer.hpp" />
 		<Unit filename="src/core/Transformable.cpp" />
 		<Unit filename="src/core/Transformable.hpp" />
 		<Unit filename="src/game/Ball.cpp" />
