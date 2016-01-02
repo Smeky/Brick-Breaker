@@ -531,13 +531,14 @@
 	<Keyboard.hpp>
 	<cmath>
 
-1451756394 c:\programming\bricks\src\game\levelstate.hpp
+1451759965 c:\programming\bricks\src\game\levelstate.hpp
 	<IGameState.hpp>
 	<Game.hpp>
 	<Player.hpp>
 	<Brick.hpp>
 	<Ball.hpp>
 	<Powerup.hpp>
+	<PowerupEffect.hpp>
 	<vector>
 
 1451420005 c:\programming\bricks\src\core\igamestate.hpp
@@ -593,9 +594,16 @@
 1451756267 c:\programming\bricks\src\game\powerup.hpp
 	<RectShape.hpp>
 
-1451759219 source:c:\programming\bricks\src\core\timer.cpp
+1451759486 source:c:\programming\bricks\src\core\timer.cpp
 	"Timer.hpp"
 
 1451759223 c:\programming\bricks\src\core\timer.hpp
 	<Time.hpp>
+
+1451759778 c:\programming\bricks\src\game\powerupeffect.hpp
+	<Powerup.hpp>
+	<Timer.hpp>
+
+1451759676 source:c:\programming\bricks\src\game\powerupeffect.cpp
+	"PowerupEffect.hpp"
 

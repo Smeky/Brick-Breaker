@@ -32,9 +32,19 @@
 			<Cursor1 position="119" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="src\game\PowerupEffect.hpp" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="src\core\Transformable.hpp" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="557" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\game\PowerupEffect.cpp" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\game\LevelState.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -262,7 +272,7 @@
 			<Cursor1 position="715" topLine="4" />
 		</Cursor>
 	</File>
-	<File name="src\game\Ball.hpp" open="0" top="0" tabpos="47" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\game\Ball.hpp" open="1" top="0" tabpos="47" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="408" topLine="0" />
 		</Cursor>
@@ -287,5 +297,5 @@
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<EditorTabsLayout layout="094e239056880770001dfe8300000002=1;Bricks:src\game\Powerup.hpp,*0;Bricks:src\game\LevelState.cpp,2;Bricks:src\game\LevelState.hpp,3;Bricks:src\core\Transformable.cpp,4;Bricks:src\core\Transformable.hpp,5;Bricks:src\game\Game.cpp,6;Bricks:src\graphics\Renderer.cpp,7;Bricks:src\graphics\Color.hpp,8;Bricks:src\graphics\Color.cpp,9;Bricks:src\core\Timer.hpp,10;Bricks:src\core\Timer.cpp,11;Bricks:src\core\Time.cpp,12;Bricks:src\core\Time.hpp@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=837;besth=364;minw=837;minh=364;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=094e239056880770001dfe8300000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
+	<EditorTabsLayout layout="094e239056880770001dfe8300000002=1;Bricks:src\game\Powerup.hpp,*0;Bricks:src\game\LevelState.cpp,2;Bricks:src\game\LevelState.hpp,3;Bricks:src\core\Transformable.cpp,4;Bricks:src\core\Transformable.hpp,5;Bricks:src\game\Game.cpp,6;Bricks:src\graphics\Renderer.cpp,7;Bricks:src\graphics\Color.hpp,8;Bricks:src\graphics\Color.cpp,9;Bricks:src\core\Timer.hpp,10;Bricks:src\core\Timer.cpp,11;Bricks:src\core\Time.cpp,12;Bricks:src\core\Time.hpp,13;Bricks:src\game\PowerupEffect.hpp,14;Bricks:src\game\PowerupEffect.cpp,15;Bricks:src\game\Ball.hpp@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=837;besth=364;minw=837;minh=364;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=094e239056880770001dfe8300000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
 </CodeBlocks_layout_file>

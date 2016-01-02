@@ -112,6 +112,8 @@ void LevelState::init() {
     setupBricks();
 
     givePlayerNewBall();
+
+    m_puEffects.resize( Powerup::Total );
 }
 
 void LevelState::close() {
@@ -345,6 +347,19 @@ void LevelState::handlePowerupMovement( Time delta ) {
     }
 }
 
+void LevelState::updatePowerupEffects( Time delta ) {
+    for( PowerupEffect& effect : m_puEffects ) {
+        // Make sure effect is active
+        if( effect.active ) {
+            // If effect's timer is finished
+            if( effect.update( delta ) ) {
+                // Deactivate effect
+                effect.active = false;
+            }
+        }
+    }
+}
+
 bool LevelState::handleBallCollWindow( Ball& ball ) {
     const Vec2i windowSize = m_game.getWindowSize();
     const Vec2f ballPos = ball.getPos();
@@ -492,6 +507,10 @@ void LevelState::handlePowerupSpawn( const Brick& brick ) {
     powerup.setColor( Color::Orange );
 
     m_powerups.push_back( powerup );
+}
+
+bool LevelState::isPUEffectActive( Powerup::Type type ) const {
+    return m_puEffects[ type ].active;
 }
 
 } // namespace bb

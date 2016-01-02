@@ -6,6 +6,7 @@
 #include <Brick.hpp>
 #include <Ball.hpp>
 #include <Powerup.hpp>
+#include <PowerupEffect.hpp>
 
 #include <vector>
 
@@ -35,6 +36,8 @@ private:
     void handleBallMovement( Time delta );
     void handlePowerupMovement( Time delta );
 
+    void updatePowerupEffects( Time delta );
+
     void handleBallCollPlayer( Ball& ball );
     // Returns true if ball went outside of level ( screen bottom )
     bool handleBallCollWindow( Ball& ball );
@@ -46,6 +49,8 @@ private:
 
     void handleOutsideBall();
     void handlePowerupSpawn( const Brick& brick );
+
+    bool isPUEffectActive( Powerup::Type type ) const;
 
 private:
     const float m_defBallRadius = 5.0;
@@ -60,6 +65,7 @@ private:
     std::vector<Brick> m_bricks;
     std::vector<Ball> m_balls;
     std::vector<Powerup> m_powerups;
+    std::vector<PowerupEffect> m_puEffects;
 
     Ball m_ballToFire;
     bool m_hasBallToFire;
