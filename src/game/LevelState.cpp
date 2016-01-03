@@ -2,6 +2,7 @@
 
 #include <Macros.hpp>
 #include <Keyboard.hpp>
+#include <RNG.hpp>
 
 #include <cmath>
 
@@ -522,25 +523,19 @@ void LevelState::handleOutsideBall() {
 }
 
 void LevelState::handlePowerupSpawn( const Brick& brick ) {
-    static const Powerup::Type types[] = {
-        Powerup::AddBall,
-        Powerup::Speedup,
-        Powerup::Slow,
-        Powerup::PaddleGrow,
-        Powerup::PaddleShrink,
-        Powerup::Damage,
-        Powerup::Chaos,
-    };
-
     // Todo: Roll a chance to spawn powerup and choose random powerup
+    const float spawnChance = 0.05;
+    const float rollChance = RNG::randomNormal();
 
-    Powerup powerup;
-    powerup.setSize( 30 );
-    powerup.setCenter( brick.getCenter() );
-    powerup.setColor( Color::Orange );
-    powerup.type = Powerup::PaddleGrow;
+    if( rollChance <= spawnChance ) {
+        Powerup powerup;
+        powerup.setSize( 30 );
+        powerup.setCenter( brick.getCenter() );
+        powerup.setColor( Color::Orange );
+        powerup.type = (Powerup::Type)( RNG::randomInt( 0, Powerup::Total - 1 ) );
 
-    m_powerups.push_back( powerup );
+        m_powerups.push_back( powerup );
+    }
 }
 
 bool LevelState::isPUEffectActive( Powerup::Type type ) const {

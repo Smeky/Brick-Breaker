@@ -427,10 +427,9 @@
 	<Renderer.hpp>
 	<Clock.hpp>
 
-1451774851 source:c:\programming\bricks\src\main.cpp
+1451774949 source:c:\programming\bricks\src\main.cpp
 	<game/Game.hpp>
 	<Macros.hpp>
-	<RNG.hpp>
 
 1451158828 source:c:\programming\bricks\src\math\matrix4.cpp
 	"Matrix4.hpp"
@@ -592,7 +591,7 @@
 1451505995 c:\programming\bricks\src\game\ball.hpp
 	<CircleShape.hpp>
 
-1451756267 c:\programming\bricks\src\game\powerup.hpp
+1451780904 c:\programming\bricks\src\game\powerup.hpp
 	<RectShape.hpp>
 
 1451759486 source:c:\programming\bricks\src\core\timer.cpp
@@ -608,9 +607,8 @@
 1451759676 source:c:\programming\bricks\src\game\powerupeffect.cpp
 	"PowerupEffect.hpp"
 
-1451774831 source:c:\programming\bricks\src\core\rng.cpp
+1451774958 source:c:\programming\bricks\src\core\rng.cpp
 	"RNG.hpp"
-	<iostream>
 	<chrono>
 
 1451774865 c:\programming\bricks\src\core\rng.hpp
