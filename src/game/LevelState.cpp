@@ -553,17 +553,19 @@ bool LevelState::canAddPUEffect() const {
 }
 
 void LevelState::addPUEffect( Powerup::Type type ) {
-//    AddBall,
-//    Speedup,
-//    Slow,
-//    PaddleGrow,
-//    PaddleShrink,
-//    Damage,
-//    Chaos,
+//    0 AddBall,
+//    1 Speedup,
+//    2 Slow,
+//    3 PaddleGrow,
+//    4 PaddleShrink,
+//    5 Damage,
+//    6 Chaos,
 
     m_puEffects[ type ].active = true;
     m_puEffects[ type ].timer.setLimit( 5.0 );
     m_puEffects[ type ].timer.reset();
+
+    std::cout << type << std::endl;
 
     switch( type ) {
     case Powerup::AddBall: {
@@ -573,19 +575,39 @@ void LevelState::addPUEffect( Powerup::Type type ) {
     } break;
 
     case Powerup::Speedup: {
+        // If slow is up, remove it
+        if( isPUEffectActive( Powerup::Slow ) ) {
+            delPUEffect( Powerup::Slow );
+        }
+
         m_player.setVelocity( m_playerSpeedupVelocity );
     } break;
 
     case Powerup::Slow: {
+        // If speed-up is up, remove it
+        if( isPUEffectActive( Powerup::Speedup ) ) {
+            delPUEffect( Powerup::Speedup );
+        }
+
         m_player.setVelocity( m_playerSlowVelocity );
     } break;
 
     case Powerup::PaddleGrow: {
+        // If paddle-shrink is up, remove it
+        if( isPUEffectActive( Powerup::PaddleShrink ) ) {
+            delPUEffect( Powerup::PaddleShrink );
+        }
+
         m_player.move( - m_playerPaddleGrowSize, 0.0 );
         m_player.resize( m_playerPaddleGrowSize * 2, 0.0 );
     } break;
 
     case Powerup::PaddleShrink: {
+        // If paddle-grow is up, remove it
+        if( isPUEffectActive( Powerup::PaddleGrow ) ) {
+            delPUEffect( Powerup::PaddleGrow );
+        }
+
         m_player.move( m_playerPaddleShrinkSize, 0.0 );
         m_player.resize( - m_playerPaddleGrowSize * 2, 0.0 );
     } break;
