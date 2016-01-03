@@ -17,7 +17,7 @@
 			<Cursor1 position="144" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\core\Transformable.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\core\Transformable.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1353" topLine="54" />
 		</Cursor>
@@ -142,7 +142,7 @@
 			<Cursor1 position="1939" topLine="65" />
 		</Cursor>
 	</File>
-	<File name="src\math\Vector2.hpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\math\Vector2.hpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1789" topLine="34" />
 		</Cursor>
@@ -162,7 +162,7 @@
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\math\Vector4.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\math\Vector4.hpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="887" topLine="19" />
 		</Cursor>
@@ -177,7 +177,7 @@
 			<Cursor1 position="437" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\core\Transformable.hpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\core\Transformable.hpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="727" topLine="0" />
 		</Cursor>
@@ -232,7 +232,7 @@
 			<Cursor1 position="17780" topLine="620" />
 		</Cursor>
 	</File>
-	<File name="src\game\LevelState.hpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\game\LevelState.hpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="572" topLine="21" />
 		</Cursor>
@@ -282,5 +282,5 @@
 			<Cursor1 position="173" topLine="0" />
 		</Cursor>
 	</File>
-	<EditorTabsLayout layout="098a1618568868810006015500000002=0;Bricks:src\core\RNG.hpp,1;Bricks:src\core\RNG.cpp,2;Bricks:src\main.cpp,*3;Bricks:src\game\LevelState.cpp,4;Bricks:src\game\Powerup.hpp@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=837;besth=364;minw=837;minh=364;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=098a1618568868810006015500000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
+	<EditorTabsLayout layout="098a1618568868810006015500000002=0;Bricks:src\core\RNG.hpp,1;Bricks:src\core\RNG.cpp,2;Bricks:src\main.cpp,*3;Bricks:src\game\LevelState.cpp,4;Bricks:src\game\Powerup.hpp,5;Bricks:src\game\LevelState.hpp,6;Bricks:src\math\Vector4.hpp,7;Bricks:src\math\Vector2.hpp,8;Bricks:src\core\Transformable.cpp,9;Bricks:src\core\Transformable.hpp@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=837;besth=364;minw=837;minh=364;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=098a1618568868810006015500000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
 </CodeBlocks_layout_file>

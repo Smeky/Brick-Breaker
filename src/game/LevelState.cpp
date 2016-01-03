@@ -569,9 +569,12 @@ void LevelState::addPUEffect( Powerup::Type type ) {
 
     switch( type ) {
     case Powerup::AddBall: {
-        if( !m_hasBallToFire ) {
-            givePlayerNewBall();
+        // If player has some ball, fire it
+        if( m_hasBallToFire ) {
+            firePlayerBall();
         }
+
+        givePlayerNewBall();
     } break;
 
     case Powerup::Speedup: {

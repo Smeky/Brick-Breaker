@@ -88,6 +88,31 @@ Vec2f Transformable::getCenter() const {
     return m_pos + m_size / 2;
 }
 
+void Transformable::setBox( const Vec4f& box ) {
+    setPos( Vec2f( box.x, box.y ) );
+    setSize( Vec2f( box.z, box.w ) );
+}
+
+void Transformable::setBox( float x, float y, float w, float h ) {
+    setPos( Vec2f( x, y ) );
+    setSize( Vec2f( w, h ) );
+}
+
+void Transformable::setBox( const Vec2f& pos, const Vec2f& size ) {
+    setPos( pos );
+    setSize( size );
+}
+
+void Transformable::setBox( float xy, float wh ) {
+    setPos( Vec2f( xy ) );
+    setSize( Vec2f( xy ) );
+}
+
+Vec4f Transformable::getBox() const {
+    return Vec4f( m_pos, m_size );
+}
+
+
 const Matrix4& Transformable::getMatrix() const {
     if( m_isUpdateMatrix ) {
         m_matrix = Matrix4();

@@ -34,6 +34,12 @@ public:
     void setCenter( float xy );
     Vec2f getCenter() const;
 
+    void setBox( const Vec4f& box );
+    void setBox( float x, float y, float w, float h );
+    void setBox( const Vec2f& pos, const Vec2f& size );
+    void setBox( float xy, float wh );
+    Vec4f getBox() const;
+
     void setRotation( float degrees ) { m_rotation = degrees; m_isUpdateMatrix = true; }
 
     const Matrix4& getMatrix() const;
