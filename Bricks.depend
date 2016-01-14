@@ -386,7 +386,7 @@
 	<iostream>
 	<Vector4.hpp>
 
-1451335214 source:c:\programming\bricks\src\graphics\rectshape.cpp
+1451841780 source:c:\programming\bricks\src\graphics\rectshape.cpp
 	"RectShape.hpp"
 
 1451319101 c:\programming\bricks\src\graphics\rectshape.hpp
@@ -413,19 +413,21 @@
 1450819651 c:\programming\bricks\src\core\macros.hpp
 	<iostream>
 
-1451757177 source:c:\programming\bricks\src\game\game.cpp
+1452805138 source:c:\programming\bricks\src\game\game.cpp
 	"Game.hpp"
 	<GL/glew.h>
-	<SDL2/SDL_opengl.h>
+	<SDL_opengl.h>
 	<GL/glu.h>
 	<Macros.hpp>
 	<LevelState.hpp>
 	<CircleShape.hpp>
+	<stdio.h>
 
-1451516734 c:\programming\bricks\src\game\game.hpp
-	<SDL2/SDL.h>
+1452373465 c:\programming\bricks\src\game\game.hpp
+	<SDL.h>
 	<Renderer.hpp>
 	<Clock.hpp>
+	<Timer.hpp>
 
 1451782949 source:c:\programming\bricks\src\main.cpp
 	<game/Game.hpp>
@@ -472,12 +474,13 @@
 	<Drawable.hpp>
 	<VertexArray.hpp>
 
-1451757197 source:c:\programming\bricks\src\graphics\renderer.cpp
+1452806168 source:c:\programming\bricks\src\graphics\renderer.cpp
 	"Renderer.hpp"
 	<GL/glew.h>
 	<Drawable.hpp>
+	<Texture.hpp>
 
-1451421142 c:\programming\bricks\src\graphics\renderer.hpp
+1452807556 c:\programming\bricks\src\graphics\renderer.hpp
 	<stdint-gcc.h>
 	<VertexArray.hpp>
 	<RenderStates.hpp>
@@ -519,13 +522,13 @@
 1451322190 c:\programming\bricks\src\core\clock.hpp
 	<Time.hpp>
 
-1451322416 source:c:\programming\bricks\src\core\clock.cpp
+1451874362 source:c:\programming\bricks\src\core\clock.cpp
 	"Clock.hpp"
-	<SDL2/SDL_timer.h>
+	<SDL_timer.h>
 
 1451335017 c:\programming\bricks\src\graphics\primitivetypes.h
 
-1451781515 source:c:\programming\bricks\src\game\levelstate.cpp
+1451824180 source:c:\programming\bricks\src\game\levelstate.cpp
 	"LevelState.hpp"
 	<Macros.hpp>
 	<Keyboard.hpp>
@@ -542,8 +545,8 @@
 	<PowerupEffect.hpp>
 	<vector>
 
-1451420005 c:\programming\bricks\src\core\igamestate.hpp
-	<SDL2/SDL_events.h>
+1451825128 c:\programming\bricks\src\core\igamestate.hpp
+	<SDL_events.h>
 	<Time.hpp>
 	<Renderer.hpp>
 	<RenderStates.hpp>
@@ -551,16 +554,16 @@
 1451398359 c:\programming\bricks\src\core\event.hpp
 	<Keyboard.hpp>
 
-1451421741 c:\programming\bricks\src\core\keyboard.hpp
-	<SDL2/SDL_keyboard.h>
+1451825125 c:\programming\bricks\src\core\keyboard.hpp
+	<SDL_keyboard.h>
 
-1451421929 source:c:\programming\bricks\src\core\keyboard.cpp
+1451825131 source:c:\programming\bricks\src\core\keyboard.cpp
 	"Keyboard.hpp"
-	<SDL2/SDL_events.h>
+	<SDL_events.h>
 
-1451418253 source:c:\programming\bricks\src\core\input.cpp
+1451825084 source:c:\programming\bricks\src\core\input.cpp
 	"Input.hpp"
-	<SDL2/SDL_events.h>
+	<SDL_events.h>
 
 1451397817 c:\programming\bricks\src\core\input.hpp
 	<Event.hpp>
@@ -617,4 +620,21 @@
 
 1451782648 c:\programming\bricks\src\math\rect.hpp
 	<Vector2.hpp>
+
+1451840165 source:c:\programming\bricks\src\graphics\texture.cpp
+	"Texture.hpp"
+	<SDL.h>
+	<SDL_image.h>
+	<GL/glew.h>
+	<Macros.hpp>
+
+1451839523 c:\programming\bricks\src\graphics\texture.hpp
+	<Vector2.hpp>
+	<string>
+
+1376152742 c:\programming\_libs\sdl2_image-2.0.0\i686-w64-mingw32\include\sdl2\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
 

@@ -565,8 +565,6 @@ void LevelState::addPUEffect( Powerup::Type type ) {
     m_puEffects[ type ].timer.setLimit( 5.0 );
     m_puEffects[ type ].timer.reset();
 
-    std::cout << type << std::endl;
-
     switch( type ) {
     case Powerup::AddBall: {
         // If player has some ball, fire it

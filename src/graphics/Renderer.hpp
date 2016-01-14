@@ -22,12 +22,9 @@ public:
 private:
     Shader* m_defShader; // Default shader
 
-    uint32_t m_vbo;
-    uint32_t m_vao;
-
-    const uint32_t m_defMaxVertexCount;
-    mutable VertexArray m_vertexCache;
-    uint32_t m_maxVertexCount;
+    uint32_t m_quadVBO;
+    uint32_t m_quadVAO;
+    uint32_t m_quadEBO;
 };
 
 } // namespace bb

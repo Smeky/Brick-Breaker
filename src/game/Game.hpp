@@ -1,8 +1,9 @@
 #pragma once
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <Renderer.hpp>
 #include <Clock.hpp>
+#include <Timer.hpp>
 
 namespace bb {
 
@@ -33,6 +34,9 @@ private:
     Renderer m_renderer;
 
     Clock m_runClock;
+
+    Timer m_secondsTimer;
+    uint32_t m_frameCounter;
 
     float m_timeAccumulator;
 

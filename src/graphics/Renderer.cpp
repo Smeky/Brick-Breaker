@@ -3,7 +3,11 @@
 #include <GL/glew.h>
 #include <Drawable.hpp>
 
+#include <Texture.hpp>
+
 namespace bb {
+
+Texture m_tex;
 
 const GLenum GLPrimitives[] = {
     GL_POINTS,
@@ -20,58 +24,59 @@ const GLenum GLPrimitives[] = {
 
 Renderer::Renderer()
 : m_defShader( nullptr )
-, m_vbo( 0 )
-, m_vao( 0 )
-, m_defMaxVertexCount( 64 )
-, m_maxVertexCount( m_defMaxVertexCount )
+, m_quadVBO( 0 )
+, m_quadVAO( 0 )
+, m_quadEBO( 0 )
 {}
 
 bool Renderer::init() {
-//    m_vertexCache.resize( m_maxVertexCount );
-//
-//    glGenBuffers( 1, &m_vbo );
-//    glGenVertexArrays( 1, &m_vao );
-//
-//    glBindBuffer( GL_ARRAY_BUFFER, m_vbo );
-//    glBufferData( GL_ARRAY_BUFFER,
-//                  m_vertexCache.size() * sizeof( Vertex ),
-//                  m_vertexCache.data(),
-//                  GL_DYNAMIC_DRAW );
-//
-//    glBindVertexArray( m_vao );
-//
-//    glEnableVertexAttribArray( 0 ); // Position
-//    glEnableVertexAttribArray( 1 ); // Color
-//    glEnableVertexAttribArray( 2 ); // TexCoord
-//
-//    glVertexAttribPointer( 0,
-//                           2,
-//                           GL_FLOAT,
-//                           GL_FALSE,
-//                           sizeof( Vertex ),
-//                           nullptr );
-//
-//    glVertexAttribPointer( 1,
-//                           4,
-//                           GL_UNSIGNED_BYTE,
-//                           GL_TRUE,
-//                           sizeof( Vertex ),
-//                           (const GLvoid*)( sizeof( Vec2f ) ) );
-//
-//    glVertexAttribPointer( 2,
-//                           2,
-//                           GL_FLOAT,
-//                           GL_FALSE,
-//                           sizeof( Vertex ),
-//                           (const GLvoid*)( sizeof( Vec2f ) + sizeof( Color ) ) );
-//
-//    glBindBuffer( GL_ARRAY_BUFFER, 0 );
-//    glBindVertexArray( 0 );
+//    static const Vertex quadVerts[] = {
+//        { Vec2f( -1.0,  1.0 ), Color::White, Vec2f( 0.0, 0.0 ) }, // Vertex 0
+//        { Vec2f(  1.0,  1.0 ), Color::White, Vec2f( 1.0, 0.0 ) }, // Vertex 1
+//        { Vec2f(  1.0, -1.0 ), Color::White, Vec2f( 1.0, 1.0 ) }, // Vertex 2
+//        { Vec2f( -1.0, -1.0 ), Color::White, Vec2f( 0.0, 1.0 ) }, // Vertex 3
+//    };
+
+    static const float quadVerts[] = {
+        -0.5f,  0.5f,
+         0.5f,  0.5f,
+         0.5f, -0.5f,
+        -0.5f, -0.5f
+    };
+
+    static const uint32_t quadIndices[] = {
+        0, 1, 3,    // Triangle 1
+        1, 2, 3     // Triangle 2
+    };
+
+    // Generate buffers
+    glGenVertexArrays( 1, &m_quadVAO );
+    glGenBuffers( 1, &m_quadVBO );
+    glGenBuffers( 1, &m_quadEBO );
+
+    // Bind VAO
+    glBindVertexArray( m_quadVAO );
+
+    // Bind VBO and set vertex data
+    glBindBuffer( GL_ARRAY_BUFFER, m_quadVBO );
+    glBufferData( GL_ARRAY_BUFFER, sizeof( quadVerts ), quadVerts, GL_STATIC_DRAW );
+
+    // Bind EBO and set indices data
+    glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, m_quadEBO );
+    glBufferData( GL_ELEMENT_ARRAY_BUFFER, sizeof( quadIndices ), quadIndices, GL_STATIC_DRAW );
+
+    glVertexAttribPointer( 0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof( float ), nullptr );
+    glEnableVertexAttribArray( 0 );
+
+    glBindBuffer( GL_ARRAY_BUFFER, 0 );
+
+    // Temporary
+    m_tex.loadFromFile( "data/textures/test.png" );
 
     m_defShader = new Shader();
     m_defShader->loadFromFile( Shader::Vertex, "data/shaders/default.vert" );
     m_defShader->loadFromFile( Shader::Fragment, "data/shaders/default.frag" );
-    m_defShader->bindAttribute( 0, "a_position" );
+//    m_defShader->bindAttribute( 0, "a_position" );
 //    m_defShader->bindAttribute( 1, "a_color" );
 //    m_defShader->bindAttribute( 2, "a_texCoords" );
     m_defShader->link();
@@ -101,41 +106,12 @@ void Renderer::draw( const VertexArray& vertices, const RenderStates& states /* 
         shader = m_defShader;
     }
 
-
-    shader->use();
-    shader->setUniform( "u_model", states.transform );
-    shader->setUniform( "u_projection", ortho( 0, 1024, 756, 0 ) );
-
-    glBegin( GLPrimitives[ vertices.getPrimitiveType() ] );
-        for( const Vertex& v : vertices.getVector() ) {
-            glColor4fv( &v.color.getNormalized()[ 0 ] );
-            glVertex2f( v.pos.x, v.pos.y );
-        }
-    glEnd();
-
-//    for( uint32_t i = 0; i < vertices.size(); i++ ) {
-//        m_vertexCache[ i ] = vertices[ i ];
-//    }
-//
-//    glBindBuffer( GL_ARRAY_BUFFER, m_vbo );
-//    glBufferSubData( GL_ARRAY_BUFFER,
-//                     0,
-//                     m_vertexCache.size() * sizeof( Vertex ),
-//                     m_vertexCache.data() );
-//
-//    glBindVertexArray( m_vao );
-//
-//    shader->use();
+    m_defShader->use();
 //    shader->setUniform( "u_model", states.transform );
-//    shader->setUniform( "u_projection", ortho( 0, 1024, 576, 0 ) );
-//
-//    const GLenum mode = GLPrimitives[ vertices.getPrimitiveType() ];
-//
-//    glDrawArrays( mode, 0, vertices.size() );
+//    shader->setUniform( "u_projection", ortho( 0, 1024, 756, 0 ) );
 
-    shader->stopUsing();
-//    glBindBuffer( GL_ARRAY_BUFFER, 0 );
-//    glBindVertexArray( 0 );
+    glBindVertexArray( m_quadVAO );
+    glDrawElements( GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0 );
 }
 
 } // namespace bb

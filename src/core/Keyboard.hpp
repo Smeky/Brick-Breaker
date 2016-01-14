@@ -6,7 +6,7 @@
     most commonly used keys.
 */
 
-#include <SDL2/SDL_keyboard.h>
+#include <SDL_keyboard.h>
 
 namespace bb {
 

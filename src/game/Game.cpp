@@ -1,12 +1,14 @@
 #include "Game.hpp"
 
 #include <GL/glew.h>
-#include <SDL2/SDL_opengl.h>
+#include <SDL_opengl.h>
 #include <GL/glu.h>
 
 #include <Macros.hpp>
 #include <LevelState.hpp>
 #include <CircleShape.hpp>
+
+#include <stdio.h>
 
 namespace bb {
 
@@ -28,8 +30,8 @@ bool Game::init() {
         return false;
     }
 
-    SDL_GL_SetAttribute( SDL_GL_CONTEXT_MAJOR_VERSION, 2 );
-    SDL_GL_SetAttribute( SDL_GL_CONTEXT_MINOR_VERSION, 1 );
+    SDL_GL_SetAttribute( SDL_GL_CONTEXT_MAJOR_VERSION, 3 );
+    SDL_GL_SetAttribute( SDL_GL_CONTEXT_MINOR_VERSION, 3 );
     SDL_GL_SetAttribute( SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE );
 
     m_window = SDL_CreateWindow( "Brick Breaker",
@@ -58,13 +60,13 @@ bool Game::init() {
         return false;
     }
 
-    glViewport( 0, 0, wWindow, hWindow );
+//    glViewport( 0, 0, wWindow, hWindow );
 
-    if( SDL_GL_SetSwapInterval( -1 ) < 0 ) {
-        if( SDL_GL_SetSwapInterval( 1 ) < 0 ) {
-            ERROR_PRINT( "Failed to enable VSync" );
-        }
-    }
+//    if( SDL_GL_SetSwapInterval( -1 ) < 0 ) {
+//        if( SDL_GL_SetSwapInterval( 1 ) < 0 ) {
+//            ERROR_PRINT( "Failed to enable VSync" );
+//        }
+//    }
 
     if( !m_renderer.init() ) {
         ERROR_PRINT( "Renderer failed to init" );
@@ -72,6 +74,9 @@ bool Game::init() {
     }
 
     m_runClock.restart();
+
+    m_secondsTimer.setLimit( 1.0 );
+    m_frameCounter = 0;
 
     m_gameState = new LevelState( *this );
     m_gameState->init();
@@ -144,19 +149,39 @@ void Game::update() {
 //        m_timeAccumulator -= timeStep;
 
 //        Time delta = timeStep;
-        Time delta = m_runClock.restart() ;
+        Time delta = m_runClock.restart();
 
         if( m_gameState ) {
             m_gameState->update( delta );
         }
+
+        m_frameCounter++;
+
+        if( m_secondsTimer.update( delta ) ) {
+            printf( "%d\n", m_frameCounter );
+            m_frameCounter = 0;
+
+            m_secondsTimer.reset();
+        }
 //    }
 }
+
+VertexArray temp;
 
 void Game::render() {
     glClearColor( 0.1, 0.1, 0.1, 1.0 );
     glClear( GL_COLOR_BUFFER_BIT );
 
     RenderStates defRenderStates;
+
+    temp.resize( 4 );
+    temp.setPrimitiveType( PrimitiveType::PType_Quads );
+    temp[ 0 ].pos = Vec2f( 0, 0 );
+    temp[ 1 ].pos = Vec2f( 1, 0 );
+    temp[ 2 ].pos = Vec2f( 1, 1 );
+    temp[ 3 ].pos = Vec2f( 0, 1 );
+
+    m_renderer.draw( temp, defRenderStates );
 
     if( m_gameState ) {
         m_gameState->render( m_renderer, defRenderStates );

@@ -43,9 +43,9 @@
 			<Add option="-Wall" />
 			<Add option="-std=c++11" />
 			<Add option="-fexceptions" />
-			<Add directory="../_libs/SDL2-2.0.3/i686-w64-mingw32/include" />
-			<Add directory="../_libs/SDL2_image-2.0.0/i686-w64-mingw32/include" />
-			<Add directory="../_libs/SDL2_mixer-2.0.0/i686-w64-mingw32/include" />
+			<Add directory="../_libs/SDL2-2.0.3/i686-w64-mingw32/include/SDL2" />
+			<Add directory="../_libs/SDL2_image-2.0.0/i686-w64-mingw32/include/SDL2" />
+			<Add directory="../_libs/SDL2_mixer-2.0.0/i686-w64-mingw32/include/SDL2" />
 			<Add directory="../_libs/glew/include" />
 		</Compiler>
 		<Linker>
@@ -110,6 +110,8 @@
 		<Unit filename="src/graphics/Shape.hpp" />
 		<Unit filename="src/graphics/Sprite.cpp" />
 		<Unit filename="src/graphics/Sprite.hpp" />
+		<Unit filename="src/graphics/Texture.cpp" />
+		<Unit filename="src/graphics/Texture.hpp" />
 		<Unit filename="src/graphics/Vertex.hpp" />
 		<Unit filename="src/graphics/VertexArray.cpp" />
 		<Unit filename="src/graphics/VertexArray.hpp" />
